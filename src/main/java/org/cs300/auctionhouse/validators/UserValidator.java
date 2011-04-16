@@ -31,6 +31,15 @@ public class UserValidator implements Validator {
 		if (!upi.getUser().getPassword().equals(upi.getConfirmPassword())) {
 			errors.rejectValue("user.password", "", "The passwords you entered do not match. Try again.");
 		}
+		if (!upi.getPersonalInfo().getZipcode().matches("\\d{5}(-\\d{4})?")) {
+			errors.rejectValue("personalInfo.zipcode", "", "You did not enter a valid zipcode. Try again.");
+		}
+		if (!upi.getPersonalInfo().getPhoneNumber().matches("^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$")){
+			errors.rejectValue("personalInfo.phoneNumber", "", "You did not enter a valid phone number. Try again.");
+		}
+		if (!upi.getPersonalInfo().getEmailAddress().matches("^[\\w\\-]([\\.\\w])+[\\w]+@([\\w\\-]+\\.)+[A-Z]{2,4}$")) {
+			errors.rejectValue("personalInfo.emailAddress", "", "You did not enter a valid email address. Try again.");
+		}
 	}
 
 }
