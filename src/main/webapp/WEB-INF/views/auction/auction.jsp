@@ -15,7 +15,14 @@
 <%@ include file="../header.jsp" %>
 <div id="mainPage-auctions">
 <div id="auctionImage">
+<c:choose>
+	<c:when test="${not empty auction.picture[0]}">
 	<p><label id="aImage"><img src="<c:url value="/image?id=${auction.idAuction}" />" /></label></p>
+	</c:when>
+	<c:otherwise>
+		<p><label id="aImage"><img src="/AuctionHouse/resources/images/noimage.png" /></label></p>
+	</c:otherwise>
+</c:choose>
 </div><!-- auctionImage -->
 
 <div id="auctionDetails">
