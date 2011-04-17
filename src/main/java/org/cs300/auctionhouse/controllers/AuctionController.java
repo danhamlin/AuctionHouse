@@ -16,6 +16,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Validator;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -23,15 +24,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 @Controller
+@SessionAttributes({"bid", "afd"})
 public class AuctionController {
 
 	@Autowired
 	protected Services services;
 	@Autowired
 	private AuctionValidator auctionValidator;
+	@Autowired
+	private Validator bidValidator;
 
     @ModelAttribute("categories")
     public List<Category> populateCategories() {
@@ -58,12 +63,17 @@ public class AuctionController {
 	}
 	
 	@RequestMapping(value = "/auction/{id}", method = RequestMethod.POST)
-	public String auctionSubmit(@PathVariable("id") int id, @ModelAttribute("bid") Bid bid, Model model) {
-		bid.setAuction(services.getAuctionByID(id));
-		bid.setUser(services.findByName(SecurityContextHolder.getContext().getAuthentication().getName()));
-		bid.setTime(new Date());
-		services.saveNewBid(bid);
-		return "redirect:" + id + "/bidsuccess";
+	public String auctionSubmit(@PathVariable("id") int id, @ModelAttribute("bid") Bid bid, BindingResult result, SessionStatus status) {
+		bidValidator.validate(bid, result);
+		if (result.hasErrors()) {
+			return "auction/auction";
+		} else {
+			bid.setAuction(services.getAuctionByID(id));
+			bid.setUser(services.findByName(SecurityContextHolder.getContext().getAuthentication().getName()));
+			bid.setTime(new Date());
+			services.saveNewBid(bid);
+			return "redirect:" + id + "/bidsuccess";
+		}
 	}
 
 	@RequestMapping(value = "/auction/{id}/bidsuccess", method = RequestMethod.GET)
@@ -91,6 +101,7 @@ public class AuctionController {
 			afd.getAuction().setUser(user);
 			afd.getAuction().setPicture(afd.getFile().getBytes());
 			int id = services.saveNewAuction(afd.getAuction());
+			status.setComplete();
 			return "redirect:addsuccess?id=" + id;
 		}
 	}

@@ -90,6 +90,10 @@ public class Services {
 		return (Category)sess().createQuery("from Category where id=:id").setInteger("id", id).uniqueResult();
 	}
 
+	public Bid getHighBidByAuction(int id) {
+		return (Bid)sess().createQuery("select max(amount) from Bid bid where bid.auction.idAuction=:id").setInteger("id", id).uniqueResult();
+	}
+
 	public void saveNewBid(Bid bid) {
 		sess().save(bid);
 	}
