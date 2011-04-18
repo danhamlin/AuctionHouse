@@ -37,10 +37,9 @@
 		<sec:authorize ifAnyGranted="ROLE_USER">
 		<p>
 			<form:form method="post" modelAttribute="bid">
-			<form:errors path="*" cssClass="error"/>
+			<form:errors path="*" cssClass="bidError"/>
 				<p><label id="amount">Amount:
 			<form:input path="amount" />
-			<form:errors path = "amount" cssClass="error"/>
 				</label></p>
 				<p><input id="submit" type="submit" name="submit" value="Place Bid" /></p>
 			</form:form>

@@ -20,13 +20,20 @@ public class BidValidator implements Validator {
 	}
 
 	public void validate(Object target, Errors errors) {
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "amount", "", "You must enter a bid amount.");
+		
 		Bid bid = (Bid)target;
 		int id = bid.getAuction().getIdAuction();
 		Bid highBid = services.getHighBidByAuction(id);
+		
+		//check if user did enter amount. Error will only show if not their own auction
+		if (!services.getAuctionByID(id).getUser().getUsername().equals(SecurityContextHolder.getContext().getAuthentication().getName())) {
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "amount", "", "You must enter a bid amount.");
+			//skip the last couple checks because they don't matter at this point
+			return;
+		}
 		//check that user is not bidding on their own auction
 		if (services.getAuctionByID(id).getUser().getUsername().equals(SecurityContextHolder.getContext().getAuthentication().getName())) {
-			errors.rejectValue("amount", "", "You can not bid on your own auction.");
+			errors.rejectValue("amount", "", "You cannot bid on your own auction.");
 			//skip the last couple checks because they don't matter at this point
 			return;
 		}
