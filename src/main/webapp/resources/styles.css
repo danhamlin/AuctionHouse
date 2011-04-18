@@ -67,7 +67,20 @@ img
 	color: #333;
 	position: absolute;
 	left:63%;
-	
+}
+
+.bidError
+{
+	background: #ffebe8;
+	border: 1px solid #cc0000;
+	-moz-border-radius:5px;
+	-khtml-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	padding: .8em;
+	color: #333;
+	position: absolute;
+	left:47%;
 }
 
 #wrapper
