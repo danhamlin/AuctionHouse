@@ -20,7 +20,7 @@
 	<p><label id="aImage"><img src="<c:url value="/image?id=${auction.idAuction}" />" /></label></p>
 	</c:when>
 	<c:otherwise>
-		<p><label id="aImage"><img src="/AuctionHouse/resources/images/noimage.png" /></label></p>
+		<p><label id="aImage"><img src="<c:url value="/resources/images/noimage.png" />" /></label></p>
 	</c:otherwise>
 </c:choose>
 </div><!-- auctionImage -->
