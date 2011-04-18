@@ -35,7 +35,7 @@ public class BidValidator implements Validator {
 			//skip the last couple checks because they don't matter at this point
 			return;
 		}
-		if (highBid != null) {
+		if (highBid != null && bid.getAmount() != null) {
 			//check that user is not same as last bid
 			if (highBid.getUser().getUsername().equals(SecurityContextHolder.getContext().getAuthentication().getName())) {
 				errors.rejectValue("amount", "", "You already have the high bid.");
