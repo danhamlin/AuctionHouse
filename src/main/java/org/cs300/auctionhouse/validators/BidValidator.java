@@ -28,8 +28,6 @@ public class BidValidator implements Validator {
 		//check if user did enter amount. Error will only show if not their own auction
 		if (!services.getAuctionByID(id).getUser().getUsername().equals(SecurityContextHolder.getContext().getAuthentication().getName())) {
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "amount", "", "You must enter a bid amount.");
-			//skip the last couple checks because they don't matter at this point
-			return;
 		}
 		//check that user is not bidding on their own auction
 		if (services.getAuctionByID(id).getUser().getUsername().equals(SecurityContextHolder.getContext().getAuthentication().getName())) {
@@ -45,7 +43,7 @@ public class BidValidator implements Validator {
 				return; 
 			}
 			//check that this bid is higher than last
-			if (bid.getAmount().compareTo(highBid.getAmount()) <= 0)
+			if (bid.getAmount() != null && bid.getAmount().compareTo(highBid.getAmount()) <= 0)
 				errors.rejectValue("amount", "", "You must bid more than the current bid. Try again.");
 		}
 	}
