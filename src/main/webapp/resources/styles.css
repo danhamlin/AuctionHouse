@@ -13,6 +13,7 @@ body
 {
 	font:11px "Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;
 	background: #f9f9f9;
+	/*background: url("images/bg.jpg");*/
 }
 
 hr
@@ -36,6 +37,7 @@ img
 	padding: 1.2em;
 	color: #333;
 	margin-top: 1em;
+	text-align: center;
 }
 
 .aError
@@ -46,10 +48,11 @@ img
 	-khtml-border-radius:5px;
 	-webkit-border-radius:5px;
 	border-radius:5px;
-	padding: 1px;
+	padding: 1px 5px;
 	color: #333;
 	position: absolute;
 	margin-left: 1em;
+	text-align: center;
 }
 
 .regError
@@ -297,6 +300,8 @@ input#submit:active, input#submitAuction:active
 {
 	max-width: 100px;
 	max-height: 100px;
+	display: block;
+	margin: auto;
 }
 
 #auctionDetails
@@ -424,6 +429,7 @@ input#submit:active, input#submitAuction:active
 	left:-9999px; /* Hide off-screen when not needed (this is more accessible than display:none;) */
 	opacity:0; /* Set initial state to transparent */
 	-webkit-transition:0.25s linear opacity; /* Make the dropdown fade-in in Webkit */
+	z-index: 2;
 }
 
 #nav ul li
@@ -517,6 +523,7 @@ label#amount
 #control-panel table
 {
 	border: 1px solid #aaa;
+	width: 800px;
 }
 
 #control-panel td
@@ -527,6 +534,8 @@ label#amount
 #control-panel h3
 {
 	text-align: center;
+	text-decoration: underline;
+	margin-bottom: 1em;
 }
 
 #control-panel th
