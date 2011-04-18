@@ -8,8 +8,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Auction view</title>
 <link rel="stylesheet" href="../resources/styles.css" type="text/css" />
+<title>Auction view</title>
 </head>
 <body>
 <%@ include file="../header.jsp" %>
@@ -28,7 +28,7 @@
 <div id="auctionDetails">
 <p>Title: <label id="aTitle">${auction.title}</label></p>
 		<p>Category: <label id="aCategory">${auction.category.name}</label></p>
-		<p>Description: <label id="aDescription">${auction.description}</label></p>
+		<div id="desc-line"><p>Description: <label id="aDescription">${auction.description}</label></p></div>
 		<p>User: <label id="aUsername">${auction.user.username}</label></p>
 		<p>Bid: <label id="aBid">${auction.bids[0].amount}</label></p>
 		<sec:authorize ifNotGranted="ROLE_USER">
@@ -67,6 +67,7 @@
 </div>
 </div><!-- auctionDetails -->
 </div><!--  mainPage=auctions -->
+<div class="clear"></div>
 <%@ include file="../footer.jsp" %>
 </body>
 </html>

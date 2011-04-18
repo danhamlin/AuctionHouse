@@ -9,7 +9,9 @@
 /Users/Sean/Documents/SpringSource/AuctionHouse/target/classes
 /Users/Sean/Documents/SpringSource/AuctionHouse/src/main/java/org/cs300/auctionhouse/domain/User.java
 /Users/Sean/Documents/SpringSource/AuctionHouse/src/main/java/org/cs300/auctionhouse/controllers/AuctionController.java
+/Users/Sean/Documents/SpringSource/AuctionHouse/src/main/java/org/cs300/auctionhouse/validators/BidValidator.java
 /Users/Sean/Documents/SpringSource/AuctionHouse/src/main/java/org/cs300/auctionhouse/services/Services.java
+/Users/Sean/Documents/SpringSource/AuctionHouse/src/main/java/org/cs300/auctionhouse/validators/FeedbackValidator.java
 /Users/Sean/Documents/SpringSource/AuctionHouse/src/main/java/org/cs300/auctionhouse/domain/Feedback.java
 /Users/Sean/Documents/SpringSource/AuctionHouse/src/main/java/org/cs300/auctionhouse/domain/Bid.java
 /Users/Sean/Documents/SpringSource/AuctionHouse/src/main/java/org/cs300/auctionhouse/domain/Category.java
@@ -17,10 +19,12 @@
 /Users/Sean/Documents/SpringSource/AuctionHouse/src/main/java/org/cs300/auctionhouse/security/UserDetailsServiceImpl.java
 /Users/Sean/Documents/SpringSource/AuctionHouse/src/main/java/org/cs300/auctionhouse/security/UserAssembler.java
 /Users/Sean/Documents/SpringSource/AuctionHouse/src/main/java/org/cs300/auctionhouse/controllers/ControlPanelController.java
+/Users/Sean/Documents/SpringSource/AuctionHouse/src/main/java/org/cs300/auctionhouse/validators/UserValidator.java
 /Users/Sean/Documents/SpringSource/AuctionHouse/src/main/java/org/cs300/auctionhouse/controllers/ImageController.java
 /Users/Sean/Documents/SpringSource/AuctionHouse/src/main/java/org/cs300/auctionhouse/ui/UserPersonalInfo.java
 /Users/Sean/Documents/SpringSource/AuctionHouse/src/main/java/org/cs300/auctionhouse/domain/Authority.java
 /Users/Sean/Documents/SpringSource/AuctionHouse/src/main/java/org/cs300/auctionhouse/controllers/HomeController.java
 /Users/Sean/Documents/SpringSource/AuctionHouse/src/main/java/org/cs300/auctionhouse/domain/Auction.java
+/Users/Sean/Documents/SpringSource/AuctionHouse/src/main/java/org/cs300/auctionhouse/validators/AuctionValidator.java
 /Users/Sean/Documents/SpringSource/AuctionHouse/src/main/java/org/cs300/auctionhouse/ui/AuctionFileData.java
 /Users/Sean/Documents/SpringSource/AuctionHouse/src/main/java/org/cs300/auctionhouse/domain/PersonalInfo.java

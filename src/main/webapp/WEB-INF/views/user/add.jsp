@@ -10,90 +10,90 @@
 </head>
 <body>
 <div id="register-form-container">
-<h3>Image Here</h3>
+<img src="/AuctionHouse/resources/images/AuctionBanner2.png" width=325 height=85 />
 <form:form method="post" modelAttribute="upi">
 <p>
 		<label id="username">Username<br />
+		<form:errors path="user.username" cssClass="regError" />
 		<form:input path="user.username" />
-		<form:errors path="user.username" cssClass="error" />
 		</label>
 </p>
 <p>
 		<label id="password">Password<br />
+		<form:errors path="user.password" cssClass="regError" />
 		<form:password path="user.password"/>
-		<form:errors path="user.password" cssClass="error" />
 		</label>
 </p>
 <p>
 		<label id="password">Confirm Password<br />
+		<form:errors path="confirmPassword" cssClass="regError" />
 		<form:password path="confirmPassword"/>
-		<form:errors path="confirmPassword" cssClass="error" />
 		</label>
 </p>
 <p>
 		<label id="firstName">First Name<br />
+		<form:errors path="personalInfo.firstName" cssClass="regError" />
 		<form:input path="personalInfo.firstName" />
-		<form:errors path="personalInfo.firstName" cssClass="error" />
 		</label>
 </p>
 <p>
 		<label id="middleName">Middle Name<br />
+		<form:errors path="personalInfo.middleName" cssClass="regError" />
 		<form:input path="personalInfo.middleName" />
-		<form:errors path="personalInfo.middleName" cssClass="error" />
 		</label>
 </p>
 <p>
 		<label id="lastName">Last Name<br />
+		<form:errors path="personalInfo.lastName" cssClass="regError" />
 		<form:input path="personalInfo.lastName" />
-		<form:errors path="personalInfo.lastName" cssClass="error" />
 		</label>
 </p>
 <p>
 		<label id="address1">Address Line 1<br />
+		<form:errors path="personalInfo.address1" cssClass="regError" />
 		<form:input path="personalInfo.address1" />
-		<form:errors path="personalInfo.address1" cssClass="error" />
 		</label>
 </p>
 <p>
 		<label id="address2">Address Line 2<br />
+		<form:errors path="personalInfo.address2" cssClass="regError" />
 		<form:input path="personalInfo.address2" />
-		<form:errors path="personalInfo.address2" cssClass="error" />
 		</label>
 </p>
 <p>
 		<label id="city">City<br />
+		<form:errors path="personalInfo.city" cssClass="regError" />
 		<form:input path="personalInfo.city" />
-		<form:errors path="personalInfo.city" cssClass="error" />
 		</label>
 </p>
 <p>		
 		<label id="state">State<br />
+		<form:errors path="personalInfo.state" cssClass="regError" />
 		<form:input path="personalInfo.state" />
-		<form:errors path="personalInfo.state" cssClass="error" />
 		</label>
 </p>
 <p>		
 		<label id="country">Country<br />
+		<form:errors path="personalInfo.country" cssClass="regError" />
 		<form:input path="personalInfo.country" />
-		<form:errors path="personalInfo.country" cssClass="error" />
 		</label>
 </p>
 <p>
 		<label id="zipcode">Zipcode<br />
+		<form:errors path="personalInfo.zipcode" cssClass="regError" />
 		<form:input path="personalInfo.zipcode" />
-		<form:errors path="personalInfo.zipcode" cssClass="error" />
 		</label>
 </p>
 <p>
 		<label id="phoneNumber">Phone Number<br />
+		<form:errors path="personalInfo.phoneNumber" cssClass="regError" />
 		<form:input path="personalInfo.phoneNumber" />
-		<form:errors path="personalInfo.phoneNumber" cssClass="error" />
 		</label>
 </p>
 <p>
 		<label id="email">Email Address<br />
+		<form:errors path="personalInfo.emailAddress" cssClass="regError" />
 		<form:input path="personalInfo.emailAddress" />
-		<form:errors path="personalInfo.emailAddress" cssClass="error" />
 		</label>
 </p>
 		<div class="clear"></div>

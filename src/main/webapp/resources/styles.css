@@ -25,6 +25,48 @@ img
 	border: none;
 }
 
+.error
+{
+	background: #ffebe8;
+	border: 1px solid #cc0000;
+	-moz-border-radius:5px;
+	-khtml-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	padding: 1.2em;
+	color: #333;
+	margin-top: 1em;
+}
+
+.aError
+{
+	background: #ffebe8;
+	border: 1px solid #cc0000;
+	-moz-border-radius:5px;
+	-khtml-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	padding: 1px;
+	color: #333;
+	position: absolute;
+	margin-left: 1em;
+}
+
+.regError
+{
+	background: #ffebe8;
+	border: 1px solid #cc0000;
+	-moz-border-radius:5px;
+	-khtml-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	padding: .8em;
+	color: #333;
+	position: absolute;
+	left:63%;
+	
+}
+
 #wrapper
 {
 	width: 800px;
@@ -159,23 +201,48 @@ input#submit
 	text-decoration:none;
 	margin-top:-3px;
 	padding:3px 10px;
-	width: 75px !important;
+	width: 100px !important;
+	text-align: center;
 	float: right;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#298cba), to(#217096));
 	background-image: -moz-linear-gradient(-90deg,#298cba,#217096);
+	background-color: #2680ab;
 	color: #fff;
 	border: 1px solid #298cba;
 }
 
-input#submit:hover
+input#submitAuction
+{
+	font-family:"Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;
+	font-size:12px !important;
+	font-weight: 800 !important;
+	-moz-border-radius:11px;
+	-khtml-border-radius:11px;
+	-webkit-border-radius:11px;
+	border-radius:11px;
+	cursor:pointer;
+	text-decoration:none;
+	margin-top:-3px;
+	padding:3px 10px;
+	width: 100px !important;
+	text-align: center;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#298cba), to(#217096));
+	background-image: -moz-linear-gradient(-90deg,#298cba,#217096);
+	background-color: #2680ab;
+	color: #fff;
+	border: 1px solid #298cba;
+}
+
+input#submit:hover, input#submitAuction:hover
 {
 	border: 1px solid #13455b;
 }
 
-input#submit:active
+input#submit:active, input#submitAuction:active
 {
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#217096), to(#298cba));
 	background-image: -moz-linear-gradient(-90deg,#217096,#298cba);
+	background-color: #217096;
 }
 
 #register-success
@@ -236,37 +303,39 @@ input#submit:active
 {
 	float: right;
 	text-align: left;
-	width: 400px;
+	width: 650px;
 }
 
 #auctionDetails p
 {
 	line-height: 1.5em;
 	font-weight: 800;
-	font-size: 10pt;
+	font-size: 11pt;
+	margin-bottom: 1em;
 }
 
-#aTitle a
+#auctionDetails label
+{
+	font-weight: 400 !important;
+	font-size: 9pt !important;
+}
+
+#aTitle a, #control-panel a
 {
 	color: blue;
 	text-decoration: none;
 }
 
-#aTitle a:hover
+#aTitle a:hover, #control-panel a:hover
 {
 	color: #000;
 	text-decoration: underline;
 	background:#f1cc91;
 }
 
-#auctionDetails label
-{
-	font-weight: 400 !important;
-}
-
 #mainPage-auctions
 {
-	width: 600px;
+	width: 800px;
 	margin: 0 auto;
 }
 
@@ -305,9 +374,9 @@ input#submit:active
 
 #header-login a:hover
 {
-	background:#6b0c36;
+	background:#4a4afd;
 	text-decoration:underline;
-	border: 1px solid #6b0c36;
+	border: 1px solid #000;
 }
 
 #nav-bar
@@ -327,7 +396,6 @@ input#submit:active
 	float:left;
 	margin-right:1em;
 	position:relative;
-	
 }
 
 #nav li a
@@ -343,8 +411,8 @@ input#submit:active
 #nav li a:hover
 {
 	color:#fff;
-	background:#6b0c36;
-	background:rgba(107,12,54,0.9); /* It'll look nice semi-transparent */
+	background:#4a4afd;
+	background:rgba(74,74,253,0.9); /* It'll look nice semi-transparent */
 	text-decoration:underline;
 }
 
@@ -378,8 +446,8 @@ input#submit:active
 
 #nav li:hover a
 { /* Set styles for top level when dropdown is hovered */
-	background:#6b0c36;
-	background:rgba(107,12,54,0.9); /* It'll look nice semi-transparent */
+	background:#4a4afd;
+	background:rgba(74,74,253,0.9); /* It'll look nice semi-transparent */
 	text-decoration:underline;
 }
 
@@ -403,6 +471,7 @@ label#amount
 	width: 250px;
 	float: left;
 	font-weight: 800 !important;
+	font-size: 11pt !important;
 }
 
 #bid-history th
@@ -417,13 +486,60 @@ label#amount
 	padding: 5px;
 }
 
-#bid-history tr:nth-child(2n+1)
+#bid-history tr:nth-child(2n+1), #control-panel tr:nth-child(2n+1)
 {
 	background: #d0dafd;
 }
 
-#bid-history table
+#bid-history table, #control-panel table
 {
 	border: 1px solid #f9f9f9;
 	border-collapse: collapse;
+}
+
+#add-auction p
+{
+	margin-bottom: 1em;
+	line-height: 1.8em;
+}
+
+#control-panel img
+{
+	max-width: 100px;
+	max-height: 100px;
+}
+
+.bidTitle, .bidCategory, .bidSeller, .saleTitle, .saleCategory
+{
+	text-align: center;
+}
+
+#control-panel table
+{
+	border: 1px solid #aaa;
+}
+
+#control-panel td
+{
+	padding: 10px;
+}
+
+#control-panel h3
+{
+	text-align: center;
+}
+
+#control-panel th
+{
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#217096), to(#298cba));
+	background-image: -moz-linear-gradient(-90deg,#217096,#298cba);
+	background-color: #217096;
+	color: #fff;
+	padding: .5em 0;
+	font-size: 10pt;
+}
+
+#control-panel td, #control-panel th
+{	
+	border-width: 0;
 }

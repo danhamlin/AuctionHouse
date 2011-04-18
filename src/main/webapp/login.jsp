@@ -10,7 +10,10 @@
 </head>
 <body>
 <div id="login-form-container">
-<h3>Image Here</h3>
+<img src="/AuctionHouse/resources/images/AuctionBanner2.png" width=325 height=85 />
+<c:if test="${not empty param.error}">
+	<div class="error"><strong>ERROR</strong>: ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}</div>
+</c:if>
 <form id="login-form" name="f" action="j_spring_security_check" method="POST">
 <p>
 	<label id="username">Username<br />
@@ -26,10 +29,6 @@
 </p>
 </form>
 <div class="clear"></div>
-<c:if test="${not empty param.error}">
-	Login error.<br />
-	Reason: ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
-</c:if>
 <a href="user/add">Register</a>
 </div>
 </body>
