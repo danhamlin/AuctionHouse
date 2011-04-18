@@ -8,32 +8,38 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="<c:url value="/resources/styles.css" />" type="text/css" />
 <title>Auction view</title>
-<link rel="stylesheet" href="../resources/styles.css" type="text/css" />
 </head>
 <body>
 <%@ include file="../header.jsp" %>
 <div id="mainPage-auctions">
 <div id="auctionImage">
+<c:choose>
+	<c:when test="${not empty auction.picture[0]}">
 	<p><label id="aImage"><img src="<c:url value="/image?id=${auction.idAuction}" />" /></label></p>
+	</c:when>
+	<c:otherwise>
+		<p><label id="aImage"><img src="<c:url value="/resources/images/noimage.png" />" /></label></p>
+	</c:otherwise>
+</c:choose>
 </div><!-- auctionImage -->
 
 <div id="auctionDetails">
 <p>Title: <label id="aTitle">${auction.title}</label></p>
 		<p>Category: <label id="aCategory">${auction.category.name}</label></p>
-		<p>Description: <label id="aDescription">${auction.description}</label></p>
+		<div id="desc-line"><p>Description: <label id="aDescription">${auction.description}</label></p></div>
 		<p>User: <label id="aUsername">${auction.user.username}</label></p>
 		<p>Bid: <label id="aBid">${auction.bids[0].amount}</label></p>
 		<sec:authorize ifNotGranted="ROLE_USER">
-		<p id="login-msg">Please <a href="/AuctionHouse/login.jsp">login</a> to place a new bid</p>
+		<p id="login-msg">Please <a href="<c:url value="/login.jsp"/>">login</a> to place a new bid</p>
 		</sec:authorize>
 		<sec:authorize ifAnyGranted="ROLE_USER">
 		<p>
 			<form:form method="post" modelAttribute="bid">
-			<form:errors path="*" cssClass="error"/>
+			<form:errors path="*" cssClass="bidError"/>
 				<p><label id="amount">Amount:
 			<form:input path="amount" />
-			<form:errors path = "amount" cssClass="error"/>
 				</label></p>
 				<p><input id="submit" type="submit" name="submit" value="Place Bid" /></p>
 			</form:form>
@@ -60,6 +66,7 @@
 </div>
 </div><!-- auctionDetails -->
 </div><!--  mainPage=auctions -->
+<div class="clear"></div>
 <%@ include file="../footer.jsp" %>
 </body>
 </html>

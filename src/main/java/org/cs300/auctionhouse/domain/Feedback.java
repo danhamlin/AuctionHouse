@@ -18,6 +18,7 @@ public class Feedback {
 	private Auction auction;
 	private User user;
 	private String feedback;
+	private byte rating;
 
 	public Feedback() {
 	}
@@ -66,5 +67,14 @@ public class Feedback {
 
 	public void setFeedback(String feedback) {
 		this.feedback = feedback;
+	}
+
+	@Column(name = "Rating", nullable = false)
+	public byte getRating() {
+		return this.rating;
+	}
+
+	public void setRating(byte rating) {
+		this.rating = rating;
 	}
 }

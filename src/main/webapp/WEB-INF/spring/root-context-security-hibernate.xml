@@ -5,7 +5,7 @@
         http://www.springframework.org/schema/security
         http://www.springframework.org/schema/security/spring-security-3.0.xsd">
 
-	 <http auto-config="true">
+	 <http auto-config="false">
 		<intercept-url pattern="/login.jsp*" filters="none" />
 		<intercept-url pattern="/control/**" access="ROLE_USER" />
 		<intercept-url pattern="/auction/*/bid**" access="ROLE_USER" />
@@ -15,6 +15,7 @@
 		<form-login login-page="/login.jsp"
 			authentication-failure-url="/login.jsp?error=true" />
 		<anonymous username="Guest" granted-authority="ROLE_GUEST" />
+		<logout />
 	</http> 
 
 	<beans:bean id="userDetailsService" class="org.cs300.auctionhouse.security.UserDetailsServiceImpl" >

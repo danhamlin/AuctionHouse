@@ -22,8 +22,8 @@ public class Services {
 	// So Spring can inject the session factory
 	SessionFactory sessionFactory;
 
-	public void setSessionFactory(SessionFactory value) {
-		sessionFactory = value;
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
 	}
 
 	// Shortcut for sessionFactory.getCurrentSession()
@@ -61,7 +61,7 @@ public class Services {
 	
 	@SuppressWarnings("unchecked")
 	public List<Auction> getUserBids(String currentUser) {
-		return sess().createQuery("select auction from Auction auction, Bid bid where auction.user.username=:id and bid.user.username=:id").setString("id", currentUser).list();
+		return sess().createQuery("select distinct bid.auction from Bid bid where bid.user.username=:id").setString("id", currentUser).list();
 	}
 
 	public Auction getAuctionByID(int id) {
@@ -88,6 +88,10 @@ public class Services {
 
 	public Category getCategoryByID(int id) {
 		return (Category)sess().createQuery("from Category where id=:id").setInteger("id", id).uniqueResult();
+	}
+
+	public Bid getHighBidByAuction(int id) {
+		return (Bid)sess().createQuery("select bid from Bid bid where bid.auction.idAuction=:id and bid.amount=(select max(amount) from Bid)").setInteger("id", id).uniqueResult();
 	}
 
 	public void saveNewBid(Bid bid) {

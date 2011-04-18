@@ -63,6 +63,11 @@
 				<li><a href="#">Directions</a></li>
 			</ul>
 		</li>
+		<sec:authorize ifAnyGranted="ROLE_USER">
+		<li>
+			<a href="/AuctionHouse/auction/add">Add Auction</a>
+		</li>
+		</sec:authorize>
 	</ul>
 	</div>
 	<hr />

@@ -20,16 +20,17 @@ public class AuctionValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "auction.description", "", "Auction description is required");
 		AuctionFileData afd = (AuctionFileData)target;
 		Category category = afd.getAuction().getCategory();
-		if (category.getIdCategory() == 0) {
+		if (category == null) {
 			//must select valid category
 			errors.rejectValue("auction.category", "", "You must select a category.");
 		}
 		CommonsMultipartFile file = afd.getFile();
 		String fileName = file.getOriginalFilename().toLowerCase();
-		if (fileName.endsWith(".jpg") || fileName.endsWith(".jpeg") || fileName.endsWith(".png") || fileName.endsWith(".gif")) {
-			//incorrect file type
-			errors.rejectValue("file", "", "The file you selected is not supported.\nPNG, JPG, and GIF formats only.");
+		if (!fileName.isEmpty()) {
+			if (!(fileName.endsWith(".jpg") || fileName.endsWith(".jpeg") || fileName.endsWith(".png") || fileName.endsWith(".gif"))) {
+				//incorrect file type
+				errors.rejectValue("file", "", "The file you selected is not supported.\nPNG, JPG, and GIF formats only.");
+			}
 		}
 	}
-
 }

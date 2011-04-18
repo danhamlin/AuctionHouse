@@ -13,7 +13,14 @@
 		<div id="mainPage-auctions">
 			<c:forEach items="${auctions}" var="auction">
 					<div id="auctionImage">
-					<p><label id="aImage"><a href="auction/${auction.idAuction}"><img src="<c:url value="/image?id=${auction.idAuction}" />" /></a></label></p>
+					<c:choose>
+						<c:when test="${not empty auction.picture[0]}">
+						<p><label id="aImage"><a href="auction/${auction.idAuction}"><img src="<c:url value="/image?id=${auction.idAuction}" />" /></a></label></p>
+						</c:when>
+						<c:otherwise>
+							<p><label id="aImage"><img src="/AuctionHouse/resources/images/noimage.png" /></label></p>
+						</c:otherwise>
+					</c:choose>
 					</div><!-- auctionImage -->
 					
 					<div id="auctionDetails">
