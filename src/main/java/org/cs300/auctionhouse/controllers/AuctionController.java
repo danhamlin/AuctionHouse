@@ -11,12 +11,12 @@ import org.cs300.auctionhouse.domain.User;
 import org.cs300.auctionhouse.services.Services;
 import org.cs300.auctionhouse.ui.AuctionFileData;
 import org.cs300.auctionhouse.validators.AuctionValidator;
+import org.cs300.auctionhouse.validators.BidValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Validator;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 @Controller
-@SessionAttributes({"bid", "afd"})
+@SessionAttributes({"auction", "bid", "afd"})
 public class AuctionController {
 
 	@Autowired
@@ -36,7 +36,7 @@ public class AuctionController {
 	@Autowired
 	private AuctionValidator auctionValidator;
 	@Autowired
-	private Validator bidValidator;
+	private BidValidator bidValidator;
 
     @ModelAttribute("categories")
     public List<Category> populateCategories() {
@@ -58,6 +58,7 @@ public class AuctionController {
 		Auction auction = services.getAuctionByID(id);
 		model.addAttribute("auction", auction);
 		Bid bid = new Bid();
+		bid.setAuction(auction);
 		model.addAttribute("bid", bid);
 		return "auction/auction";
 	}
@@ -68,10 +69,11 @@ public class AuctionController {
 		if (result.hasErrors()) {
 			return "auction/auction";
 		} else {
-			bid.setAuction(services.getAuctionByID(id));
+			//bid.setAuction(services.getAuctionByID(id));
 			bid.setUser(services.findByName(SecurityContextHolder.getContext().getAuthentication().getName()));
 			bid.setTime(new Date());
 			services.saveNewBid(bid);
+			status.setComplete();
 			return "redirect:" + id + "/bidsuccess";
 		}
 	}

@@ -1,6 +1,8 @@
 package org.cs300.auctionhouse.validators;
 
+import org.cs300.auctionhouse.services.Services;
 import org.cs300.auctionhouse.ui.UserPersonalInfo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
@@ -8,6 +10,9 @@ import org.springframework.validation.Validator;
 
 @Component
 public class UserValidator implements Validator {
+
+	@Autowired
+	protected Services services;
 
 	public boolean supports(Class<?> arg0) {
 		return UserPersonalInfo.class.isAssignableFrom(arg0);
@@ -28,6 +33,8 @@ public class UserValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "personalInfo.emailAddress", "", "Email address is required field");
 
 		UserPersonalInfo upi = (UserPersonalInfo)target;
+		if (services.findByName(upi.getUser().getUsername()) != null)
+			errors.rejectValue("user.username", "", "The username is already in use. Try again.");
 		if (!upi.getUser().getPassword().equals(upi.getConfirmPassword())) {
 			errors.rejectValue("user.password", "", "The passwords you entered do not match. Try again.");
 		}

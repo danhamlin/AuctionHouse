@@ -11,10 +11,10 @@
 <body>
 <div id="login-form-container">
 <h3>Image Here</h3>
-<form id="login-form" name="f" action="j_spring_security_check" method="POST">
+<form id="login-form" name="f" action="<c:url value='j_spring_security_check'/>" method="POST">
 <p>
 	<label id="username">Username<br />
-	<input type="text" name="j_username" value="" size="20" tabindex="20"></label>
+	<input type="text" name="j_username" value="" size="20" tabindex="20" /></label>
 </p>
 <p>
 	<label id="password">Password<br />

@@ -22,8 +22,8 @@ public class Services {
 	// So Spring can inject the session factory
 	SessionFactory sessionFactory;
 
-	public void setSessionFactory(SessionFactory value) {
-		sessionFactory = value;
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
 	}
 
 	// Shortcut for sessionFactory.getCurrentSession()
@@ -91,7 +91,7 @@ public class Services {
 	}
 
 	public Bid getHighBidByAuction(int id) {
-		return (Bid)sess().createQuery("select max(amount) from Bid bid where bid.auction.idAuction=:id").setInteger("id", id).uniqueResult();
+		return (Bid)sess().createQuery("select bid from Bid bid where bid.auction.idAuction=:id and bid.amount=(select max(amount) from Bid)").setInteger("id", id).uniqueResult();
 	}
 
 	public void saveNewBid(Bid bid) {
