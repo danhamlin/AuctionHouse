@@ -20,24 +20,27 @@ public class BidValidator implements Validator {
 	}
 
 	public void validate(Object target, Errors errors) {
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "amount", "", "Amount is a required field.");
-//		Bid bid = (Bid)target;
-//		Bid highBid = services.getHighBidByAuction(bid.getAuction().getIdAuction());
-//		String currentUser = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
-//		String highBidder = highBid.getUser().getUsername();
-//		String auctionOwner = bid.getAuction().getUser().getUsername();
-//		if (bid.getAmount().compareTo(highBid.getAmount()) <=0) {
-//			//can't bid less than current bid
-//			errors.rejectValue("amount", "", "You must bid more than the current bid. Try again.");
-//		}
-//		if (currentUser.equals(auctionOwner)) {
-//			//can't bid on own auction
-//			errors.rejectValue("amount", "", "You can not bid on your own auction.");
-//		}
-//		if (currentUser.equals(highBidder)) {
-//			//can't bid if already have high bid
-//			errors.rejectValue("amount", "", "You already have the high bid.");
-//		}
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "amount", "", "You must enter a bid amount.");
+		Bid bid = (Bid)target;
+		int id = bid.getAuction().getIdAuction();
+		Bid highBid = services.getHighBidByAuction(id);
+		//check that user is not bidding on their own auction
+		if (services.getAuctionByID(id).getUser().getUsername().equals(SecurityContextHolder.getContext().getAuthentication().getName())) {
+			errors.rejectValue("amount", "", "You can not bid on your own auction.");
+			//skip the last couple checks because they don't matter at this point
+			return;
+		}
+		if (highBid != null) {
+			//check that user is not same as last bid
+			if (highBid.getUser().getUsername().equals(SecurityContextHolder.getContext().getAuthentication().getName())) {
+				errors.rejectValue("amount", "", "You already have the high bid.");
+				//skip the last check because it doesn't matter at this point
+				return; 
+			}
+			//check that this bid is higher than last
+			if (bid.getAmount().compareTo(highBid.getAmount()) <= 0)
+				errors.rejectValue("amount", "", "You must bid more than the current bid. Try again.");
+		}
 	}
 
 }

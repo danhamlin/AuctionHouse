@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="../resources/styles.css" type="text/css" />
+<link rel="stylesheet" href="<c:url value="/resources/styles.css" />" type="text/css" />
 <title>Auction view</title>
 </head>
 <body>
@@ -32,7 +32,7 @@
 		<p>User: <label id="aUsername">${auction.user.username}</label></p>
 		<p>Bid: <label id="aBid">${auction.bids[0].amount}</label></p>
 		<sec:authorize ifNotGranted="ROLE_USER">
-		<p id="login-msg">Please <a href="/AuctionHouse/login.jsp">login</a> to place a new bid</p>
+		<p id="login-msg">Please <a href="<c:url value="/login.jsp"/>">login</a> to place a new bid</p>
 		</sec:authorize>
 		<sec:authorize ifAnyGranted="ROLE_USER">
 		<p>

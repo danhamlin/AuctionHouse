@@ -10,14 +10,19 @@
 </head>
 <body>
 <div id="login-form-container">
+<<<<<<< HEAD
 <img src="/AuctionHouse/resources/images/AuctionBanner2.png" width=325 height=85 />
 <c:if test="${not empty param.error}">
 	<div class="error"><strong>ERROR</strong>: ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}</div>
 </c:if>
 <form id="login-form" name="f" action="j_spring_security_check" method="POST">
+=======
+<h3>Image Here</h3>
+<form id="login-form" name="f" action="<c:url value='j_spring_security_check'/>" method="POST">
+>>>>>>> branch 'refs/heads/master' of ssh://git@github.com/CS300Team/AuctionHouse.git
 <p>
 	<label id="username">Username<br />
-	<input type="text" name="j_username" value="" size="20" tabindex="20"></label>
+	<input type="text" name="j_username" value="" size="20" tabindex="20" /></label>
 </p>
 <p>
 	<label id="password">Password<br />
