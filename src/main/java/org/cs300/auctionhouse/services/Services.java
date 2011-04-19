@@ -91,7 +91,7 @@ public class Services {
 	}
 
 	public Bid getHighBidByAuction(int id) {
-		return (Bid)sess().createQuery("select b from Bid f where b.amount = (select max(bb.amount) from Bid bb where bb.auction.idAuction=:id)").setInteger("id", id).uniqueResult();
+		return (Bid)sess().createQuery("select bid from Bid bid where bid.amount = (select max(amount) from Bid bid2 where bid2.auction.idAuction = bid.auction.idAuction and bid2.auction.idAuction=:id)").setInteger("id", id).uniqueResult();
 	}
 
 	public void saveNewBid(Bid bid) {
