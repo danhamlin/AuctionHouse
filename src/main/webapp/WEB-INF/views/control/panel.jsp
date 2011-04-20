@@ -29,7 +29,14 @@
 				<td class="bidCategory">${bid.category.name}</td>
 				<td class="bidSeller">${bid.user.username}</td>
 				<td class="bidDescription">${bid.description}</td>
-				<td class="bidImage"><img src="<c:url value="/image?id=${bid.idAuction}" />" /></td>
+				<c:choose>
+				<c:when test="${not empty bid.picture[0]}">
+					<td class="bidImage"><img src="<c:url value="/image?id=${bid.idAuction}" />" /></td>
+				</c:when>
+				<c:otherwise>
+					<td class="bidImage"><img src="/AuctionHouse/resources/images/noimage.png" /></td>
+				</c:otherwise>
+				</c:choose>
 			</tr>
 		</c:forEach>
 	</table>
@@ -47,7 +54,14 @@
 				<td class="saleTitle"><a href="<c:url value="/auction/${auction.idAuction}" />" >${auction.title}</a></td>
 				<td class="saleCategory">${auction.category.name}</td>
 				<td class="saleDescription">${auction.description}</td>
-				<td class="saleImage"><img src="<c:url value="/image?id=${auction.idAuction}" />" /></td>
+				<c:choose>
+				<c:when test="${not empty auction.picture[0]}">
+					<td class="saleImage"><img src="<c:url value="/image?id=${auction.idAuction}" />" /></td>
+				</c:when>
+				<c:otherwise>
+					<td class="saleImage"><img src="/AuctionHouse/resources/images/noimage.png" /></td>
+				</c:otherwise>
+				</c:choose>
 			</tr>
 		</c:forEach>
 	</table>
