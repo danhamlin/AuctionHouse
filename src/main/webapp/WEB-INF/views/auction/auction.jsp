@@ -24,27 +24,29 @@
 	</c:otherwise>
 </c:choose>
 </div><!-- auctionImage -->
-
 <div id="auctionDetails">
 <p>Title: <label id="aTitle">${auction.title}</label></p>
 		<p>Category: <label id="aCategory">${auction.category.name}</label></p>
 		<p>Description: <label id="aDescription">${auction.description}</label></p>
 		<p>User: <label id="aUsername">${auction.user.username}</label></p>
+		<c:if test="${auction.sold}"><p>Winner: <label id="aWinner">${auction.bids[0].user.username}</label></p></c:if>
 		<p>Bid: <label id="aBid">${auction.bids[0].amount}</label></p>
 		<sec:authorize ifNotGranted="ROLE_USER">
 		<p id="login-msg">Please <a href="<c:url value="/login.jsp"/>">login</a> to place a new bid</p>
 		</sec:authorize>
-		<sec:authorize ifAnyGranted="ROLE_USER">
-		<p>
-			<form:form method="post" modelAttribute="bid">
-			<form:errors path="*" cssClass="bidError"/>
-				<p><label id="amount">Amount:
-			<form:input path="amount" />
-				</label></p>
-				<p><input id="submit" type="submit" name="submit" value="Place Bid" /></p>
-			</form:form>
-		</p>
-		</sec:authorize>
+		<c:if test="${not auction.finished}">
+			<sec:authorize ifAnyGranted="ROLE_USER">
+			<p>
+				<form:form method="post" modelAttribute="bid">
+				<form:errors path="*" cssClass="bidError"/>
+					<p><label id="amount">Amount:
+				<form:input path="amount" />
+					</label></p>
+					<p><input id="submit" type="submit" name="submit" value="Place Bid" /></p>
+				</form:form>
+			</p>
+			</sec:authorize>
+		</c:if>
 		<div class="clear"></div>
 		<hr />
 <div id="bid-history">
