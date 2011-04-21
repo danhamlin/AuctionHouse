@@ -53,15 +53,30 @@ public class Services {
 	public List<Auction> getAllAuctions() {
 		return sess().createQuery("from Auction").list();
 	}
-	
+
+	@SuppressWarnings("unchecked")
+	public List<Auction> getAuctionByCategory(int id) {
+		return sess().createQuery("from Auction where category.idCategory=:id").setInteger("id", id).list();
+	}
+
 	@SuppressWarnings("unchecked")
 	public List<Auction> getUserSales(String currentUser) {
-		return sess().createQuery("from Auction where user.username=:id").setString("id", currentUser).list();
+		return sess().createQuery("from Auction where user.username=:id and finished=false").setString("id", currentUser).list();
 	}
-	
+
+	@SuppressWarnings("unchecked")
+	public List<Auction> getUserFinishedSales(String currentUser) {
+		return sess().createQuery("from Auction auction where auction.user.username=:username and auction.finished=true").setString("username", currentUser).list();
+	}
+
 	@SuppressWarnings("unchecked")
 	public List<Auction> getUserBids(String currentUser) {
-		return sess().createQuery("select distinct bid.auction from Bid bid where bid.user.username=:id").setString("id", currentUser).list();
+		return sess().createQuery("select distinct bid.auction from Bid bid where bid.user.username=:id and bid.auction.finished=false").setString("id", currentUser).list();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Auction> getUserWonBids(String currentUser) {
+		return sess().createQuery("select distinct bid.auction from Bid bid where bid.auction.sold=true and bid.amount=(select max(amount) from Bid bid2 where bid2.user.username=:id and bid.auction=bid2.auction)").setString("id", currentUser).list();
 	}
 
 	public Auction getAuctionByID(int id) {

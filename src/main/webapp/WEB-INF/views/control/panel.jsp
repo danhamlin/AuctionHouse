@@ -41,37 +41,80 @@
 		</c:forEach>
 	</table>
 <hr />
+<h3>Won Bids</h3>
+<table border="1">
+	<tr>
+		<th width="10%">Title</th>
+		<th width="10%">Category</th>
+		<th width="70%">Description</th>
+		<th width="10%">Image</th>
+	</tr>
+	<c:forEach items="${wins}" var="win">
+		<tr>
+			<td class="saleTitle"><a href="<c:url value="/auction/${win.idAuction}" />" >${win.title}</a></td>
+			<td class="saleCategory">${win.category.name}</td>
+			<td class="saleDescription">${win.description}</td>
+			<c:choose>
+			<c:when test="${not empty win.picture[0]}">
+				<td class="saleImage"><img src="<c:url value="/image?id=${win.idAuction}" />" /></td>
+			</c:when>
+			<c:otherwise>
+				<td class="saleImage"><img src="/AuctionHouse/resources/images/noimage.png" /></td>
+			</c:otherwise>
+			</c:choose>
+		</tr>
+	</c:forEach>
+</table>
+<hr />
 <h3>My Current Sales</h3>
 <table border="1">
+	<tr>
+		<th width="10%">Title</th>
+		<th width="10%">Category</th>
+		<th width="70%">Description</th>
+		<th width="10%">Image</th>
+	</tr>
+	<c:forEach items="${auctions}" var="auction">
 		<tr>
-			<th width="10%">Title</th>
-			<th width="10%">Category</th>
-			<th width="70%">Description</th>
-			<th width="10%">Image</th>
+			<td class="saleTitle"><a href="<c:url value="/auction/${auction.idAuction}" />" >${auction.title}</a></td>
+			<td class="saleCategory">${auction.category.name}</td>
+			<td class="saleDescription">${auction.description}</td>
+			<c:choose>
+			<c:when test="${not empty auction.picture[0]}">
+				<td class="saleImage"><img src="<c:url value="/image?id=${auction.idAuction}" />" /></td>
+			</c:when>
+			<c:otherwise>
+				<td class="saleImage"><img src="/AuctionHouse/resources/images/noimage.png" /></td>
+			</c:otherwise>
+			</c:choose>
 		</tr>
-		<c:forEach items="${auctions}" var="auction">
-			<tr>
-				<td class="saleTitle"><a href="<c:url value="/auction/${auction.idAuction}" />" >${auction.title}</a></td>
-				<td class="saleCategory">${auction.category.name}</td>
-				<td class="saleDescription">${auction.description}</td>
-				<c:choose>
-				<c:when test="${not empty auction.picture[0]}">
-					<td class="saleImage"><img src="<c:url value="/image?id=${auction.idAuction}" />" /></td>
-				</c:when>
-				<c:otherwise>
-					<td class="saleImage"><img src="/AuctionHouse/resources/images/noimage.png" /></td>
-				</c:otherwise>
-				</c:choose>
-			</tr>
-		</c:forEach>
-	</table>
-<p> Won/Lost Bids </p>
-<!--
-past 
-bid
-info
--->
-
+	</c:forEach>
+</table>
+<h3>Past Sales</h3>
+<table border="1">
+	<tr>
+		<th width="10%">Title</th>
+		<th width="10%">Category</th>
+		<th width="70%">Description</th>
+		<th width="10%">Image</th>
+	</tr>
+	<c:forEach items="${sales}" var="sale">
+		<tr>
+			<td class="saleTitle"><a href="<c:url value="/auction/${sale.idAuction}" />" >${sale.title}</a></td>
+			<td class="saleCategory">${sale.category.name}</td>
+			<td class="saleDescription">${sale.description}</td>
+			<c:choose>
+			<c:when test="${not empty sale.picture[0]}">
+				<td class="saleImage"><img src="<c:url value="/image?id=${sale.idAuction}" />" /></td>
+			</c:when>
+			<c:otherwise>
+				<td class="saleImage"><img src="/AuctionHouse/resources/images/noimage.png" /></td>
+			</c:otherwise>
+			</c:choose>
+		</tr>
+	</c:forEach>
+</table>
+<hr />
 <p> Edit Account Details </p>
 </div>
 <%@ include file="../footer.jsp" %>
