@@ -43,7 +43,7 @@ public class BidValidator implements Validator {
 				return; 
 			}
 			//check that this bid is higher than last
-			if (bid.getAmount() != null && bid.getAmount().compareTo(highBid.getAmount()) <= 0)
+			if (bid.getAmount().compareTo(highBid.getAmount()) <= 0)
 				errors.rejectValue("amount", "", "You must bid more than the current bid. Try again.");
 		}
 	}

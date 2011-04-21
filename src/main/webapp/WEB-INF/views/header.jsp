@@ -1,3 +1,4 @@
+<div id="head-gradient"></div>
 <div id="wrapper">
 <div id="header">
 	<div id="header-img">
