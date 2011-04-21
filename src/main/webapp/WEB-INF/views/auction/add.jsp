@@ -28,7 +28,7 @@
 	
 	<p>
 	<label id="title">Title:
-		<form:input path="auction.title" />
+		<form:input path="auction.title" maxlength="90" />
 		<form:errors path="auction.title" cssClass="aError"/>
 	</label>
 	</p>
@@ -36,7 +36,7 @@
 	<p>
 		
 	<label id="description">Description:<br /> 
-		<form:textarea path="auction.description" rows="10" cols="80" />
+		<form:textarea path="auction.description" rows="10" cols="80" maxlength="65533" />
 	</label>
 		<form:errors path="auction.description" cssClass="aError"/>
 	</p>
