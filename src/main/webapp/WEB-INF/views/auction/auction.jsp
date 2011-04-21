@@ -28,7 +28,7 @@
 <div id="auctionDetails">
 <p>Title: <label id="aTitle">${auction.title}</label></p>
 		<p>Category: <label id="aCategory">${auction.category.name}</label></p>
-		<div id="desc-line"><p>Description: <label id="aDescription">${auction.description}</label></p></div>
+		<p>Description: <label id="aDescription">${auction.description}</label></p>
 		<p>User: <label id="aUsername">${auction.user.username}</label></p>
 		<p>Bid: <label id="aBid">${auction.bids[0].amount}</label></p>
 		<sec:authorize ifNotGranted="ROLE_USER">

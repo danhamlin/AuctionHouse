@@ -15,85 +15,85 @@
 <p>
 		<label id="username">Username<br />
 		<form:errors path="user.username" cssClass="regError" />
-		<form:input path="user.username" />
+		<form:input path="user.username" maxlength="45" />
 		</label>
 </p>
 <p>
 		<label id="password">Password<br />
 		<form:errors path="user.password" cssClass="regError" />
-		<form:password path="user.password"/>
+		<form:password path="user.password" maxlength="255" />
 		</label>
 </p>
 <p>
 		<label id="password">Confirm Password<br />
 		<form:errors path="confirmPassword" cssClass="regError" />
-		<form:password path="confirmPassword"/>
+		<form:password path="confirmPassword" maxlength="255" />
 		</label>
 </p>
 <p>
 		<label id="firstName">First Name<br />
 		<form:errors path="personalInfo.firstName" cssClass="regError" />
-		<form:input path="personalInfo.firstName" />
+		<form:input path="personalInfo.firstName" maxlength="90" />
 		</label>
 </p>
 <p>
 		<label id="middleName">Middle Name<br />
 		<form:errors path="personalInfo.middleName" cssClass="regError" />
-		<form:input path="personalInfo.middleName" />
+		<form:input path="personalInfo.middleName" maxlength="90" />
 		</label>
 </p>
 <p>
 		<label id="lastName">Last Name<br />
 		<form:errors path="personalInfo.lastName" cssClass="regError" />
-		<form:input path="personalInfo.lastName" />
+		<form:input path="personalInfo.lastName" maxlength="90" />
 		</label>
 </p>
 <p>
 		<label id="address1">Address Line 1<br />
 		<form:errors path="personalInfo.address1" cssClass="regError" />
-		<form:input path="personalInfo.address1" />
+		<form:input path="personalInfo.address1" maxlength="90" />
 		</label>
 </p>
 <p>
 		<label id="address2">Address Line 2<br />
 		<form:errors path="personalInfo.address2" cssClass="regError" />
-		<form:input path="personalInfo.address2" />
+		<form:input path="personalInfo.address2" maxlength="90" />
 		</label>
 </p>
 <p>
 		<label id="city">City<br />
 		<form:errors path="personalInfo.city" cssClass="regError" />
-		<form:input path="personalInfo.city" />
+		<form:input path="personalInfo.city" maxlength="90" />
 		</label>
 </p>
 <p>		
 		<label id="state">State<br />
 		<form:errors path="personalInfo.state" cssClass="regError" />
-		<form:input path="personalInfo.state" />
+		<form:input path="personalInfo.state" maxlength="45" />
 		</label>
 </p>
 <p>		
 		<label id="country">Country<br />
 		<form:errors path="personalInfo.country" cssClass="regError" />
-		<form:input path="personalInfo.country" />
+		<form:input path="personalInfo.country" maxlength="90" />
 		</label>
 </p>
 <p>
 		<label id="zipcode">Zipcode<br />
 		<form:errors path="personalInfo.zipcode" cssClass="regError" />
-		<form:input path="personalInfo.zipcode" />
+		<form:input path="personalInfo.zipcode" maxlength="10" />
 		</label>
 </p>
 <p>
 		<label id="phoneNumber">Phone Number<br />
 		<form:errors path="personalInfo.phoneNumber" cssClass="regError" />
-		<form:input path="personalInfo.phoneNumber" />
+		<form:input path="personalInfo.phoneNumber" maxlength="16" />
 		</label>
 </p>
 <p>
 		<label id="email">Email Address<br />
 		<form:errors path="personalInfo.emailAddress" cssClass="regError" />
-		<form:input path="personalInfo.emailAddress" />
+		<form:input path="personalInfo.emailAddress" maxlength="255" />
 		</label>
 </p>
 		<div class="clear"></div>
