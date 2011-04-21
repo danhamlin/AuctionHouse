@@ -51,11 +51,11 @@ public class Services {
 
 	@SuppressWarnings("unchecked")
 	public List<Auction> getAllAuctions() {
-		return sess().createQuery("from Auction").list();
+		return sess().createQuery("from Auction where finished=false").list();
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Auction> getAuctionByCategory(int id) {
+	public List<Auction> getAuctionsByCategory(int id) {
 		return sess().createQuery("from Auction where category.idCategory=:id").setInteger("id", id).list();
 	}
 
