@@ -28,7 +28,14 @@
 				<td class="bidTitle"><a href="<c:url value="/auction/${bid.idAuction}" />" >${bid.title}</a></td>
 				<td class="bidCategory">${bid.category.name}</td>
 				<td class="bidSeller">${bid.user.username}</td>
-				<td class="bidHighest">$${bid.bids[0].amount}</td>
+				<c:choose>
+				<c:when test="${currentUser == bid.bids[0].user.username}">
+					<td class="bidHighestMe">${bid.bids[0].amount}</td>
+				</c:when>
+				<c:otherwise>
+					<td class="bidHighestElse">${bid.bids[0].amount}</td>
+				</c:otherwise>
+				</c:choose>
 				<c:choose>
 				<c:when test="${not empty bid.picture[0]}">
 					<td class="bidImage"><img src="<c:url value="/image?id=${bid.idAuction}" />" /></td>
