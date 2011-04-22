@@ -42,7 +42,7 @@
 			<a href="/AuctionHouse/control/panel" title="My Account">My Account</a>
 			<ul>
 				<li><a href="/AuctionHouse/control/panel#CurrentBids">Current Bids</a></li>
-				<li><a href="/AuctionHouse/control/panel#WonBids">Won Bids</a></li>
+				<li><a href="/AuctionHouse/control/panel#PastBids">Past Bids</a></li>
 				<li><a href="/AuctionHouse/control/panel#CurrentSales">Current Sales</a></li>
 				<li><a href="/AuctionHouse/control/panel#PastSales">Past Sales</a></li>
 				<li><a href="/AuctionHouse/user/update">Edit Details</a></li>

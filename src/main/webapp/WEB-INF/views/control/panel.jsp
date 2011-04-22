@@ -53,14 +53,14 @@
 		</c:forEach>
 	</table>
 <hr />
-<h3 id="WonBids">Won Bids</h3>
+<h3 id="PastBids">Past Bids</h3>
 <table border="1">
 	<tr>
 		<th width="10%">Image</th>
 		<th width="30%">Title</th>
 		<th width="30%">Category</th>
 		<th width="20%">High Bid</th>
-		<th width="10%">Won/Lost</th>
+		<th width="10%">Status</th>
 	</tr>
 	<c:forEach items="${wins}" var="win">
 		<tr>
@@ -76,7 +76,8 @@
 			<td class="wonCategory">${win.category.name}</td>
 			<td class="wonBid">${win.bids[0].amount}</td>
 			<c:choose>
-				<c:when test="${currentUser == win.bids[0].user.username}"><td class="wonStatus">Won</td></c:when>
+				<c:when test="${currentUser == win.bids[0].user.username and auction.sold}"><td class="wonStatus">Won</td></c:when>
+				<c:when test="${auction.finished and not auction.sold}"><td class="wonStatus">Canceled</td></c:when>
 				<c:otherwise><td class="wonStatus">Lost</td></c:otherwise>
 			</c:choose>
 		</tr>
