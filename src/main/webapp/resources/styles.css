@@ -259,7 +259,7 @@ input#submit
 	border: 1px solid #298cba;
 }
 
-input#submitAuction, #sellItem, #delistItem
+input#submitAuction
 {
 	font-family:"Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;
 	font-size:12px !important;
@@ -281,16 +281,85 @@ input#submitAuction, #sellItem, #delistItem
 	border: 1px solid #298cba;
 }
 
+#sellItem
+{
+	font-family:"Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;
+	font-size:12px !important;
+	font-weight: 800 !important;
+	-moz-border-radius:10px;
+	-khtml-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	cursor:pointer;
+	text-decoration:none;
+	margin-top:-3px;
+	padding:5px;
+	width: 100px !important;
+	text-align: center;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#aaf19d), to(#21990c));
+	background-image: -moz-linear-gradient(-90deg,#aaf19d,#21990c);
+	background-color: #aaf19d;
+	border: 1px solid #aaf19d;
+	color: #000;
+	text-shadow: 1px 1px 1px #6fc161;
+	-moz-box-shadow: 1px 1px 5px #000;
+	-webkit-box-shadow: 1px 1px 5px #000;
+	-khtml-box-shadow: 1px 1px 5px #000;
+	box-shadow: 1px 1px 5px #000;
+}
+
+#delistItem
+{
+	font-family:"Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;
+	font-size:12px !important;
+	font-weight: 800 !important;
+	-moz-border-radius:10px;
+	-khtml-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	cursor:pointer;
+	text-decoration:none;
+	margin-top:-3px;
+	padding:5px;
+	width: 100px !important;
+	text-align: center;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f19d9d), to(#990c0c));
+	background-image: -moz-linear-gradient(-90deg,#f19d9d,#990c0c);
+	background-color: #f19d9d;
+	border: 1px solid #f19d9d;
+	color: #000;
+	text-shadow: 1px 1px 1px #c16161;
+	-moz-box-shadow: 1px 1px 5px #000;
+	-webkit-box-shadow: 1px 1px 5px #000;
+	-khtml-box-shadow: 1px 1px 5px #000;
+	box-shadow: 1px 1px 5px #000;
+	margin-left: 1em;
+}
+
 input#submit:hover, input#submitAuction:hover, #sellItem:hover, #delistItem:hover
 {
 	border: 1px solid #13455b;
 }
 
-input#submit:active, input#submitAuction:active, #sellItem:active, #delistItem:active
+input#submit:active, input#submitAuction:active
 {
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#217096), to(#298cba));
 	background-image: -moz-linear-gradient(-90deg,#217096,#298cba);
 	background-color: #217096;
+}
+
+#sellItem:active
+{
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#21990c), to(#aaf19d));
+	background-image: -moz-linear-gradient(-90deg,#21990c,#aaf19d);
+	background-color: #21990c;
+}
+
+#delistItem:active
+{
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#990c0c), to(#f19d9d));
+	background-image: -moz-linear-gradient(-90deg,#990c0c,#f19d9d);
+	background-color: #990c0c;
 }
 
 #register-success
