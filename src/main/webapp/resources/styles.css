@@ -259,7 +259,7 @@ input#submit
 	border: 1px solid #298cba;
 }
 
-input#submitAuction
+input#submitAuction, #sellItem, #delistItem
 {
 	font-family:"Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;
 	font-size:12px !important;
@@ -281,12 +281,12 @@ input#submitAuction
 	border: 1px solid #298cba;
 }
 
-input#submit:hover, input#submitAuction:hover
+input#submit:hover, input#submitAuction:hover, #sellItem:hover, #delistItem:hover
 {
 	border: 1px solid #13455b;
 }
 
-input#submit:active, input#submitAuction:active
+input#submit:active, input#submitAuction:active, #sellItem:active, #delistItem:active
 {
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#217096), to(#298cba));
 	background-image: -moz-linear-gradient(-90deg,#217096,#298cba);

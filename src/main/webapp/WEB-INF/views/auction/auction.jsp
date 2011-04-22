@@ -70,9 +70,9 @@ $(document).ready(function() {
 		<c:if test="${currentUser == auction.user.username and not auction.finished}">
 			<p>
 			<c:if test="${auction.bids[0].user.username != null}">
-				<a href="/AuctionHouse/auction/${auction.idAuction}/close?sold=true">Sell Item</a>
+				<a id="sellItem" href="/AuctionHouse/auction/${auction.idAuction}/close?sold=true">Sell Item</a>
 			</c:if>
-				<a href="/AuctionHouse/auction/${auction.idAuction}/close?sold=false">Delist Item</a>
+				<a id="delistItem" href="/AuctionHouse/auction/${auction.idAuction}/close?sold=false">Delist Item</a>
 			</p>
 		</c:if>
 		<c:if test="${currentUser == auction.bids[0].user.username}">
