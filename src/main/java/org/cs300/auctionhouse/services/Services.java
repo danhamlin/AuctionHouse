@@ -6,6 +6,7 @@ import org.cs300.auctionhouse.domain.Auction;
 import org.cs300.auctionhouse.domain.Authority;
 import org.cs300.auctionhouse.domain.Bid;
 import org.cs300.auctionhouse.domain.Category;
+import org.cs300.auctionhouse.domain.Feedback;
 import org.cs300.auctionhouse.domain.PersonalInfo;
 import org.cs300.auctionhouse.domain.User;
 import org.hibernate.Session;
@@ -18,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 public class Services {
-	
+
 	// So Spring can inject the session factory
 	SessionFactory sessionFactory;
 
@@ -56,7 +57,7 @@ public class Services {
 
 	@SuppressWarnings("unchecked")
 	public List<Auction> getAuctionsByCategory(int id) {
-		return sess().createQuery("from Auction where category.idCategory=:id").setInteger("id", id).list();
+		return sess().createQuery("from Auction where finished=false and category.idCategory=:id").setInteger("id", id).list();
 	}
 
 	@SuppressWarnings("unchecked")
@@ -87,7 +88,7 @@ public class Services {
 	public User findByName(String username) {
 		return (User) sess().createQuery("from User where username=:username").setString("username", username).uniqueResult();
 	}
-	
+
 	public byte[] getAuctionImage(int id) {
 		return getAuctionByID(id).getPicture();
 	}
@@ -111,5 +112,15 @@ public class Services {
 
 	public void saveNewBid(Bid bid) {
 		sess().save(bid);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Feedback> getFeedbackByUser(String username) {
+		return sess().createQuery("from Feedback where user.username=:id").setString("id", username).list();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Feedback> getFeedbackForUser(String username) {
+		return sess().createQuery("from Feedback feedback where feedback.auction.user.username=:id").setString("id", username).list();
 	}
 }
