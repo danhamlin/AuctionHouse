@@ -9,11 +9,11 @@
 <title>Add Auction Success</title>
 </head>
 <body>
-<div id="register-success">
+<div id="register-failure">
 
-	<div id="confirm"></div>
+	<div id="failure"></div>
 
-	<div id="confirm-text">
+	<div id="failure-text">
 		<p>Your are not authorized to close this item.
 		<br />
 		You will be redirected to the auction page shortly.
