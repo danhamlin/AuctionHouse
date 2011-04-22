@@ -18,6 +18,22 @@ var refreshId = setInterval(function()
      $('#wrapper').fadeOut("slow").load('/').fadeIn("slow");
 }, 5000);
 </script> -->
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#amount").keydown(function(event) {
+        // Allow only backspace, delete, period and enter
+        if ( event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 190 || event.keyCode == 13) {
+                // let it happen, don't do anything
+        }
+        else {
+                // Ensure that it is a number and stop the keypress
+                if (event.keyCode < 13 || event.keyCode < 48 || event.keyCode > 57  || event.keyCode > 191) {
+                        event.preventDefault(); 
+                }       
+        }
+    });
+});
+</script>
 <title>Auction view</title>
 </head>
 <body>
@@ -37,7 +53,7 @@ var refreshId = setInterval(function()
 <p>Title: <label id="aTitle">${auction.title}</label></p>
 		<p>Category: <label id="aCategory">${auction.category.name}</label></p>
 		<p>Description: <label id="aDescription">${auction.description}</label></p>
-		<p>User: <label id="aUsername">${auction.user.username}</label></p>
+		<p>Listed by: <label id="aUsername">${auction.user.username}</label></p>
 		<c:if test="${auction.sold}">
 		<p>Winner: <span id="aWinner">${auction.bids[0].user.username}</span></p>
 		</c:if>
