@@ -14,14 +14,13 @@
 <body>
 <%@ include file="../header.jsp" %>
 <div id="control-panel">
-<h3>My Current Bids</h3> 
+<h3 id ="CurrentBids">My Current Bids</h3>
 <table border="1">
 		<tr>
 			<th width="10%">Title</th>
 			<th width="30%">Category</th>
 			<th width="10%">Seller</th>
-			<th width="20%">Highest Bid</th>
-			<th width="20%">My Current Bid</th>
+			<th width="20%">Current Bid</th>
 			<th width="10%">Image</th>
 		</tr>
 		<c:forEach items="${bids}" var="bid">
@@ -30,7 +29,6 @@
 				<td class="bidCategory">${bid.category.name}</td>
 				<td class="bidSeller">${bid.user.username}</td>
 				<td class="bidHighest">$${bid.bids[0].amount}</td>
-				<td class="bidCurrent">$${bid.bids[1].amount}</td>
 				<c:choose>
 				<c:when test="${not empty bid.picture[0]}">
 					<td class="bidImage"><img src="<c:url value="/image?id=${bid.idAuction}" />" /></td>
@@ -43,7 +41,7 @@
 		</c:forEach>
 	</table>
 <hr />
-<h3>Won Bids</h3>
+<h3 id="WonBids">Won Bids</h3>
 <table border="1">
 	<tr>
 		<th width="10%">Title</th>
@@ -68,12 +66,12 @@
 	</c:forEach>
 </table>
 <hr />
-<h3>My Current Sales</h3>
+<h3 id="CurrentSales">My Current Sales</h3>
 <table border="1">
 	<tr>
 		<th width="10%">Title</th>
 		<th width="30%">Category</th>
-		<th width="50%">Highest Bid</th>
+		<th width="50%">Current Bid</th>
 		<th width="10%">Image</th>
 	</tr>
 	<c:forEach items="${auctions}" var="auction">
@@ -93,7 +91,7 @@
 	</c:forEach>
 </table>
 <hr />
-<h3>Past Sales</h3>
+<h3 id="PastSales">Past Sales</h3>
 <table border="1">
 	<tr>
 		<th width="10%">Title</th>
@@ -118,7 +116,6 @@
 	</c:forEach>
 </table>
 <hr />
-<p> Edit Account Details </p>
 </div>
 <%@ include file="../footer.jsp" %>
 </body>

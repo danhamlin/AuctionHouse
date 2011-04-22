@@ -32,6 +32,7 @@ public class ControlPanelController {
 		model.addAttribute("bids", bids);
 		model.addAttribute("wins", wins);
 		model.addAttribute("sales", sales);
+		model.addAttribute("currentUser", currentUser);
 	}
 	
 	@RequestMapping(value="/control/panel", method=RequestMethod.POST)

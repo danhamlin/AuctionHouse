@@ -30,7 +30,7 @@
 			<ul>
 				<li><a href="/AuctionHouse/">All</a></li>
 				<li><a href="/AuctionHouse/category/1">Books</a></li>
-				<li><a href="/AuctionHouse/category/2">Collectibles & Art</a></li>
+				<li><a href="/AuctionHouse/category/2">Collectables & Art</a></li>
 				<li><a href="/AuctionHouse/category/3">Electronics & Technology</a></li>
 				<li><a href="/AuctionHouse/category/4">Fashion</a></li>
 				<li><a href="/AuctionHouse/category/5">Home, Outdoors,& Decor</a></li>
@@ -39,36 +39,17 @@
 			</ul>
 		</li>
 		<li>
-			<a href="#" title="The services we offer">Services</a>
+			<a href="/AuctionHouse/control/panel" title="My Account">My Account</a>
 			<ul>
-				<li><a href="#">Sell Item</a></li>
-				<li><a href="#">My Account</a></li>
-				<li><a href="#">Sevice three</a></li>
-				<li><a href="#">Sevice four</a></li>
+				<li><a href="/AuctionHouse/user/update">Edit Details</a></li>
+				<li><a href="/AuctionHouse/control/panel#CurrentBids">Current Bids</a></li>
+				<li><a href="/AuctionHouse/control/panel#WonBids">Won Bids</a></li>
+				<li><a href="/AuctionHouse/control/panel#CurrentSales">Current Sales</a></li>
+				<li><a href="/AuctionHouse/control/panel#PastSales">Past Sales</a></li>
 			</ul>
 		</li>
 		<li>
-			<a href="#" title="Our product range">Product</a>
-			<ul>
-				<li><a href="#">Small product (one)</a></li>
-				<li><a href="#">Small product (two)</a></li>
-				<li><a href="#">Small product (three)</a></li>
-				<li><a href="#">Small product (four)</a></li>
-				<li><a href="#">Big product (five)</a></li>
-				<li><a href="#">Big product (six)</a></li>
-				<li><a href="#">Big product (seven)</a></li>
-				<li><a href="#">Big product (eight)</a></li>
-				<li><a href="#">Enourmous product (nine)</a></li>
-				<li><a href="#">Enourmous product (ten)</a></li>
-				<li><a href="#">Enourmous product (eleven)</a></li>
-			</ul>
-		</li>
-		<li>
-			<a href="#" title="Get in touch with us">Contact</a>
-			<ul>
-				<li><a href="#">Out-of-hours</a></li>
-				<li><a href="#">Directions</a></li>
-			</ul>
+			<a href="/AuctionHouse/Contact.jsp" title="Get in touch with us">Contact Us</a>
 		</li>
 		<sec:authorize ifAnyGranted="ROLE_USER">
 		<li>

@@ -71,10 +71,10 @@ public class UserController {
 	@RequestMapping(value = "/user/feedback/{username}")
 	public String userFeedback(@PathVariable("username") String username,
 			Model model) {
-		List<Feedback> feedbackIn = services.getFeedbackByUser(username);
-		List<Feedback> feedbackOut = services.getFeedbackForUser(username);
-		model.addAttribute("feedbackIn", feedbackIn);
-		model.addAttribute("feedbackOut", feedbackOut);
+		List<Feedback> feedbackSales = services.getFeedbackForUserSales(username);
+		List<Feedback> feedbackBids = services.getFeedbackForUserBids(username);
+		model.addAttribute("feedbackSales", feedbackSales);
+		model.addAttribute("feedbackBids", feedbackBids);
 		return "user/feedback";
 	}
 }
