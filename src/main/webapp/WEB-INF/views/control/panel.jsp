@@ -59,7 +59,8 @@
 		<th width="10%">Image</th>
 		<th width="30%">Title</th>
 		<th width="30%">Category</th>
-		<th width="30%">Winning Bid</th>
+		<th width="20%">High Bid</th>
+		<th width="10%">Won/Lost</th>
 	</tr>
 	<c:forEach items="${wins}" var="win">
 		<tr>
@@ -73,7 +74,11 @@
 			</c:choose>
 			<td class="wonTitle"><a href="<c:url value="/auction/${win.idAuction}" />" >${win.title}</a></td>
 			<td class="wonCategory">${win.category.name}</td>
-			<td class="wonBid">$${win.bids[0].amount}</td>
+			<td class="wonBid">${win.bids[0].amount}</td>
+			<c:choose>
+				<c:when test="${currentUser == win.bids[0].user.username}"><td class="wonStatus">Won</td></c:when>
+				<c:otherwise><td class="wonStatus">Lost</td></c:otherwise>
+			</c:choose>
 		</tr>
 	</c:forEach>
 </table>
