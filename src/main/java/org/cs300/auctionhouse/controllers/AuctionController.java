@@ -55,7 +55,9 @@ public class AuctionController {
 
 	@RequestMapping(value = "/auction/{id}", method = RequestMethod.GET)
 	public String auction(@PathVariable("id") int id, Model model) {
+		String currentUser = SecurityContextHolder.getContext().getAuthentication().getName();
 		Auction auction = services.getAuctionByID(id);
+		model.addAttribute("currentUser", currentUser);
 		model.addAttribute("auction", auction);
 		Bid bid = new Bid();
 		bid.setAuction(auction);
@@ -69,7 +71,6 @@ public class AuctionController {
 		if (result.hasErrors()) {
 			return "auction/auction";
 		} else {
-			//bid.setAuction(services.getAuctionByID(id));
 			bid.setUser(services.findByName(SecurityContextHolder.getContext().getAuthentication().getName()));
 			bid.setTime(new Date());
 			services.saveNewBid(bid);
@@ -87,9 +88,7 @@ public class AuctionController {
 	@RequestMapping(value = "/auction/add", method = RequestMethod.GET)
 	public String addAuctionForm(Model model) {
 		AuctionFileData afd = new AuctionFileData();
-		//List<Category> categories = services.getAllCategories();
 		model.addAttribute("afd", afd);
-		//model.addAttribute("categories", categories);
 		return "auction/add";
 	}
 

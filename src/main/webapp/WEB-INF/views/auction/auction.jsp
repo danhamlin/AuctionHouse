@@ -58,10 +58,10 @@ $(document).ready(function() {
 		<p>Winner: <span id="aWinner">${auction.bids[0].user.username}</span></p>
 		</c:if>
 		<p>Bid: <label id="aBid">${auction.bids[0].amount}</label></p>
-		<sec:authorize ifNotGranted="ROLE_USER">
-		<p id="login-msg">Please <a href="<c:url value="/login.jsp"/>">login</a> to place a new bid</p>
-		</sec:authorize>
-		<c:if test="${not auction.finished}">
+		<c:if test="${not auction.finished and currentUser != auction.user.username and currentUser != auction.bids[0].user.username}">
+			<sec:authorize ifNotGranted="ROLE_USER">
+			<p id="login-msg">Please <a href="<c:url value="/login.jsp"/>">login</a> to place a new bid</p>
+			</sec:authorize>
 			<sec:authorize ifAnyGranted="ROLE_USER">
 			<p>
 				<form:form method="post" modelAttribute="bid">
@@ -73,6 +73,14 @@ $(document).ready(function() {
 				</form:form>
 			</p>
 			</sec:authorize>
+		</c:if>
+		<c:if test="${currentUser == auction.user.username and not auction.finished}">
+			<p>
+				<input id="submit" type="submit" name="submit" value="Sell Item" /><input id="submit" type="submit" name="submit" value="Delist Item" />
+			</p>
+		</c:if>
+		<c:if test="${currentUser == auction.bids[0].user.username}">
+			You are currently the high bidder on this item.
 		</c:if>
 		<div class="clear"></div>
 		<hr />
