@@ -16,7 +16,7 @@
 	<div id="confirm-text">
 		<p>Your bid has been placed successfully.
 		<br />
-		You will be redirected back to auction page shortly.
+		You will be redirected back to the auction shortly.
 		</p>
 	</div>
 </div>
