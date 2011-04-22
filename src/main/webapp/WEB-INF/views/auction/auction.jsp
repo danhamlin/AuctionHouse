@@ -11,13 +11,6 @@
 <link rel="stylesheet" href="<c:url value="/resources/styles.css" />" type="text/css" />
 <link rel="stylesheet" href="<c:url value="/resources/styles.css" />" type="text/css" />
 <script type="text/javascript" src="<c:url value="/resources/jquery.js" />"></script>
-<!-- <script>
-var refreshId = setInterval(function()
-{
-	 var modelAttributeValue = '${auction.bids}';
-     $('#wrapper').fadeOut("slow").load('/').fadeIn("slow");
-}, 5000);
-</script> -->
 <script type="text/javascript">
 $(document).ready(function() {
     $("#amount").keydown(function(event) {
