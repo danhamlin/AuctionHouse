@@ -113,6 +113,20 @@ public class AuctionController {
 		return "auction/addsuccess";
 	}
 
+	@RequestMapping(value = "/auction/{id}/close", method = RequestMethod.GET)
+	public String feedback(@PathVariable("id") int id, @RequestParam("sold") boolean sold, Model model) {
+		String currentUser = SecurityContextHolder.getContext().getAuthentication().getName();
+		Auction auction = services.getAuctionByID(id);
+		model.addAttribute("id", id);
+		if (currentUser.equals(auction.getUser().getUsername())) {
+			auction.setFinished(true);
+			if (sold) auction.setSold(true);
+			services.updateAuction(auction);
+			return "auction/success";
+		} else
+			return "auction/failure";
+	}
+
 	@RequestMapping(value = "/auction/{id}/feedback", method = RequestMethod.GET)
 	public String feedback(@PathVariable("id") int id, Model model) {
 		//FIXME: view feedback

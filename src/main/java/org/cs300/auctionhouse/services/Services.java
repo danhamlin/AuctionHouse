@@ -50,6 +50,10 @@ public class Services {
 		return auction.getIdAuction();
 	}
 
+	public void updateAuction(Auction auction) {
+		sess().update(auction);
+	}
+
 	@SuppressWarnings("unchecked")
 	public List<Auction> getAllAuctions() {
 		return sess().createQuery("from Auction where finished=false").list();
