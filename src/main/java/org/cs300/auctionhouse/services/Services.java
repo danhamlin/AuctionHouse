@@ -115,12 +115,12 @@ public class Services {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Feedback> getFeedbackByUser(String username) {
-		return sess().createQuery("from Feedback where user.username=:id").setString("id", username).list();
+	public List<Feedback> getFeedbackForUserSales(String username) {
+		return sess().createQuery("from Feedback feedback where feedback.auction.user.username=:id").setString("id", username).list();
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Feedback> getFeedbackForUser(String username) {
-		return sess().createQuery("from Feedback feedback where feedback.auction.user.username=:id").setString("id", username).list();
+	public List<Feedback> getFeedbackForUserBids(String username) {
+		return sess().createQuery("select feedback from Feedback feedback where feedback.auction = (select distinct bid.auction from Bid bid where bid.user.username=:id and bid.auction.sold=true)").setString("id", username).list();
 	}
 }
