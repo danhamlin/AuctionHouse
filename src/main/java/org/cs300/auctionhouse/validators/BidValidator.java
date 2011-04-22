@@ -25,7 +25,7 @@ public class BidValidator implements Validator {
 		int id = bid.getAuction().getIdAuction();
 		Bid highBid = services.getHighBidByAuction(id);
 		
-		//check if user did enter amount. Error will only show if not their own auction
+		//check if user did enter amount.	
 		if (!services.getAuctionByID(id).getUser().getUsername().equals(SecurityContextHolder.getContext().getAuthentication().getName())) {
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "amount", "", "You must enter a bid amount.");
 		}
@@ -45,6 +45,11 @@ public class BidValidator implements Validator {
 			//check that this bid is higher than last
 			if (bid.getAmount().compareTo(highBid.getAmount()) <= 0)
 				errors.rejectValue("amount", "", "You must bid more than the current bid. Try again.");
+			//check precision of bid
+			if (bid.getAmount().scale() > 2 || bid.getAmount().scale() < 0)
+				errors.rejectValue("amount", "", "You must bid in one cent increments.");
+			//check for non-digit characters
+			//if (bid.getAmount().)
 		}
 	}
 
