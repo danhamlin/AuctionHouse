@@ -19,18 +19,18 @@ public class UserValidator implements Validator {
 	}
 
 	public void validate(Object target, Errors errors) {
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "user.username", "", "Username is required field");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "user.password", "", "Password is required field");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "confirmPassword", "", "Confirm password is required field");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "personalInfo.firstName", "", "First name is required field");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "personalInfo.lastName", "", "Last name is required field");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "personalInfo.address1", "", "Address 1 is required field");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "personalInfo.city", "", "City is required field");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "personalInfo.state", "", "State is required field");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "personalInfo.country", "", "Country is required field");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "personalInfo.zipcode", "", "Zipcode is required field");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "personalInfo.phoneNumber", "", "Phone number is required field");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "personalInfo.emailAddress", "", "Email address is required field");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "user.username", "", "Username required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "user.password", "", "Password required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "confirmPassword", "", "Please confirm password");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "personalInfo.firstName", "", "First name required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "personalInfo.lastName", "", "Last name required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "personalInfo.address1", "", "Address 1 required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "personalInfo.city", "", "City required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "personalInfo.state", "", "State required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "personalInfo.country", "", "Country required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "personalInfo.zipcode", "", "Zipcode required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "personalInfo.phoneNumber", "", "Phone number required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "personalInfo.emailAddress", "", "Email address required");
 
 		UserPersonalInfo upi = (UserPersonalInfo)target;
 		if (services.findByName(upi.getUser().getUsername()) != null)
