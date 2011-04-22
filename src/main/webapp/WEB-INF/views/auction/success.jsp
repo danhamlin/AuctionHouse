@@ -16,7 +16,7 @@
 	<div id="confirm-text">
 		<p>Your auction has been closed successfully.
 		<br />
-		You will be redirected to your auction page shortly.
+		You will be redirected to your auction shortly.
 		</p>
 	</div>
 </div>
