@@ -71,8 +71,7 @@
 	<tr>
 		<th width="10%">Title</th>
 		<th width="30%">Category</th>
-		<th width="30%">Current Bid</th>
-		<th width="20%">End Auction</th>
+		<th width="50%">Current Bid</th>
 		<th width="10%">Image</th>
 	</tr>
 	<c:forEach items="${auctions}" var="auction">
@@ -80,7 +79,6 @@
 			<td class="saleTitle"><a href="<c:url value="/auction/${auction.idAuction}" />" >${auction.title}</a></td>
 			<td class="saleCategory">${auction.category.name}</td>
 			<td class="saleBid">${auction.bids[0].amount}</td>
-			<td>Sell Item<br />Delist Item</td>
 			<c:choose>
 			<c:when test="${not empty auction.picture[0]}">
 				<td class="saleImage"><img src="<c:url value="/image?id=${auction.idAuction}" />" /></td>
