@@ -10,13 +10,13 @@
 </head>
 <body>
 <div id="register-form-container">
-<img src="/AuctionHouse/resources/images/AuctionBanner2.png" width=325 height=85 />
+<a href="/AuctionHouse"><img src="/AuctionHouse/resources/images/AuctionBanner2.png" width=325 height=85 /></a>
 <p>* denotes required field.</p>
 <form:form method="post" modelAttribute="upi">
 <p>
 		<label id="username">Username*<br />
 		<form:errors path="user.username" cssClass="regError" />
-		<form:input path="user.username" maxlength="45" />
+		<form:input path="user.username" disabled="true" maxlength="45" />
 		</label>
 </p>
 <p>
@@ -98,7 +98,7 @@
 		</label>
 </p>
 		<div class="clear"></div>
-		<input id="submit" type="submit" name="submit" value="Register" />
+		<input id="submit" type="submit" name="submit" value="Update" />
 </form:form>
 </div>
 </body>
