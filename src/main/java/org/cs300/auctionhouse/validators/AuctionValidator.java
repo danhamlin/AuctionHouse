@@ -33,6 +33,8 @@ public class AuctionValidator implements Validator {
 				//incorrect file type
 				errors.rejectValue("file", "", "The file you selected is not supported.\nPNG, JPG, and GIF formats only.");
 			}
+			if (file.getSize() > 1000000L)
+				errors.rejectValue("file", "", "The file you selected is too large, it must be < 1MB.");
 		}
 	}
 }
