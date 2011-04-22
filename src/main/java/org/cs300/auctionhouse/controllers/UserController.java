@@ -60,12 +60,17 @@ public class UserController {
 	public String updateUserSubmit(@ModelAttribute("upi") UserPersonalInfo upi,
 			BindingResult result, SessionStatus status) {
 		
-		return "redirect:success";
+		return "redirect:updatesuccess";
 	}
 
 	@RequestMapping(value = "/user/success", method = RequestMethod.GET)
 	public String addUserSuccess() {
 		return "user/success";
+	}
+	
+	@RequestMapping(value = "/user/updatesuccess", method = RequestMethod.GET)
+	public String updateUserSuccess() {
+		return "user/updatesuccess";
 	}
 
 	@RequestMapping(value = "/user/feedback/{username}")
