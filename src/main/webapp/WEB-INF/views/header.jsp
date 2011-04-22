@@ -49,7 +49,7 @@
 			</ul>
 		</li>
 		<li>
-			<a href="/AuctionHouse/Contact.jsp" title="Get in touch with us">Contact Us</a>
+			<a href="<c:url value="/contact.jsp" />" title="Get in touch with us">Contact Us</a>
 		</li>
 		<sec:authorize ifAnyGranted="ROLE_USER">
 		<li>
