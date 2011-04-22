@@ -6,7 +6,7 @@
 <html>
 <head>
 <title>Home</title>
-<link rel="stylesheet" href="./resources/styles.css" type="text/css" />
+<link rel="stylesheet" href="/AuctionHouse/resources/styles.css" type="text/css" />
 </head>
 <body>
 	<%@ include file="header.jsp" %>
