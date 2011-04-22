@@ -13,6 +13,7 @@
 <a href="/AuctionHouse"><img src="/AuctionHouse/resources/images/AuctionBanner2.png" width=325 height=85 /></a>
 <p>* denotes required field.</p>
 <form:form method="post" modelAttribute="upi">
+<div id="reg-left-column">
 <p>
 		<label id="username">Username*<br />
 		<form:errors path="user.username" cssClass="regError" />
@@ -49,6 +50,16 @@
 		<form:input path="personalInfo.lastName" maxlength="90" />
 		</label>
 </p>
+<p>
+		<label id="email">Email Address*<br />
+		<form:errors path="personalInfo.emailAddress" cssClass="regError" />
+		<form:input path="personalInfo.emailAddress" maxlength="255" />
+		</label>
+</p>
+
+
+</div>
+<div id="reg-right-column">
 <p>
 		<label id="address1">Address Line 1*<br />
 		<form:errors path="personalInfo.address1" cssClass="regError" />
@@ -91,12 +102,7 @@
 		<form:input path="personalInfo.phoneNumber" maxlength="16" />
 		</label>
 </p>
-<p>
-		<label id="email">Email Address*<br />
-		<form:errors path="personalInfo.emailAddress" cssClass="regError" />
-		<form:input path="personalInfo.emailAddress" maxlength="255" />
-		</label>
-</p>
+</div>
 		<div class="clear"></div>
 		<input id="submit" type="submit" name="submit" value="Update" />
 </form:form>
