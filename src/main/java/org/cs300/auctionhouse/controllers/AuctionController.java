@@ -7,11 +7,13 @@ import java.util.List;
 import org.cs300.auctionhouse.domain.Auction;
 import org.cs300.auctionhouse.domain.Bid;
 import org.cs300.auctionhouse.domain.Category;
+import org.cs300.auctionhouse.domain.Feedback;
 import org.cs300.auctionhouse.domain.User;
 import org.cs300.auctionhouse.services.Services;
 import org.cs300.auctionhouse.ui.AuctionFileData;
 import org.cs300.auctionhouse.validators.AuctionValidator;
 import org.cs300.auctionhouse.validators.BidValidator;
+import org.cs300.auctionhouse.validators.FeedbackValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -28,7 +30,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 @Controller
-@SessionAttributes({"auction", "bid", "afd"})
+@SessionAttributes({"auction", "bid", "afd", "fb"})
 public class AuctionController {
 
 	@Autowired
@@ -37,6 +39,8 @@ public class AuctionController {
 	private AuctionValidator auctionValidator;
 	@Autowired
 	private BidValidator bidValidator;
+	@Autowired
+	private FeedbackValidator feedbackValidator;
 
     @ModelAttribute("categories")
     public List<Category> populateCategories() {
@@ -127,22 +131,35 @@ public class AuctionController {
 			return "auction/failure";
 	}
 
-	@RequestMapping(value = "/auction/{id}/feedback", method = RequestMethod.GET)
-	public String feedback(@PathVariable("id") int id, Model model) {
-		//FIXME: view feedback
-		return "auction/feedback";
-	}
-
 	@RequestMapping(value = "/auction/{id}/feedback/add", method = RequestMethod.GET)
 	public String feedbackForm(@PathVariable("id") int id, Model model) {
-		//FIXME: display feedback form
-		return "auction/feedbackadd";
+		Auction auction = services.getAuctionByID(id);
+		String currentUser = SecurityContextHolder.getContext().getAuthentication().getName();
+		String auctionWinner = services.getHighBidByAuction(id).getUser().getUsername();
+		if (currentUser.equals(auctionWinner) || currentUser.equals(auction.getUser().getUsername())) {
+			Feedback feedback = new Feedback();
+			feedback.setAuction(auction);
+			feedback.setUser(services.findByName(currentUser));
+			boolean forSeller = !(currentUser.equals(auction.getUser().getUsername()));
+			model.addAttribute("fb", feedback);
+			model.addAttribute("currentUser", currentUser);
+			model.addAttribute("auctionWinner", auctionWinner);
+			model.addAttribute("forSeller", forSeller);
+			return "auction/feedbackadd";
+		} else
+			return "auction/feedbackfailure";
 	}
 
 	@RequestMapping(value = "/auction/{id}/feedback/add", method = RequestMethod.POST)
-	public String feedbackSubmit(@PathVariable("id") int id, @ModelAttribute("bid") Bid bid, Model model) {
-		//FIXME: submit new feedback
-		return "redirect:feedbacksuccess";
+	public String feedbackSubmit(@PathVariable("id") int id, @ModelAttribute("fb") Feedback feedback, BindingResult result, SessionStatus status) {
+		feedbackValidator.validate(feedback, result);
+		if (result.hasErrors()) {
+			return "auction/feedbackadd";
+		} else {
+			services.saveFeedback(feedback);
+			status.setComplete();
+			return "redirect:feedbacksuccess";
+		}
 	}
 
 	@RequestMapping(value = "/auction/{id}/feedback/success", method = RequestMethod.GET)

@@ -84,6 +84,11 @@ public class Services {
 		return sess().createQuery("select distinct bid.auction from Bid bid where bid.auction.sold=true and bid.amount=(select max(amount) from Bid bid2 where bid2.user.username=:id and bid.auction=bid2.auction)").setString("id", currentUser).list();
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<Auction> getUserLostBids(String currentUser) {
+		return sess().createQuery("select distinct bid.auction from Bid bid where bid.auction.sold=true and bid.amount=(select max(amount) from Bid bid2 where bid2.user.username=:id and bid.auction=bid2.auction)").setString("id", currentUser).list();
+	}
+
 	public Auction getAuctionByID(int id) {
 		return (Auction)
 			sess().createQuery("from Auction where idAuction=:idAuction").setInteger("idAuction", id).uniqueResult();
@@ -126,5 +131,14 @@ public class Services {
 	@SuppressWarnings("unchecked")
 	public List<Feedback> getFeedbackForUserBids(String username) {
 		return sess().createQuery("select feedback from Feedback feedback where feedback.auction = (select distinct bid.auction from Bid bid where bid.user.username=:id and bid.auction.sold=true)").setString("id", username).list();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Feedback> getFeedbackByAuctionId(int id) {
+		return sess().createQuery("from Feedback where feedback.auction.idAuction=:id").setInteger("id", id).list();
+	}
+
+	public void saveFeedback(Feedback feedback) {
+		sess().save(feedback);
 	}
 }
