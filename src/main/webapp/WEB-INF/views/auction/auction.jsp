@@ -9,6 +9,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="<c:url value="/resources/styles.css" />" type="text/css" />
+<link rel="stylesheet" href="<c:url value="/resources/styles.css" />" type="text/css" />
+<script type="text/javascript" src="<c:url value="/resources/jquery.js" />"></script>
+<!-- <script>
+var refreshId = setInterval(function()
+{
+	 var modelAttributeValue = '${auction.bids}';
+     $('#wrapper').fadeOut("slow").load('/').fadeIn("slow");
+}, 5000);
+</script> -->
 <title>Auction view</title>
 </head>
 <body>
@@ -29,7 +38,9 @@
 		<p>Category: <label id="aCategory">${auction.category.name}</label></p>
 		<p>Description: <label id="aDescription">${auction.description}</label></p>
 		<p>User: <label id="aUsername">${auction.user.username}</label></p>
-		<c:if test="${auction.sold}"><p>Winner: <label id="aWinner">${auction.bids[0].user.username}</label></p></c:if>
+		<c:if test="${auction.sold}">
+		<p>Winner: <span id="aWinner">${auction.bids[0].user.username}</span></p>
+		</c:if>
 		<p>Bid: <label id="aBid">${auction.bids[0].amount}</label></p>
 		<sec:authorize ifNotGranted="ROLE_USER">
 		<p id="login-msg">Please <a href="<c:url value="/login.jsp"/>">login</a> to place a new bid</p>
@@ -65,7 +76,7 @@
 		</tr>
 	</c:forEach>
 </table>
-</div>
+</div><!-- bid history -->
 </div><!-- auctionDetails -->
 </div><!--  mainPage=auctions -->
 <div class="clear"></div>
