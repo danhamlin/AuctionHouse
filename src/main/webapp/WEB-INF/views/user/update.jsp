@@ -6,13 +6,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="../resources/styles.css" type="text/css" />
-<title>Add New User...</title>
+<title>Update User Account Info...</title>
 </head>
 <body>
 <div id="register-form-container">
 <img src="/AuctionHouse/resources/images/AuctionBanner2.png" width=325 height=85 />
+<p>* denotes required field.</p>
 <form:form method="post" modelAttribute="upi">
-<p>* denote required field.</p>
 <p>
 		<label id="username">Username*<br />
 		<form:errors path="user.username" cssClass="regError" />
