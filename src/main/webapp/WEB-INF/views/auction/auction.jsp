@@ -69,7 +69,8 @@ $(document).ready(function() {
 		</c:if>
 		<c:if test="${currentUser == auction.user.username and not auction.finished}">
 			<p>
-				<input id="submit" type="submit" name="submit" value="Sell Item" /><input id="submit" type="submit" name="submit" value="Delist Item" />
+				<a href="/AuctionHouse/auction/${auction.idAuction}/close?sold=true">Sell Item</a>
+				<a href="/AuctionHouse/auction/${auction.idAuction}/close?sold=false">Delist Item</a>
 			</p>
 		</c:if>
 		<c:if test="${currentUser == auction.bids[0].user.username}">
