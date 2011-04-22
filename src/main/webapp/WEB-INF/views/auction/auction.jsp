@@ -76,7 +76,11 @@ $(document).ready(function() {
 			</p>
 		</c:if>
 		<c:if test="${currentUser == auction.bids[0].user.username}">
-			You are currently the high bidder on this item.
+			<p id="currentHighNote">You are currently the high bidder on this item.</p>
+		</c:if>
+		
+		<c:if test="${auction.finished and not auction.sold}">
+			<p id="auctionFinished">Auction was canceled.</p>
 		</c:if>
 		<div class="clear"></div>
 		<hr />

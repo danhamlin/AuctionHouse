@@ -711,6 +711,36 @@ label#amount
 	border-collapse: collapse;
 }
 
+#currentHighNote
+{
+	font-variant: small-caps;
+	background: #ccffbb;
+	border: 1px solid #3a5f0b;
+	-moz-border-radius:5px;
+	-khtml-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	padding: 5px 5px;
+	color: #333;
+	margin-left: 1em;
+	text-align: center;
+}
+
+#auctionFinished
+{
+	font-variant: small-caps;
+	background: #ffebe8;
+	border: 1px solid #cc0000;
+	-moz-border-radius:5px;
+	-khtml-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	padding: 5px 5px;
+	color: #333;
+	margin-left: 1em;
+	text-align: center;
+}
+
 #add-auction p
 {
 	margin-bottom: 1em;
