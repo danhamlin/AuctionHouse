@@ -30,10 +30,10 @@
 				<td class="bidSeller">${bid.user.username}</td>
 				<c:choose>
 				<c:when test="${currentUser == bid.bids[0].user.username}">
-					<td class="bidHighestMe">${bid.bids[0].amount}</td>
+					<td class="bidHighestMe">$${bid.bids[0].amount}</td>
 				</c:when>
 				<c:otherwise>
-					<td class="bidHighestElse">${bid.bids[0].amount}</td>
+					<td class="bidHighestElse">$${bid.bids[0].amount}</td>
 				</c:otherwise>
 				</c:choose>
 				<c:choose>
@@ -60,7 +60,7 @@
 		<tr>
 			<td class="wonTitle"><a href="<c:url value="/auction/${win.idAuction}" />" >${win.title}</a></td>
 			<td class="wonCategory">${win.category.name}</td>
-			<td class="wonBid">${win.bids[0].amount}</td>
+			<td class="wonBid">$${win.bids[0].amount}</td>
 			<c:choose>
 			<c:when test="${not empty win.picture[0]}">
 				<td class="saleImage"><img src="<c:url value="/image?id=${win.idAuction}" />" /></td>
@@ -85,7 +85,7 @@
 		<tr>
 			<td class="saleTitle"><a href="<c:url value="/auction/${auction.idAuction}" />" >${auction.title}</a></td>
 			<td class="saleCategory">${auction.category.name}</td>
-			<td class="saleBid">${auction.bids[0].amount}</td>
+			<td class="saleBid">$${auction.bids[0].amount}</td>
 			<c:choose>
 			<c:when test="${not empty auction.picture[0]}">
 				<td class="saleImage"><img src="<c:url value="/image?id=${auction.idAuction}" />" /></td>
@@ -110,7 +110,7 @@
 		<tr>
 			<td class="pastTitle"><a href="<c:url value="/auction/${sale.idAuction}" />" >${sale.title}</a></td>
 			<td class="pastCategory">${sale.category.name}</td>
-			<td class="pastHighestBid">${sale.bids[0].amount}</td>
+			<td class="pastHighestBid">$${sale.bids[0].amount}</td>
 			<c:choose>
 			<c:when test="${not empty sale.picture[0]}">
 				<td class="saleImage"><img src="<c:url value="/image?id=${sale.idAuction}" />" /></td>

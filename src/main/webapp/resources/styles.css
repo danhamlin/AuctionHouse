@@ -388,8 +388,6 @@ input#submit:active, input#submitAuction:active
 	color: #000;
 	font-size: 14pt;
 	text-shadow: 1px 1px 1px #6fc161;
-	/*text-shadow: 0 0 4px #ccc, 0 -5px 4px #ff3, 2px -10px 6px #fd3, -2px -15px 11px #f80, 2px -18px 18px #f20;
-	*/
 	border: 1px solid #000;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
@@ -547,6 +545,25 @@ label#amount
 	font-size: 11pt !important;
 }
 
+.bidHighestMe
+{	
+	background: #aaf19d;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#aaf19d), to(#56d658));
+	background-image: -moz-linear-gradient(-90deg,#aaf19d,#56d658);
+}
+
+.bidHighestElse
+{
+	background: #f19d9d;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f19d9d), to(#d65656));
+	background-image: -moz-linear-gradient(-90deg,#f19d9d,#d65656);
+}
+
+.bidHighestElse, .bidHighestMe
+{
+	text-shadow: 1px 1px 1px #878787;
+}
+
 #bid-history th
 {
 	font-size: 10pt;
@@ -582,7 +599,7 @@ label#amount
 	max-height: 100px;
 }
 
-.bidTitle, .bidCategory, .bidSeller, .saleTitle, .saleCategory, .bidHighest, .bidCurrent, .wonTitle, .wonCategory, .wonBid, .saleBid, .pastTitle, .pastCategory, .pastHighestBid
+.bidTitle, .bidCategory, .bidSeller, .saleTitle, .saleCategory, .bidHighest, .bidCurrent, .wonTitle, .wonCategory, .wonBid, .saleBid, .pastTitle, .pastCategory, .pastHighestBid, .bidHighestMe, .bidHighestElse
 {
 	text-align: center;
 }
