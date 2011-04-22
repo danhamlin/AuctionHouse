@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="../resources/styles.css" type="text/css" />
+<script type="text/javascript" src="<c:url value="/resources/jquery.js" />"></script>
 <title>Add New User...</title>
 </head>
 <body>
@@ -13,6 +14,8 @@
 <img src="/AuctionHouse/resources/images/AuctionBanner2.png" width=325 height=85 />
 <form:form method="post" modelAttribute="upi">
 <p>* denote required field.</p>
+<br />
+<div id="reg-left-column">
 <p>
 		<label id="username">Username*<br />
 		<form:errors path="user.username" cssClass="regError" />
@@ -49,6 +52,14 @@
 		<form:input path="personalInfo.lastName" maxlength="90" />
 		</label>
 </p>
+<p>
+		<label id="email">Email Address*<br />
+		<form:errors path="personalInfo.emailAddress" cssClass="regError" />
+		<form:input path="personalInfo.emailAddress" maxlength="255" />
+		</label>
+</p>
+</div>
+<div id="reg-right-column">
 <p>
 		<label id="address1">Address Line 1*<br />
 		<form:errors path="personalInfo.address1" cssClass="regError" />
@@ -91,12 +102,7 @@
 		<form:input path="personalInfo.phoneNumber" maxlength="16" />
 		</label>
 </p>
-<p>
-		<label id="email">Email Address*<br />
-		<form:errors path="personalInfo.emailAddress" cssClass="regError" />
-		<form:input path="personalInfo.emailAddress" maxlength="255" />
-		</label>
-</p>
+</div>
 		<div class="clear"></div>
 		<input id="submit" type="submit" name="submit" value="Register" />
 </form:form>

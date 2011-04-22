@@ -14,7 +14,7 @@
 <body>
 <%@ include file="../header.jsp" %>
 <div id="control-panel">
-<h3>My Current Bids</h3> 
+<h3 id ="CurrentBids">My Current Bids</h3>
 <table border="1">
 		<tr>
 			<th width="10%">Title</th>
@@ -41,7 +41,7 @@
 		</c:forEach>
 	</table>
 <hr />
-<h3>Won Bids</h3>
+<h3 id="WonBids">Won Bids</h3>
 <table border="1">
 	<tr>
 		<th width="10%">Title</th>
@@ -66,7 +66,7 @@
 	</c:forEach>
 </table>
 <hr />
-<h3>My Current Sales</h3>
+<h3 id="CurrentSales">My Current Sales</h3>
 <table border="1">
 	<tr>
 		<th width="10%">Title</th>
@@ -91,7 +91,7 @@
 	</c:forEach>
 </table>
 <hr />
-<h3>Past Sales</h3>
+<h3 id="PastSales">Past Sales</h3>
 <table border="1">
 	<tr>
 		<th width="10%">Title</th>
@@ -116,7 +116,6 @@
 	</c:forEach>
 </table>
 <hr />
-<p> Edit Account Details </p>
 </div>
 <%@ include file="../footer.jsp" %>
 </body>
