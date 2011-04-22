@@ -26,7 +26,7 @@ public class ControlPanelController {
 		String currentUser = SecurityContextHolder.getContext().getAuthentication().getName();
 		List<Auction> auctions = services.getUserSales(currentUser);
 		List<Auction> bids = services.getUserBids(currentUser);
-		List<Auction> wins = services.getUserWonBids(currentUser);
+		List<Auction> wins = services.getUserClosedBids(currentUser);
 		List<Auction> sales = services.getUserFinishedSales(currentUser);
 		model.addAttribute("auctions", auctions);
 		model.addAttribute("bids", bids);
