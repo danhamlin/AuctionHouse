@@ -576,6 +576,34 @@ label#amount
 	padding: 5px;
 }
 
+#redBox
+{
+	background: #f19d9d;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f19d9d), to(#d65656));
+	background-image: -moz-linear-gradient(-90deg,#f19d9d,#d65656);
+}
+
+#greenBox
+{
+	background: #aaf19d;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#aaf19d), to(#56d658));
+	background-image: -moz-linear-gradient(-90deg,#aaf19d,#56d658);
+}
+
+#greenBox, #redBox
+{
+	width: 20px;
+	height: 20px;
+	float: left;
+}
+
+#redLegend, #greenLegend
+{
+	float: left;
+	margin-left: .5em;
+	font-size: 12pt;
+}
+
 #bid-history tr:nth-child(2n+1), #control-panel tr:nth-child(2n+1)
 {
 	background: #d0dafd;
