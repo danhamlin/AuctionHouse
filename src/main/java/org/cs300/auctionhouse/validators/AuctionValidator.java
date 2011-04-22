@@ -24,6 +24,8 @@ public class AuctionValidator implements Validator {
 			//must select valid category
 			errors.rejectValue("auction.category", "", "You must select a category.");
 		}
+		if (afd.getAuction().getDescription().length() >= 65533)
+			errors.rejectValue("auction.description", "", "Your description is too long.");
 		CommonsMultipartFile file = afd.getFile();
 		String fileName = file.getOriginalFilename().toLowerCase();
 		if (!fileName.isEmpty()) {
