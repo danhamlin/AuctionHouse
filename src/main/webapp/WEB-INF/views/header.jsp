@@ -26,17 +26,23 @@
 			<a href="/AuctionHouse" title="Return home">Home</a>
 		</li>
 		<li>
-			<a href="#" title="About the company">About</a>
+			<a href="#" title="Browse">Browse</a>
 			<ul>
-				<li><a href="#">The product</a></li>
-				<li><a href="#">Meet the team</a></li>
+				<li><a href="/AuctionHouse/">All</a></li>
+				<li><a href="/AuctionHouse/category/1">Books</a></li>
+				<li><a href="/AuctionHouse/category/2">Collectibles & Art</a></li>
+				<li><a href="/AuctionHouse/category/3">Electronics & Technology</a></li>
+				<li><a href="/AuctionHouse/category/4">Fashion</a></li>
+				<li><a href="/AuctionHouse/category/5">Home, Outdoors,& Decor</a></li>
+				<li><a href="/AuctionHouse/category/6">Automotive</a></li>
+				<li><a href="/AuctionHouse/category/7">Movies, Music, & Games</a></li>
 			</ul>
 		</li>
 		<li>
 			<a href="#" title="The services we offer">Services</a>
 			<ul>
-				<li><a href="#">Sevice one</a></li>
-				<li><a href="#">Sevice two</a></li>
+				<li><a href="#">Sell Item</a></li>
+				<li><a href="#">My Account</a></li>
 				<li><a href="#">Sevice three</a></li>
 				<li><a href="#">Sevice four</a></li>
 			</ul>
