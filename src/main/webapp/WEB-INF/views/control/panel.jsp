@@ -20,8 +20,7 @@
 			<th width="10%">Title</th>
 			<th width="30%">Category</th>
 			<th width="10%">Seller</th>
-			<th width="20%">Highest Bid</th>
-			<th width="20%">My Current Bid</th>
+			<th width="20%">Current Bid</th>
 			<th width="10%">Image</th>
 		</tr>
 		<c:forEach items="${bids}" var="bid">
@@ -30,7 +29,6 @@
 				<td class="bidCategory">${bid.category.name}</td>
 				<td class="bidSeller">${bid.user.username}</td>
 				<td class="bidHighest">$${bid.bids[0].amount}</td>
-				<td class="bidCurrent">$${bid.bids[1].amount}</td>
 				<c:choose>
 				<c:when test="${not empty bid.picture[0]}">
 					<td class="bidImage"><img src="<c:url value="/image?id=${bid.idAuction}" />" /></td>
@@ -73,7 +71,8 @@
 	<tr>
 		<th width="10%">Title</th>
 		<th width="30%">Category</th>
-		<th width="50%">Highest Bid</th>
+		<th width="30%">Current Bid</th>
+		<th width="20%">End Auction</th>
 		<th width="10%">Image</th>
 	</tr>
 	<c:forEach items="${auctions}" var="auction">
@@ -81,6 +80,7 @@
 			<td class="saleTitle"><a href="<c:url value="/auction/${auction.idAuction}" />" >${auction.title}</a></td>
 			<td class="saleCategory">${auction.category.name}</td>
 			<td class="saleBid">${auction.bids[0].amount}</td>
+			<td>Sell Item<br />Delist Item</td>
 			<c:choose>
 			<c:when test="${not empty auction.picture[0]}">
 				<td class="saleImage"><img src="<c:url value="/image?id=${auction.idAuction}" />" /></td>
