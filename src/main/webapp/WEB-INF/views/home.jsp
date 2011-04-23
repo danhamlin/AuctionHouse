@@ -6,7 +6,7 @@
 <html>
 <head>
 <title>Home</title>
-<link rel="stylesheet" href="/AuctionHouse/resources/styles.css" type="text/css" />
+<link rel="stylesheet" href="<c:url value="/resources/styles.css" />" type="text/css" />
 </head>
 <body>
 	<%@ include file="header.jsp" %>
@@ -15,16 +15,16 @@
 					<div id="auctionImage">
 					<c:choose>
 						<c:when test="${not empty auction.picture[0]}">
-						<p><label id="aImage"><a href="auction/${auction.idAuction}"><img src="<c:url value="/image?id=${auction.idAuction}" />" /></a></label></p>
+						<p><label id="aImage"><a href="<c:url value="/auction/${auction.idAuction}" />"><img src="<c:url value="/image?id=${auction.idAuction}" />" /></a></label></p>
 						</c:when>
 						<c:otherwise>
-							<p><label id="aImage"><img src="/AuctionHouse/resources/images/noimage.png" /></label></p>
+							<p><label id="aImage"><img src="<c:url value="/resources/images/noimage.png" />" /></label></p>
 						</c:otherwise>
 					</c:choose>
 					</div><!-- auctionImage -->
 					
 					<div id="auctionDetails">
-					<p>Title: <label id="aTitle"><a href="auction/${auction.idAuction}">${auction.title}</a>
+					<p>Title: <label id="aTitle"><a href="<c:url value="/auction/${auction.idAuction}" />">${auction.title}</a>
 					</label></p>
 					<p>Category: <label id="aCategory">${auction.category.name}</label></p>
 					<p>Bid: <label id="aBid">${auction.bids[0].amount}</label></p>

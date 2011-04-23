@@ -13,7 +13,6 @@ body
 {
 	font:11px "Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;
 	background: #f9f9f9;
-	/*background: url("images/bg.jpg");*/
 }
 
 html, body
@@ -577,7 +576,7 @@ input#submit:active, input#submitAuction:active
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.9);
 	/* Add the transition properties! */
     -webkit-transition-property: background-color, color;
-    -webkit-transition-duration: 500ms;
+    -webkit-transition-duration: 300ms;
     /* you can control the acceleration curve here */
     -webkit-transition-timing-function: ease-in-out; 
 }

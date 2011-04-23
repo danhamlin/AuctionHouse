@@ -1,14 +1,12 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ taglib uri="http://www.springframework.org/security/tags"
-	prefix="sec"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="../resources/styles.css" type="text/css" />
+<link rel="stylesheet" href="<c:url value="/resources/styles.css" />" type="text/css" />
 <title>Control Panel</title>
 </head>
 <body>
@@ -35,7 +33,7 @@
 					<td class="bidImage"><img src="<c:url value="/image?id=${bid.idAuction}" />" /></td>
 				</c:when>
 				<c:otherwise>
-					<td class="bidImage"><img src="/AuctionHouse/resources/images/noimage.png" /></td>
+					<td class="bidImage"><img src="<c:url value="/resources/images/noimage.png" />" /></td>
 				</c:otherwise>
 				</c:choose>
 				<td class="bidTitle"><a href="<c:url value="/auction/${bid.idAuction}" />" >${bid.title}</a></td>
@@ -69,7 +67,7 @@
 				<td class="saleImage"><img src="<c:url value="/image?id=${win.idAuction}" />" /></td>
 			</c:when>
 			<c:otherwise>
-				<td class="saleImage"><img src="/AuctionHouse/resources/images/noimage.png" /></td>
+				<td class="saleImage"><img src="<c:url value="/resources/images/noimage.png" />" /></td>
 			</c:otherwise>
 			</c:choose>
 			<td class="wonTitle"><a href="<c:url value="/auction/${win.idAuction}" />" >${win.title}</a></td>
@@ -99,7 +97,7 @@
 				<td class="saleImage"><img src="<c:url value="/image?id=${auction.idAuction}" />" /></td>
 			</c:when>
 			<c:otherwise>
-				<td class="saleImage"><img src="/AuctionHouse/resources/images/noimage.png" /></td>
+				<td class="saleImage"><img src="<c:url value="/resources/images/noimage.png" />" /></td>
 			</c:otherwise>
 			</c:choose>
 			<td class="saleTitle"><a href="<c:url value="/auction/${auction.idAuction}" />" >${auction.title}</a></td>
@@ -131,7 +129,7 @@
 				<td class="saleImage"><img src="<c:url value="/image?id=${sale.idAuction}" />" /></td>
 			</c:when>
 			<c:otherwise>
-				<td class="saleImage"><img src="/AuctionHouse/resources/images/noimage.png" /></td>
+				<td class="saleImage"><img src="<c:url value="/resources/images/noimage.png" />" /></td>
 			</c:otherwise>
 			</c:choose>
 			<td class="pastTitle"><a href="<c:url value="/auction/${sale.idAuction}" />" >${sale.title}</a></td>

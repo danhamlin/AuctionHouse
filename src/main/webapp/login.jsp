@@ -5,12 +5,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="resources/styles.css" type="text/css" />
+<link rel="stylesheet" href="<c:url value="/resources/styles.css" />" type="text/css" />
 <title>Login</title>
 </head>
 <body>
 <div id="login-form-container">
-<img src="/AuctionHouse/resources/images/AuctionBanner2.png" width=325 height=85 />
+<img src="<c:url value="/resources/images/AuctionBanner2.png" />" width=325 height=85 />
 <c:if test="${not empty param.error}">
 	<div class="error"><strong>ERROR</strong>: ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}</div>
 </c:if>
@@ -29,7 +29,7 @@
 </p>
 </form>
 <div class="clear"></div>
-<a href="user/add">Register</a>
+<a href="<c:url value="/user/add" />">Register</a>
 </div>
 </body>
 </html>
