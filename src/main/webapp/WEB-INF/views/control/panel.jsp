@@ -74,9 +74,19 @@
 			<td class="wonCategory">${win.category.name}</td>
 			<td class="wonBid">${win.bids[0].amount}</td>
 			<c:choose>
-				<c:when test="${currentUser == win.bids[0].user.username and auction.sold}"><td class="wonStatus">Won</td></c:when>
-				<c:when test="${auction.finished and not auction.sold}"><td class="wonStatus">Canceled</td></c:when>
-				<c:otherwise><td class="wonStatus">Lost</td></c:otherwise>
+				<c:when test="${currentUser == win.bids[0].user.username and win.sold}">
+					<td class="wonStatus">Won</td>
+				</c:when>
+			<c:otherwise>
+				<c:choose>
+					<c:when test="${win.sold and not win.finished}">
+						<td class="wonStatus">Canceled</td>
+					</c:when>
+					<c:otherwise>
+						<td class="wonStatus">Lost</td>
+					</c:otherwise>
+				</c:choose>
+			</c:otherwise>
 			</c:choose>
 		</tr>
 	</c:forEach>
@@ -126,28 +136,28 @@
 		<tr>
 			<c:choose>
 			<c:when test="${sale.sold}">
-			<c:choose>
-			<c:when test="${not empty sale.picture[0]}">
-				<td class="soldImage"><img src="<c:url value="/image?id=${sale.idAuction}" />" /></td>
-			</c:when>
-			<c:otherwise>
-				<td class="soldImage"><img src="<c:url value="/resources/images/noimage.png" />" /></td>
-			</c:otherwise>
-			</c:choose>
+				<c:choose>
+				<c:when test="${not empty sale.picture[0]}">
+					<td class="soldImage"><img src="<c:url value="/image?id=${sale.idAuction}" />" /></td>
+				</c:when>
+				<c:otherwise>
+					<td class="soldImage"><img src="<c:url value="/resources/images/noimage.png" />" /></td>
+				</c:otherwise>
+				</c:choose>
 				<td class="soldTitle"><a href="<c:url value="/auction/${sale.idAuction}" />" >${sale.title}</a></td>
 				<td class="soldCategory">${sale.category.name}</td>
 				<td class="soldHighestBid">$${sale.bids[0].amount}</td>
 			</c:when>
 			
 			<c:otherwise>
-			<c:choose>
-			<c:when test="${not empty sale.picture[0]}">
-				<td class="finishImage"><img src="<c:url value="/image?id=${sale.idAuction}" />" /></td>
-			</c:when>
-			<c:otherwise>
-				<td class="finishImage"><img src="<c:url value="/resources/images/noimage.png" />" /></td>
-			</c:otherwise>
-			</c:choose>
+				<c:choose>
+				<c:when test="${not empty sale.picture[0]}">
+					<td class="finishImage"><img src="<c:url value="/image?id=${sale.idAuction}" />" /></td>
+				</c:when>
+				<c:otherwise>
+					<td class="finishImage"><img src="<c:url value="/resources/images/noimage.png" />" /></td>
+				</c:otherwise>
+				</c:choose>
 				<td class="finishTitle"><a href="<c:url value="/auction/${sale.idAuction}" />" >${sale.title}</a></td>
 				<td class="finishCategory">${sale.category.name}</td>
 				<td class="finishHighestBid">Listing Canceled At<br />$${sale.bids[0].amount}</td>
