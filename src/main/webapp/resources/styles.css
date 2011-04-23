@@ -551,33 +551,32 @@ input#submit:active, input#submitAuction:active
 	border-bottom: 1px solid #9a9a9a;
 	width: 100%;
 	margin: 1em 0;
+	padding: 5px;
 }
 
 #nav
 {
 	font-weight: bold;
-	margin-left: 26.8%;
+	text-align: center;
 }
 
 #nav li
 {
-	float: left;
 	margin-right: 1em;
 	position: relative;
+	display: inline;
 }
 
 #nav li a
 {
-	display: block;
+	display: inline;
 	padding: 5px;
 	color: #fff;
 	background: #333;
 	text-decoration: none;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.9);
-	/* Add the transition properties! */
     -webkit-transition-property: background-color, color;
     -webkit-transition-duration: 300ms;
-    /* you can control the acceleration curve here */
     -webkit-transition-timing-function: ease-in-out; 
 }
 
@@ -597,6 +596,7 @@ input#submit:active, input#submitAuction:active
 	opacity: 0;
 	-webkit-transition: 0.25s linear opacity;
 	z-index: 2;
+	margin-top: 5px;
 }
 
 #nav ul li
@@ -694,6 +694,11 @@ label#amount
 	width: 20px;
 	height: 20px;
 	float: left;
+	border: 1px solid #666;
+	-moz-border-radius:5px;
+	-khtml-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
 }
 
 #redLegend, #greenLegend

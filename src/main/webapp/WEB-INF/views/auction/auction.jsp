@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="<c:url value="/resources/styles.css" />" type="text/css" />
+<script type="text/javascript" src="<c:url value="/resources/jquery.js" />"></script>
 <script type="text/javascript">
 $(document).ready(function() {
     $("#amount").keydown(function(event) {
