@@ -49,9 +49,11 @@ $(document).ready(function() {
 		<c:if test="${auction.sold}">
 		<p>Winner: <span id="aWinner">${auction.bids[0].user.username}</span></p>
 		</c:if>
-		<p>High Bid: <label id="aBid"><c:if test="${auction.bids[0].user.username == null}">No bids yet</c:if>
+		<p>High Bid: <label id="aBid">
+		<c:if test="${auction.bids[0].user.username == null}">No bids yet</c:if>
 		${auction.bids[0].amount}</label></p>
 		<c:if test="${not auction.finished and currentUser != auction.user.username and currentUser != auction.bids[0].user.username}">
+			
 			<sec:authorize ifNotGranted="ROLE_USER">
 			<p id="login-msg">Please <a href="<c:url value="/login.jsp"/>">login</a> to place a new bid</p>
 			</sec:authorize>
@@ -75,7 +77,7 @@ $(document).ready(function() {
 				<a id="delistItem" href="/AuctionHouse/auction/${auction.idAuction}/close?sold=false">Delist Item</a>
 			</p>
 		</c:if>
-		<c:if test="${currentUser == auction.bids[0].user.username}">
+		<c:if test="${currentUser == auction.bids[0].user.username and not auction.sold}">
 			<p id="currentHighNote">You are currently the high bidder on this item.</p>
 		</c:if>
 		
