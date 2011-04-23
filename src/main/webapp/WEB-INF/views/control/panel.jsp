@@ -7,7 +7,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="<c:url value="/resources/styles.css" />" type="text/css" />
-<title>Control Panel</title>
+<title>Auction House | Control Panel</title>
+<script type="text/javascript" src="<c:url value="/resources/jquery.js" />"></script>
+<script type="text/javascript" src="<c:url value="/resources/rainbows.js" />"></script>
+
 </head>
 <body>
 <%@ include file="../header.jsp" %>
@@ -17,6 +20,7 @@
 <br />
 <div id="greenBox"></div><p id="greenLegend">Highest Bid</p>
 <div class="clear"></div>
+<br />
 <h3 id ="CurrentBids">My Current Bids</h3>
 <table border="1">
 		<tr>
@@ -51,7 +55,7 @@
 		</c:forEach>
 	</table>
 <hr />
-<h3 id="PastBids">Past Bids</h3>
+<h3 id="PastBids"> My Past Bids</h3>
 <table border="1">
 	<tr>
 		<th width="10%">Image</th>
@@ -79,7 +83,7 @@
 				</c:when>
 			<c:otherwise>
 				<c:choose>
-					<c:when test="${win.sold and not win.finished}">
+					<c:when test="${win.finished and not win.sold}">
 						<td class="wonStatus">Canceled</td>
 					</c:when>
 					<c:otherwise>
@@ -124,7 +128,7 @@
 	</c:forEach>
 </table>
 <hr />
-<h3 id="PastSales">Past Sales</h3>
+<h3 id="PastSales">My Past Sales</h3>
 <table border="1">
 	<tr>
 		<th width="10%">Image</th>
@@ -168,6 +172,17 @@
 </table>
 <hr />
 </div>
+<script type="text/javascript">
+$(function () {
+    rainbows.init({
+        selector: '#control-panel h3',
+        highlight: true,
+        shadow: true,
+        from: '#606060',
+        to: '#2d2d2d'
+    });
+});
+</script>
 <%@ include file="../footer.jsp" %>
 </body>
 </html>

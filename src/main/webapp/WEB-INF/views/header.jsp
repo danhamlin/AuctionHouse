@@ -2,10 +2,10 @@
 <div id="wrapper">
 <div id="header">
 	<div id="header-img">
-		<a href="/AuctionHouse"><img src="<c:url value="/resources/images/AuctionBanner2.png" />" width=300 height=85 /></a>
+		<a href="/AuctionHouse"><img src="<c:url value="/resources/images/Banner2.png" />" width=800 height=80 /></a>
 	</div>
 	<div id="header-login">
-		<sec:authorize ifAnyGranted="ROLE_USER">
+		<!--  <sec:authorize ifAnyGranted="ROLE_USER">
 		<p>Welcome 
 		<sec:authentication property="name" />!</p>
 			<p><a href="/AuctionHouse/control/panel">My Account</a></p>
@@ -15,10 +15,9 @@
 		<p>Welcome Guest!</p>
 			<p><a href="/AuctionHouse/login.jsp">Log In</a></p>
 			<p><a href="/AuctionHouse/user/add">Register</a></p>
-		</sec:authorize>
+		</sec:authorize> -->
 	</div>
 </div>
-<div class="clear"></div>
 	<div id="nav-bar">
 		<ul id="nav">
 		<li>
@@ -38,6 +37,14 @@
 			</ul>
 		</li>
 		<li>
+			<a href="<c:url value="/contact.jsp" />" title="Get in touch with us">Contact Us</a>
+		</li>
+		<sec:authorize ifAnyGranted="ROLE_USER">
+		<li>
+			<a href="<c:url value="/auction/add" />">Add Auction</a>
+		</li>
+		<li>
+			<li>
 			<a href="<c:url value="/control/panel" />" title="My Account">My Account</a>
 			<ul>
 				<li><a href="<c:url value="/control/panel#CurrentBids" />">Current Bids</a></li>
@@ -47,12 +54,17 @@
 				<li><a href="<c:url value="/user/update" />">Edit Details</a></li>
 			</ul>
 		</li>
-		<li>
-			<a href="<c:url value="/contact.jsp" />" title="Get in touch with us">Contact Us</a>
 		</li>
-		<sec:authorize ifAnyGranted="ROLE_USER">
 		<li>
-			<a href="<c:url value="/auction/add" />">Add Auction</a>
+			<a href="<c:url value="/j_spring_security_logout" />">Logout</a>
+		</li>
+		</sec:authorize>
+		<sec:authorize ifAnyGranted="ROLE_GUEST">
+		<li>
+			<a href="<c:url value="/login.jsp" />">Log In</a>
+		</li>
+		<li>
+			<a href="<c:url value="/user/add" />">Register</a>
 		</li>
 		</sec:authorize>
 	</ul>

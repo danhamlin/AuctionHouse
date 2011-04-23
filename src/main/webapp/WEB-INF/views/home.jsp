@@ -5,7 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Home</title>
+<title>Auction House</title>
 <link rel="stylesheet" href="<c:url value="/resources/styles.css" />" type="text/css" />
 </head>
 <body>
@@ -27,7 +27,14 @@
 					<p>Title: <label id="aTitle"><a href="<c:url value="/auction/${auction.idAuction}" />">${auction.title}</a>
 					</label></p>
 					<p>Category: <label id="aCategory">${auction.category.name}</label></p>
-					<p>Bid: <label id="aBid">${auction.bids[0].amount}</label></p>
+					<c:choose>
+						<c:when test="${auction.bids[0].amount == null}">
+						<p>Bid: <label id="aBid">No Bids Yet</label></p>
+						</c:when>
+						<c:otherwise>
+						<p>Bid: <label id="aBid">$${auction.bids[0].amount}</label></p>
+						</c:otherwise>
+					</c:choose>
 					</div><!-- auctionDetails -->
 					
 					<div class="clear"></div>

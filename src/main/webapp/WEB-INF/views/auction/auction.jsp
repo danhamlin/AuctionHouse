@@ -24,7 +24,7 @@ $(document).ready(function() {
     });
 });
 </script>
-<title>Auction view</title>
+<title>Auction House | ${auction.title}</title>
 </head>
 <body>
 <%@ include file="../header.jsp" %>
@@ -41,17 +41,21 @@ $(document).ready(function() {
 </div><!-- auctionImage -->
 <div id="auctionDetails">
 		<p>Title: <label id="aTitle">${auction.title}</label></p>
+		<div class="clear"></div>
 		<p>Category: <label id="aCategory">${auction.category.name}</label></p>
+		<div class="clear"></div>
 		<p>Description: <label id="aDescription">${auction.description}</label></p>
+		<div class="clear"></div>
 		<p>Listed by: <label id="aUsername">${auction.user.username}</label></p>
 		<c:if test="${auction.sold}">
 		<p>Winner: <span id="aWinner">${auction.bids[0].user.username}</span></p>
+		<div class="clear"></div>
 		</c:if>
 		<p>High Bid: <label id="aBid">
 		<c:if test="${auction.bids[0].user.username == null}">No bids yet</c:if>
 		${auction.bids[0].amount}</label></p>
-		<c:if test="${not auction.finished and currentUser != auction.user.username and currentUser != auction.bids[0].user.username}">
-			
+		<div class="clear"></div>
+		<c:if test="${not auction.finished and currentUser != auction.user.username and currentUser != auction.bids[0].user.username}">		
 			<sec:authorize ifNotGranted="ROLE_USER">
 			<p id="login-msg">Please <a href="<c:url value="/login.jsp"/>">login</a> to place a new bid</p>
 			</sec:authorize>
