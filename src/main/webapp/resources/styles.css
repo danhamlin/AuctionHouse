@@ -737,7 +737,7 @@ label#amount
 #auctionFinished
 {
 	font-variant: small-caps;
-	background: #f5b7ae;
+	background: #f7c6be;
 	border: 1px solid #cc0000;
 	-moz-border-radius:5px;
 	-khtml-border-radius:5px;
@@ -761,9 +761,19 @@ label#amount
 	max-height: 100px;
 }
 
-.bidTitle, .bidCategory, .bidSeller, .saleTitle, .saleCategory, .bidHighest, .bidCurrent, .wonTitle, .wonCategory, .wonBid, .saleBid, .pastTitle, .pastCategory, .pastHighestBid, .bidHighestMe, .bidHighestElse
+.bidTitle, .bidCategory, .bidSeller, .saleTitle, .saleCategory, .bidHighest, .bidCurrent, .wonTitle, .wonCategory, .wonBid, .saleBid, .bidHighestMe, .bidHighestElse
 {
 	text-align: center;
+}
+
+.soldTitle, .soldCategory, .soldHighestBid, .finishTitle, .finishCategory, .finishHighestBid
+{
+	text-align: center;
+}
+
+.finishTitle, .finishCategory, .finishHighestBid, .finishImage
+{
+	background: #f7c6be;
 }
 
 #control-panel table

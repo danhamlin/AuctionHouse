@@ -125,16 +125,34 @@
 	<c:forEach items="${sales}" var="sale">
 		<tr>
 			<c:choose>
+			<c:when test="${sale.sold}">
+			<c:choose>
 			<c:when test="${not empty sale.picture[0]}">
-				<td class="saleImage"><img src="<c:url value="/image?id=${sale.idAuction}" />" /></td>
+				<td class="soldImage"><img src="<c:url value="/image?id=${sale.idAuction}" />" /></td>
 			</c:when>
 			<c:otherwise>
-				<td class="saleImage"><img src="<c:url value="/resources/images/noimage.png" />" /></td>
+				<td class="soldImage"><img src="<c:url value="/resources/images/noimage.png" />" /></td>
 			</c:otherwise>
 			</c:choose>
-			<td class="pastTitle"><a href="<c:url value="/auction/${sale.idAuction}" />" >${sale.title}</a></td>
-			<td class="pastCategory">${sale.category.name}</td>
-			<td class="pastHighestBid">$${sale.bids[0].amount}</td>
+				<td class="soldTitle"><a href="<c:url value="/auction/${sale.idAuction}" />" >${sale.title}</a></td>
+				<td class="soldCategory">${sale.category.name}</td>
+				<td class="soldHighestBid">$${sale.bids[0].amount}</td>
+			</c:when>
+			
+			<c:otherwise>
+			<c:choose>
+			<c:when test="${not empty sale.picture[0]}">
+				<td class="finishImage"><img src="<c:url value="/image?id=${sale.idAuction}" />" /></td>
+			</c:when>
+			<c:otherwise>
+				<td class="finishImage"><img src="<c:url value="/resources/images/noimage.png" />" /></td>
+			</c:otherwise>
+			</c:choose>
+				<td class="finishTitle"><a href="<c:url value="/auction/${sale.idAuction}" />" >${sale.title}</a></td>
+				<td class="finishCategory">${sale.category.name}</td>
+				<td class="finishHighestBid">Listing Canceled At<br />$${sale.bids[0].amount}</td>
+			</c:otherwise>
+			</c:choose>
 		</tr>
 	</c:forEach>
 </table>
