@@ -19,7 +19,6 @@
 	</div>
 </div>
 <div class="clear"></div>
-		<hr />
 	<div id="nav-bar">
 		<ul id="nav">
 		<li>
@@ -58,5 +57,4 @@
 		</sec:authorize>
 	</ul>
 	</div>
-	<hr />
 	<div class="clear"></div>
