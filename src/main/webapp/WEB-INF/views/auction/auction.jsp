@@ -32,7 +32,16 @@ $(document).ready(function() {
 <div id="auctionImage">
 <c:choose>
 	<c:when test="${not empty auction.picture[0]}">
-	<p><label id="aImage"><img src="<c:url value="/image?id=${auction.idAuction}" />" /></label></p>
+
+<a id="click" href="#">
+	<label id="aImage"><img src="<c:url value="/image?id=${auction.idAuction}" />" /></label>
+	<span id="zoomImg">
+		<img src="<c:url value="/image?id=${auction.idAuction}" />" />
+	</span>
+</a>
+	
+	
+	
 	</c:when>
 	<c:otherwise>
 		<p><label id="aImage"><img src="<c:url value="/resources/images/noimage.png" />" /></label></p>
@@ -79,8 +88,8 @@ $(document).ready(function() {
 				<a id="delistItem" href="/AuctionHouse/auction/${auction.idAuction}/close?sold=false">Delist Item</a>
 			</p>
 		</c:if>
-		<c:if test="${currentUser == auction.bids[0].user.username and not auction.sold}">
-			<p id="currentHighNote">You are currently the high bidder on this item.</p>
+		<c:if test="${currentUser == auction.bids[0].user.username and not auction.sold and not auction.finished}">
+			<p id="currentHighNote">You are currently the highest bidder on this item.</p>
 		</c:if>
 		
 		<c:if test="${auction.finished and not auction.sold}">

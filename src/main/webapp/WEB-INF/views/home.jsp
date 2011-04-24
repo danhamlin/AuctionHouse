@@ -12,6 +12,7 @@
 	<%@ include file="header.jsp" %>
 		<div id="mainPage-auctions">
 			<c:forEach items="${auctions}" var="auction">
+			<div class="auctionList">
 					<div id="auctionImage">
 					<c:choose>
 						<c:when test="${not empty auction.picture[0]}">
@@ -38,9 +39,10 @@
 					</div><!-- auctionDetails -->
 					
 					<div class="clear"></div>
+				</div><!-- auction list -->
 					<hr />
 			</c:forEach>
-		</div><!--  mainPage=auctions -->
+		</div><!--  mainPage-auction -->
 <%@ include file="footer.jsp" %>
 </body>
 </html>

@@ -79,15 +79,15 @@
 			<td class="wonBid">${win.bids[0].amount}</td>
 			<c:choose>
 				<c:when test="${currentUser == win.bids[0].user.username and win.sold}">
-					<td class="wonStatus">Won</td>
+					<td class="wonStatusWon">Won</td>
 				</c:when>
 			<c:otherwise>
 				<c:choose>
 					<c:when test="${win.finished and not win.sold}">
-						<td class="wonStatus">Canceled</td>
+						<td class="wonStatusCanceled">Canceled</td>
 					</c:when>
 					<c:otherwise>
-						<td class="wonStatus">Lost</td>
+						<td class="wonStatusLost">Lost</td>
 					</c:otherwise>
 				</c:choose>
 			</c:otherwise>
