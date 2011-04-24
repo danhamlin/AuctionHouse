@@ -18,6 +18,10 @@
 		</sec:authorize> -->
 	</div>
 </div>
+		<sec:authorize ifAnyGranted="ROLE_USER">
+		<p>Welcome 
+		<sec:authentication property="name" />!</p>
+		</sec:authorize>
 	<div id="nav-bar">
 		<ul id="nav">
 		<li>
