@@ -1,5 +1,5 @@
 <div id="head-gradient"></div>
-<div id="wrapper">
+
 <div id="header">
 	<div id="header-img">
 		<a href="/AuctionHouse"><img src="<c:url value="/resources/images/Banner2.png" />" width=800 height=80 /></a>
@@ -74,3 +74,4 @@
 	</ul>
 	</div>
 	<div class="clear"></div>
+<div id="wrapper">

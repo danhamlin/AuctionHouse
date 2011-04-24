@@ -527,6 +527,7 @@ input#submit:active, input#submitAuction:active
 #header-img
 {
 	margin: 0 auto;
+	width: 800px;
 }
 #header-login
 {
@@ -947,6 +948,16 @@ a .rainbow span
 #click span
 {
 	display: none;
+}
+
+#click
+{	
+    -webkit-transition: all .5s ease-out; opacity:0.5;
+}
+
+#click:hover
+{
+	-webkit-box-shadow:0 0 10px #000000; opacity:1;
 }
 
 #click:hover span
