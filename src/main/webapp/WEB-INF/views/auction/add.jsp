@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert new auction</title>
+<title>Auction House | Add New Auction</title>
 <link rel="stylesheet" href="../resources/styles.css" type="text/css" />
 </head>
 <body>

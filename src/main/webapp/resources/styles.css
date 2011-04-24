@@ -18,6 +18,10 @@ body
 html, body
 {
 	height: 100%;
+	width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
 }
 
 hr
@@ -28,6 +32,15 @@ hr
 img
 {
 	border: none;
+}
+
+#welcome-msg
+{
+	width: 800px;
+	margin: 0 auto;
+	font-variant: small-caps;
+	font-size: 12pt;
+	font-weight: 800;
 }
 
 .error
@@ -598,7 +611,10 @@ input#submit:active, input#submitAuction:active
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.9);
     -webkit-transition-property: background-color, color;
     -webkit-transition-duration: 300ms;
-    -webkit-transition-timing-function: ease-in-out; 
+    -webkit-transition-timing-function: ease-in-out;
+    -moz-transition-property: background-color, color;
+    -moz-transition-duration: 300ms;
+    -moz-transition-timing-function: ease-in-out; 
 }
 
 #nav li a:hover
@@ -952,21 +968,36 @@ a .rainbow span
 
 #click
 {	
-    -webkit-transition: all .5s ease-out; opacity:0.5;
+    -webkit-transition: all .3s ease-out;
+    opacity:0.1;
+    -moz-transition: all .3s ease-out;
 }
 
 #click:hover
 {
-	-webkit-box-shadow:0 0 10px #000000; opacity:1;
+	-webkit-box-shadow:0 0 10px #000000;
+	opacity:1;
+	-moz-box-shadow:0 0 10px #000000;
 }
 
 #click:hover span
 {
 	display: block;
 	position: absolute;
-	top:24%;
-	left: 27%;
+	top:27%;
+	left: 26%;
 	padding-left: 20px;
+}
+
+@-moz-document url-prefix() {
+  #click:hover span
+	{
+		display: block;
+		position: absolute;
+		top:28% !important;
+		left: 29%;
+		padding-left: 20px;
+	}
 }
 
 #zoomImg>img

@@ -32,16 +32,12 @@ $(document).ready(function() {
 <div id="auctionImage">
 <c:choose>
 	<c:when test="${not empty auction.picture[0]}">
-
-<a id="click" href="#">
-	<label id="aImage"><img src="<c:url value="/image?id=${auction.idAuction}" />" /></label>
-	<span id="zoomImg">
-		<img src="<c:url value="/image?id=${auction.idAuction}" />" />
-	</span>
-</a>
-	
-	
-	
+		<a id="click">
+			<label id="aImage"><img src="<c:url value="/image?id=${auction.idAuction}" />" /></label>
+			<span id="zoomImg">
+				<img src="<c:url value="/image?id=${auction.idAuction}" />" />
+			</span>
+		</a>
 	</c:when>
 	<c:otherwise>
 		<p><label id="aImage"><img src="<c:url value="/resources/images/noimage.png" />" /></label></p>

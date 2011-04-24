@@ -19,8 +19,10 @@
 	</div>
 </div>
 		<sec:authorize ifAnyGranted="ROLE_USER">
+		<div id="welcome-msg">
 		<p>Welcome 
 		<sec:authentication property="name" />!</p>
+		</div>
 		</sec:authorize>
 	<div id="nav-bar">
 		<ul id="nav">
