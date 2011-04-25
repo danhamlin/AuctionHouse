@@ -7,9 +7,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="<c:url value="/resources/styles.css" />" type="text/css" />
 <title>Add Feedback Form...</title>
 </head>
 <body>
+<%@ include file="../header.jsp" %>
 Leave feedback for 
 <c:choose>
 <c:when test="${currentUser == auction.user.username}">Buyer</c:when>
@@ -31,5 +33,6 @@ Leave feedback for
 	<div class="clear"></div>
 	<input id="submit" type="submit" name="submit" value="Leave Feedback" />
 </form:form>
+<%@ include file="../footer.jsp" %>
 </body>
 </html>

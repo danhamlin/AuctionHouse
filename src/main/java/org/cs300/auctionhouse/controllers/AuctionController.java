@@ -61,6 +61,30 @@ public class AuctionController {
 	public String auction(@PathVariable("id") int id, Model model) {
 		String currentUser = SecurityContextHolder.getContext().getAuthentication().getName();
 		Auction auction = services.getAuctionByID(id);
+		//figure out which feedback is which, this could use some refactoring
+		if (!auction.getFeedbacks().isEmpty()) {
+			List<Feedback> fb = auction.getFeedbacks();
+			Feedback buyerFB, sellerFB;
+			if (fb.size() == 1) {
+				if (fb.get(0).getAuction().getUser().getUsername().equals(fb.get(0).getUser().getUsername())) {
+					buyerFB = fb.get(0);
+					sellerFB = null;
+				} else {
+					buyerFB = null;
+					sellerFB = fb.get(0);
+				}
+			} else {
+				if (fb.get(0).getAuction().getUser().getUsername().equals(fb.get(0).getUser().getUsername())) {
+					buyerFB = fb.get(0);
+					sellerFB = fb.get(1);
+				} else {
+					buyerFB = fb.get(1);
+					sellerFB = fb.get(0);
+				}
+			}
+			model.addAttribute("buyerFB", buyerFB);
+			model.addAttribute("sellerFB", sellerFB);
+		}
 		model.addAttribute("currentUser", currentUser);
 		model.addAttribute("auction", auction);
 		Bid bid = new Bid();
@@ -158,7 +182,7 @@ public class AuctionController {
 		} else {
 			services.saveFeedback(feedback);
 			status.setComplete();
-			return "redirect:feedbacksuccess";
+			return "redirect:success";
 		}
 	}
 

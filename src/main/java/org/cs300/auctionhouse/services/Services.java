@@ -133,11 +133,6 @@ public class Services {
 		return sess().createQuery("select feedback from Feedback feedback where feedback.auction = (select distinct bid.auction from Bid bid where bid.user.username=:id and bid.auction.sold=true)").setString("id", username).list();
 	}
 
-	@SuppressWarnings("unchecked")
-	public List<Feedback> getFeedbackByAuctionId(int id) {
-		return sess().createQuery("from Feedback where feedback.auction.idAuction=:id").setInteger("id", id).list();
-	}
-
 	public void saveFeedback(Feedback feedback) {
 		sess().save(feedback);
 	}

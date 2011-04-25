@@ -14,7 +14,7 @@ public class FeedbackValidator implements Validator {
 	}
 
 	public void validate(Object target, Errors errors) {
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "feedback", "", "Feedback is a required field.");
+		//ValidationUtils.rejectIfEmptyOrWhitespace(errors, "feedback", "", "Feedback is a required field.");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "rating", "", "Rating is a required field.");
 		Feedback feedback = (Feedback) target;
 		if (feedback.getRating() < 1 || feedback.getRating() > 5)

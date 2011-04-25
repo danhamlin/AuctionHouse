@@ -87,9 +87,31 @@ $(document).ready(function() {
 		<c:if test="${currentUser == auction.bids[0].user.username and not auction.sold and not auction.finished}">
 			<p id="currentHighNote">You are currently the highest bidder on this item.</p>
 		</c:if>
-		
 		<c:if test="${auction.finished and not auction.sold}">
 			<p id="auctionFinished">Auction was canceled.</p>
+		</c:if>
+		<c:if test="${auction.sold}">
+		<!-- Add link to leave feedback here and also feedback already left -->
+			<c:if test="${buyerFB != null}">
+			<!-- display buyer feedback -->
+			<p>Feedback for buyer: ${buyerFB.feedback}
+			<br />
+			Rating for buyer: ${buyerFB.rating}</p>
+			</c:if>
+			<c:if test="${buyerFB == null and currentUser == auction.user.username }">
+			<!-- display link for seller to leave feedback for buyer -->
+			<p>Click <a href="${auction.idAuction}/feedback/add">here</a> to leave feedback for buyer.</p>
+			</c:if>
+			<c:if test="${sellerFB != null}">
+			<!-- display seller feedback -->
+			<p>Feedback for seller: ${sellerFB.feedback}
+			<br />
+			Rating for seller: ${sellerFB.rating}</p>
+			</c:if>
+			<c:if test="${sellerFB == null and currentUser == auction.bids[0].user.username}">
+			<!-- display link for buyer to leave feedback for seller -->
+			<p>Click <a href="${auction.idAuction}/feedback/add">here</a> to leave feedback for seller.</p>
+			</c:if>
 		</c:if>
 		<div class="clear"></div>
 		<hr />
