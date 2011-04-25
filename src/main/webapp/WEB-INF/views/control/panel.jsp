@@ -10,7 +10,6 @@
 <title>Auction House | Control Panel</title>
 <script type="text/javascript" src="<c:url value="/resources/jquery.js" />"></script>
 <script type="text/javascript" src="<c:url value="/resources/rainbows.js" />"></script>
-
 </head>
 <body>
 <%@ include file="../header.jsp" %>

@@ -100,7 +100,7 @@ $(document).ready(function() {
 			</c:if>
 			<c:if test="${buyerFB == null and currentUser == auction.user.username }">
 			<!-- display link for seller to leave feedback for buyer -->
-			<p>Click <a href="${auction.idAuction}/feedback/add">here</a> to leave feedback for buyer.</p>
+			<p id="leave-feedback">Click <a href="${auction.idAuction}/feedback/add">here</a> to leave feedback for buyer.</p>
 			</c:if>
 			<c:if test="${sellerFB != null}">
 			<!-- display seller feedback -->
@@ -110,7 +110,7 @@ $(document).ready(function() {
 			</c:if>
 			<c:if test="${sellerFB == null and currentUser == auction.bids[0].user.username}">
 			<!-- display link for buyer to leave feedback for seller -->
-			<p>Click <a href="${auction.idAuction}/feedback/add">here</a> to leave feedback for seller.</p>
+			<p id="leave-feedback">Click <a href="${auction.idAuction}/feedback/add">here</a> to leave feedback for seller.</p>
 			</c:if>
 		</c:if>
 		<div class="clear"></div>

@@ -632,7 +632,7 @@ input#submit:active, input#submitAuction:active
 	left: -9999px;
 	opacity: 0;
 	-webkit-transition: 0.25s linear opacity;
-	z-index: 2;
+	z-index: 10;
 	margin-top: 5px;
 }
 
@@ -731,7 +731,7 @@ label#amount
 {
 	width: 15px;
 	height: 15px;
-	float: left;
+	float: right;
 	border: 1px solid #666;
 	-moz-border-radius:5px;
 	-khtml-border-radius:5px;
@@ -741,8 +741,8 @@ label#amount
 
 #redLegend, #greenLegend
 {
-	float: left;
-	margin-left: .5em;
+	float: right;
+	margin-right: .5em;
 	font-size: 10pt;
 }
 
@@ -898,6 +898,33 @@ label#amount
 	height: 4em;
 }
 
+#leave-feedback:before
+{
+	content: url('images/exclamation.png');
+	display: inline;
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+#leave-feedback a
+{
+	color: blue;
+	text-decoration: none;
+}
+
+#leave-feedback a:hover
+{
+	color: #000;
+	text-decoration: underline;
+	background:#f1cc91;
+}
+
+#feedback-title
+{
+	text-align: center;
+	font-size: 18pt;
+}
+
 #control-panel h3
 {
 	font-size: 18pt;
@@ -940,6 +967,8 @@ a .rainbow span
 	top: -1px;
 	left: 0px;
 	z-index: 2;
+	text-align: center;
+	width: 800px;
 }
 
 .rainbows-shadow /*base*/
@@ -984,7 +1013,7 @@ a .rainbow span
 {
 	display: block;
 	position: absolute;
-	top:27%;
+	top:24.5%;
 	left: 26%;
 	padding-left: 20px;
 }
@@ -994,7 +1023,7 @@ a .rainbow span
 	{
 		display: block;
 		position: absolute;
-		top:28% !important;
+		top:26% !important;
 		left: 29%;
 		padding-left: 20px;
 	}

@@ -8,15 +8,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="<c:url value="/resources/styles.css" />" type="text/css" />
-<title>Add Feedback Form...</title>
+<script type="text/javascript" src="<c:url value="/resources/jquery.js" />"></script>
+<script type="text/javascript" src="<c:url value="/resources/rainbows.js" />"></script>
+<title>Auction House | Submit Feedback</title>
 </head>
 <body>
 <%@ include file="../header.jsp" %>
-Leave feedback for 
 <c:choose>
-<c:when test="${currentUser == auction.user.username}">Buyer</c:when>
-<c:otherwise>Seller</c:otherwise>
+<c:when test="${currentUser == auction.user.username}">
+	<div id="fTitle">
+	<h3 id="feedback-title">Leave feedback for '${auction.bids[0].user.username}'</h3>
+	</div>
+</c:when>
+<c:otherwise>
+	<div id="fTitle">
+	<h3 id="feedback-title">Leave feedback for '${auction.user.username}'</h3>
+	</div>
+</c:otherwise>
 </c:choose>
+
 <form:form method="post" modelAttribute="fb">
 <p>
 	<label id="feedback">Feedback<br />
@@ -30,9 +40,19 @@ Leave feedback for
 	<form:input path="rating" maxlength="1" />
 	</label>
 </p>
-	<div class="clear"></div>
 	<input id="submit" type="submit" name="submit" value="Post Feedback" />
 </form:form>
+<script type="text/javascript">
+$(function () {
+    rainbows.init({
+        selector: '#fTitle h3',
+        highlight: true,
+        shadow: true,
+        from: '#606060',
+        to: '#2d2d2d'
+    });
+});
+</script>
 <%@ include file="../footer.jsp" %>
 </body>
 </html>
