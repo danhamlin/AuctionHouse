@@ -59,8 +59,13 @@ public class UserController {
 	@RequestMapping(value = "/user/update", method = RequestMethod.POST)
 	public String updateUserSubmit(@ModelAttribute("upi") UserPersonalInfo upi,
 			BindingResult result, SessionStatus status) {
-		
-		return "redirect:updatesuccess";
+		userValidator.validate(upi, result);
+		if (result.hasErrors()) {
+			return "user/update";
+		} else {
+			services.updateUser(upi.getUser(), upi.getPersonalInfo());
+			return "redirect:updatesuccess";
+		}
 	}
 
 	@RequestMapping(value = "/user/success", method = RequestMethod.GET)
