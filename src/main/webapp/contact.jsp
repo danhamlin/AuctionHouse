@@ -14,7 +14,7 @@
 	
 	<div id="contact-us">
 	
-	<center><a href="/AuctionHouse"><img src="/AuctionHouse/resources/images/AuctionBanner2.png" width=325 height=85 /></a></center>
+	<center><a href="/AuctionHouse"><img src="/AuctionHouse/resources/images/Banner2.png" width=800 height=85 /></a></center>
 	<h1>Contact Info</h1>
 	<hr>
 	<h3>Dan Hamlin </h3>

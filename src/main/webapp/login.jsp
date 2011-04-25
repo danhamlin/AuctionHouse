@@ -10,7 +10,7 @@
 </head>
 <body>
 <div id="login-form-container">
-<img src="<c:url value="/resources/images/AuctionBanner2.png" />" width=325 height=85 />
+<a href = "/AuctionHouse"><img src="<c:url value="/resources/images/AuctionBanner2.png" />" width=315 height=85 /></a>
 <c:if test="${not empty param.error}">
 	<div class="error"><strong>ERROR</strong>: ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}</div>
 </c:if>

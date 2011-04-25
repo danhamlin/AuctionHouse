@@ -11,7 +11,7 @@
 </head>
 <body>
 <div id="register-form-container">
-<a href="/AuctionHouse"><img src="<c:url value="/resources/images/AuctionBanner2.png" /> " width=325 height=85 /></a>
+<a href="/AuctionHouse"><img src="<c:url value="/resources/images/Banner2.png" /> " width=800 height=85 /></a>
 <p>* denotes required field.</p>
 <form:form method="post" modelAttribute="upi">
 <div id="reg-left-column">

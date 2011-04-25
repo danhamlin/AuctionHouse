@@ -11,7 +11,7 @@
 </head>
 <body>
 <div id="register-form-container">
-<a href="<c:url value="/" />"><img src="<c:url value="/resources/images/AuctionBanner2.png" />" width=325 height=85 /></a>
+<a href="<c:url value="/" />"><img src="<c:url value="/resources/images/Banner2.png" />" width=800 height=85 /></a>
 <form:form method="post" modelAttribute="upi">
 <p>* denote required field.</p>
 <br />

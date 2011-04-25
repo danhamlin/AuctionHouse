@@ -31,7 +31,7 @@ Leave feedback for
 	</label>
 </p>
 	<div class="clear"></div>
-	<input id="submit" type="submit" name="submit" value="Leave Feedback" />
+	<input id="submit" type="submit" name="submit" value="Post Feedback" />
 </form:form>
 <%@ include file="../footer.jsp" %>
 </body>
