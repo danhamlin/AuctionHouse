@@ -13,8 +13,10 @@
 <body>
 	
 	<div id="contact-us">
-	
+	<br />
+	<br />
 	<center><a href="/AuctionHouse"><img src="/AuctionHouse/resources/images/Banner2.png" width=800 height=85 /></a></center>
+	<br />
 	<h1>Contact Info</h1>
 	<hr>
 	<h3>Dan Hamlin </h3>

@@ -68,7 +68,7 @@ $(document).ready(function() {
 			<p>
 				<form:form method="post" modelAttribute="bid">
 				<form:errors path="*" cssClass="bidError"/>
-					<p><label id="amount">Amount:
+					<p><label id="amount">Amount: $
 				<form:input path="amount" />
 					</label></p>
 					<p><input id="submit" type="submit" name="submit" value="Place Bid" /></p>
