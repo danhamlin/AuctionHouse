@@ -57,6 +57,7 @@
 				<li><a href="<c:url value="/control/panel#PastBids" />">Past Bids</a></li>
 				<li><a href="<c:url value="/control/panel#CurrentSales" />">Current Sales</a></li>
 				<li><a href="<c:url value="/control/panel#PastSales" />">Past Sales</a></li>
+				<li> <a href="/AuctionHouse/user/feedback/<sec:authentication property="name" /> " >Feedback</a></li>
 				<li><a href="<c:url value="/user/update" />">Edit Details</a></li>
 			</ul>
 		</li>
