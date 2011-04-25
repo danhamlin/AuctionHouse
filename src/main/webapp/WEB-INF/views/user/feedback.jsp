@@ -30,14 +30,14 @@ Feedback left for user's purchases.
 <table>
 	<tr>
 		<th>Auction</th>
-		<th>Buyer</th>
+		<th>Seller</th>
 		<th>Feedback</th>
 		<th>Rating</th>
 	</tr>
 	<c:forEach items="${feedbackBids}" var="fbb">
 	<tr>
 		<td>${fbb.auction.title}</td>
-		<td>${fbb.auction.bids[0].user.username}</td>
+		<td>${fbb.auction.user.username}</td>
 		<td>${fbb.feedback}</td>
 		<td>${fbb.rating}</td>
 	</tr>
