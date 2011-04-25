@@ -31,7 +31,7 @@
 <p>
 	<label id="feedback">Feedback<br />
 	<form:errors path="feedback" cssClass="regError" />
-	<form:input path="feedback" maxlength="255" />
+	<form:textarea path="feedback" rows="10" cols="80" maxlength="255" />
 	</label>
 </p>
 <p>
