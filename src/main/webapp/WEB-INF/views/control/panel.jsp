@@ -163,7 +163,7 @@
 				</c:choose>
 				<td class="finishTitle"><a href="<c:url value="/auction/${sale.idAuction}" />" >${sale.title}</a></td>
 				<td class="finishCategory">${sale.category.name}</td>
-				<td class="finishHighestBid">Listing Canceled At<br />$${sale.bids[0].amount}</td>
+				<td class="finishHighestBid">Listing Canceled</td>
 			</c:otherwise>
 			</c:choose>
 		</tr>

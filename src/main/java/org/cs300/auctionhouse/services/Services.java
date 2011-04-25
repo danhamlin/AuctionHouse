@@ -41,8 +41,9 @@ public class Services {
 		sess().save(auth);
 	}
 
-	public void updateUser(User user) {
+	public void updateUser(User user, PersonalInfo pi) {
 		sess().update(user);
+		sess().update(pi);
 	}
 
 	public int saveNewAuction(Auction auction) {
@@ -135,5 +136,10 @@ public class Services {
 
 	public void saveFeedback(Feedback feedback) {
 		sess().save(feedback);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Auction> searchAuctions(String searchTerm) {
+		return sess().createQuery("").setString("searchTerm", searchTerm).list();
 	}
 }
