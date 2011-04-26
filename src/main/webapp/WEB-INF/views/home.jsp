@@ -16,7 +16,7 @@
 					<div id="auctionImage">
 					<c:choose>
 						<c:when test="${not empty auction.picture[0]}">
-						<p><label id="aImage"><a href="<c:url value="/auction/${auction.idAuction}" />"><img src="<c:url value="/image?id=${auction.idAuction}" />" /></a></label></p>
+						<div id="aImage"><a href="<c:url value="/auction/${auction.idAuction}" />"><img src="<c:url value="/image?id=${auction.idAuction}" />" /></a></div>
 						</c:when>
 						<c:otherwise>
 							<p><label id="aImage"><img src="<c:url value="/resources/images/noimage.png" />" /></label></p>

@@ -30,17 +30,26 @@
 <form:form method="post" modelAttribute="fb">
 <p>
 	<label id="feedback">Feedback<br />
-	<form:errors path="feedback" cssClass="regError" />
+	<form:errors path="feedback" cssClass="feedError" />
 	<form:textarea path="feedback" rows="10" cols="80" maxlength="255" />
 	</label>
 </p>
-<p>
-	<label id="rating">Rating<br />
-	<form:errors path="rating" cssClass="regError" />
+<br />
+	<!-- <label id="rating">Rating<br />
+	<form:errors path="rating" cssClass="feedError" />
 	<form:input path="rating" maxlength="1" />
-	</label>
-</p>
-	<input id="submit" type="submit" name="submit" value="Post Feedback" />
+	</label> -->
+	<label id="rating">Rating</label><br />
+	<form:errors path="rating" cssClass="feedError" />
+	<div class="stars">
+		1<form:radiobutton path="rating" value="1" />
+		2<form:radiobutton path="rating" value="2" />
+		3<form:radiobutton path="rating" value="3" />
+		4<form:radiobutton path="rating" value="4" />
+		5<form:radiobutton path="rating" value="5" />
+	</div>
+<br />
+	<input id="submitAuction" type="submit" name="submit" value="Post Feedback" />
 </form:form>
 <script type="text/javascript">
 $(function () {

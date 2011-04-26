@@ -64,7 +64,6 @@
 		<li>
 			<a href="<c:url value="/j_spring_security_logout" />">Logout</a>
 		</li>
-		<li><sec:authentication property="name" /></li>
 		</sec:authorize>
 		<sec:authorize ifAnyGranted="ROLE_GUEST">
 		<li>
