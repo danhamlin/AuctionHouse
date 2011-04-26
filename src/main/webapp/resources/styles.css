@@ -146,6 +146,44 @@ textarea
 	background:#f1cc91;
 }
 
+.contact-us>#header-img a:hover
+{
+	color: none;
+	text-decoration: none;
+	background:none;
+}
+
+#contact-wrapper
+{
+	margin-top: 2em;
+	text-align: center;
+}
+
+#contact-wrapper h1
+{
+	font-size: 3em;
+}
+
+#contact-wrapper h3
+{
+	font-size: 1.5em;
+}
+
+.contact-person
+{
+	margin-bottom: 2em;
+}
+
+.contact-person p
+{
+	font-size: 10pt;
+	line-height: 1.3em;
+	border-bottom: 1px dotted #000;
+	width: 400px;
+	margin: 0 auto;
+	padding-bottom: 2em;
+}
+
 .clear
 {
 	clear: both;

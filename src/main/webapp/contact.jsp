@@ -8,7 +8,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="<c:url value="/resources/styles.css" />" type="text/css" />
-<title>Login</title>
+<script type="text/javascript" src="<c:url value="/resources/jquery.js" />"></script>
+<script type="text/javascript" src="<c:url value="/resources/rainbows.js" />"></script>
+<title>Auction House | Contact Us</title>
 </head>
 <body>
 <div id="head-gradient"></div>
@@ -57,7 +59,7 @@
 			<a href="<c:url value="/auction/add" />">Add Auction</a>
 		</li>
 		<li>
-			<li>
+		<li>
 			<a href="<c:url value="/control/panel" />" title="My Account">My Account</a>
 			<ul>
 				<li><a href="<c:url value="/control/panel#CurrentBids" />">Current Bids</a></li>
@@ -68,7 +70,6 @@
 				<li><a href="<c:url value="/user/update" />">Edit Details</a></li>
 			</ul>
 		</li>
-		</li>
 		<li>
 			<a href="<c:url value="/j_spring_security_logout" />">Logout</a>
 		</li>
@@ -78,23 +79,44 @@
 	</div>
 	<div class="clear"></div>
 <body>
-	<div id="wrapper">
-	<br />
-	<br />
-	<br />
+<div id="wrapper">
+<div id="contact-wrapper">
 	<h1>Contact Info</h1>
 	<hr>
+<div class="contact-person">	
 	<h3>Dan Hamlin </h3>
-	Daniel.Hamlin@mnsu.edu<br />
-	<hr>
+	<p>Daniel.Hamlin@mnsu.edu</p>
+</div>
+<div class="contact-person">
 	<h3>Sean Ooi </h3>
-	Sean.Ooi@mnsu.edu<br />
-<hr>
+	<p>Sean.Ooi@mnsu.edu</p>
+</div>
+<div class="contact-person">
 	<h3> Nick Galvin </h3>
-	Nicholas.Galvin@mnsu.edu <br />
-	<hr>
+	<p>Nicholas.Galvin@mnsu.edu</p>
+</div>	
+</div><!-- contact-wrapper -->
 <div class="push"></div>
 </div><!-- wrapper -->
+<script type="text/javascript">
+$(function () {
+    rainbows.init({
+        selector: '#contact-wrapper h3',
+        highlight: true,
+        shadow: true,
+        from: '#002d98',
+        to: '#00aeff'
+    });
+    
+    rainbows.init({
+        selector: '#contact-wrapper h1',
+        highlight: true,
+        shadow: true,
+        from: '#606060',
+        to: '#2d2d2d'
+    });
+});
+</script>
 <div id="footer">
 <p>&copy; 2011 Auction House. All Rights Reserved</p>
 </div>

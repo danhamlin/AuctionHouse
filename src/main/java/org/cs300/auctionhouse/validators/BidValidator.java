@@ -51,6 +51,10 @@ public class BidValidator implements Validator {
 			//check for non-digit characters
 			//if (bid.getAmount().)
 		}
+		/*//check bid format. Acceptable input (1+, 1+.0, 1+.00, 0.1, 0.11)
+		if (!bid.getAmount().toString().matches("^[0-9]+(:?\\.?[0-9]{0,2})$")){
+			errors.rejectValue("amount", "", "Wrong price format entered. Try again.");
+		}*/
 	}
 
 }
