@@ -5,9 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="<c:url value="/resources/styles.css" />" type="text/css" />
 <title>User's Feedback</title>
 </head>
 <body>
+<%@ include file="../header.jsp" %>
 Feedback left for user's sales.
 
 <table>
@@ -43,5 +45,6 @@ Feedback left for user's purchases.
 	</tr>
 	</c:forEach>
 </table>
+<%@ include file="../footer.jsp" %>
 </body>
 </html>
