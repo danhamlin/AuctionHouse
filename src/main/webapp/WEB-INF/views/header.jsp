@@ -17,6 +17,13 @@
 			<p><a href="/AuctionHouse/user/add">Register</a></p>
 		</sec:authorize> -->
 	</div>
+	<sec:authorize ifAnyGranted="ROLE_GUEST">
+		<p>  New to Auction House?
+			<a href="<c:url value="/user/add" />">Register</a>
+			  or <a href="<c:url value="/login.jsp" />">Log In</a> to get started! </p>                
+		
+		
+		</sec:authorize>
 </div>
 		<sec:authorize ifAnyGranted="ROLE_USER">
 		<div id="welcome-msg">
@@ -26,6 +33,7 @@
 		</sec:authorize>
 	<div id="nav-bar">
 		<ul id="nav">
+		
 		<li>
 			<a href="/AuctionHouse" title="Return home">Home</a>
 		</li>
@@ -57,6 +65,7 @@
 				<li><a href="<c:url value="/control/panel#PastBids" />">Past Bids</a></li>
 				<li><a href="<c:url value="/control/panel#CurrentSales" />">Current Sales</a></li>
 				<li><a href="<c:url value="/control/panel#PastSales" />">Past Sales</a></li>
+				<li> <a href="/AuctionHouse/user/feedback/<sec:authentication property="name" /> " >Feedback</a></li>
 				<li><a href="<c:url value="/user/update" />">Edit Details</a></li>
 			</ul>
 		</li>
@@ -65,14 +74,7 @@
 			<a href="<c:url value="/j_spring_security_logout" />">Logout</a>
 		</li>
 		</sec:authorize>
-		<sec:authorize ifAnyGranted="ROLE_GUEST">
-		<li>
-			<a href="<c:url value="/login.jsp" />">Log In</a>
-		</li>
-		<li>
-			<a href="<c:url value="/user/add" />">Register</a>
-		</li>
-		</sec:authorize>
+		
 	</ul>
 	</div>
 	<div class="clear"></div>
