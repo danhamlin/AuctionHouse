@@ -60,7 +60,7 @@
 		<th width="10%">Image</th>
 		<th width="30%">Title</th>
 		<th width="30%">Category</th>
-		<th width="20%">High Bid</th>
+		<th width="20%">Winning Bid</th>
 		<th width="10%">Status</th>
 	</tr>
 	<c:forEach items="${wins}" var="win">
@@ -75,7 +75,7 @@
 			</c:choose>
 			<td class="wonTitle"><a href="<c:url value="/auction/${win.idAuction}" />" >${win.title}</a></td>
 			<td class="wonCategory">${win.category.name}</td>
-			<td class="wonBid">${win.bids[0].amount}</td>
+			<td class="wonBid">$${win.bids[0].amount}</td>
 			<c:choose>
 				<c:when test="${currentUser == win.bids[0].user.username and win.sold}">
 					<td class="wonStatusWon">Won</td>
@@ -133,7 +133,8 @@
 		<th width="10%">Image</th>
 		<th width="30%">Title</th>
 		<th width="30%">Category</th>
-		<th width="30%">Selling Price</th>
+		<th width="20%">Selling Price</th>
+		<th width ="10%">Winner </th>
 	</tr>
 	<c:forEach items="${sales}" var="sale">
 		<tr>
@@ -150,6 +151,7 @@
 				<td class="soldTitle"><a href="<c:url value="/auction/${sale.idAuction}" />" >${sale.title}</a></td>
 				<td class="soldCategory">${sale.category.name}</td>
 				<td class="soldHighestBid">$${sale.bids[0].amount}</td>
+				<td class="soldWinner">${sale.bids[0].user.username}</td>
 			</c:when>
 			
 			<c:otherwise>
@@ -163,7 +165,8 @@
 				</c:choose>
 				<td class="finishTitle"><a href="<c:url value="/auction/${sale.idAuction}" />" >${sale.title}</a></td>
 				<td class="finishCategory">${sale.category.name}</td>
-				<td class="finishHighestBid">Listing Canceled</td>
+				<td class="finishHighestBid">Canceled</td>
+				<td class="soldWinner">Canceled</td>
 			</c:otherwise>
 			</c:choose>
 		</tr>
