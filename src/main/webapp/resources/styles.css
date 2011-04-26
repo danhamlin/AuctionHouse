@@ -1096,7 +1096,7 @@ a .rainbow span
 {
 	display: block;
 	position: absolute;
-	top:24.5%;
+	top:27%; /*24.5*/
 	left: 26%;
 	padding-left: 20px;
 }
@@ -1106,7 +1106,7 @@ a .rainbow span
 	{
 		display: block;
 		position: absolute;
-		top:26% !important;
+		top:27% !important;
 		left: 29%;
 		padding-left: 20px;
 	}
