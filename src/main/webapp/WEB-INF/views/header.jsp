@@ -18,9 +18,7 @@
 		</sec:authorize> -->
 	</div>
 	<sec:authorize ifAnyGranted="ROLE_GUEST">
-		<p>  New to Auction House?
-			<a href="<c:url value="/user/add" />">Register</a>
-			  or <a href="<c:url value="/login.jsp" />">Log In</a> to get started! </p>                
+	<p id="intro"> New to Auction House? <a href="<c:url value="/user/add" />">Register</a> or <a href="<c:url value="/login.jsp" />">Log In</a> to get started! </p>                
 		
 		
 		</sec:authorize>

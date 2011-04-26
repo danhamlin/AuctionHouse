@@ -138,6 +138,24 @@ textarea
 	clear: both;
 }
 
+#intro
+{
+	margin-left: 2em;
+}
+
+#intro a
+{
+	text-decoration: none;
+	color: blue;
+}
+
+#intro a:hover
+{
+	color: #000;
+	text-decoration: underline;
+	background:#f1cc91;
+}
+
 label#username, label#password, label#firstName, label#middleName, label#lastName, label#address1, label#address2, label#city, label#state, label#country, label#zipcode, label#phoneNumber, label#zipcode, label#email
 {
 	color:#777;
@@ -610,6 +628,7 @@ input#submit:active, input#submitAuction:active
 	width: 100%;
 	margin: 1em 0;
 	padding: 5px;
+	background: #333;
 }
 
 #nav
@@ -620,7 +639,6 @@ input#submit:active, input#submitAuction:active
 
 #nav li
 {
-	margin-right: 1em;
 	position: relative;
 	display: inline;
 }
@@ -961,6 +979,33 @@ label#amount
 #fb textarea, #fb input
 {
 	margin-top: .5em !important;
+}
+
+#feedback-border
+{
+	border: 2px solid #000;
+	-moz-border-radius:20px;
+	-khtml-border-radius:20px;
+	-webkit-border-radius:20px;
+	border-radius:20px;
+	padding-left:10px;
+	padding-top: 10px;
+	width: 500px;
+	margin: 0 auto;
+	background: #a8f09b;
+	
+}
+
+#feedForBuyer, #feedForSeller, #rateForBuyer, #rateForSeller
+{
+	float: right;
+	width: 320px;
+	padding:0 5px;
+}
+
+.feedSellRate, .feedSellFeed, .feedSellUser, .feedSellTitle, .feedSellTitle, .feedBuyUser, .feedBuyFeed, .feedBuyRate
+{
+	text-align: center;
 }
 
 #control-panel h3

@@ -90,13 +90,15 @@ $(document).ready(function() {
 		<c:if test="${auction.finished and not auction.sold}">
 			<p id="auctionFinished">Auction was canceled.</p>
 		</c:if>
-		<c:if test="${auction.sold}">
+		<c:if test="${auction.sold and buyerFB != null}">
+		<div id="feedback-border">
 		<!-- Add link to leave feedback here and also feedback already left -->
 			<c:if test="${buyerFB != null}">
 			<!-- display buyer feedback -->
-			<p>Feedback for buyer: ${buyerFB.feedback}
-			<br />
-			Rating for buyer: ${buyerFB.rating}</p>
+			<p>Feedback for buyer: <label id="feedForBuyer">${buyerFB.feedback}</label></p>
+			<div class="clear"></div>
+			<p>Rating for buyer: <label id="rateForBuyer">${buyerFB.rating}</label></p>
+			<div class="clear"></div>
 			</c:if>
 			<c:if test="${buyerFB == null and currentUser == auction.user.username }">
 			<!-- display link for seller to leave feedback for buyer -->
@@ -104,10 +106,12 @@ $(document).ready(function() {
 			</c:if>
 			<c:if test="${sellerFB != null}">
 			<!-- display seller feedback -->
-			<p>Feedback for seller: ${sellerFB.feedback}
-			<br />
-			Rating for seller: ${sellerFB.rating}</p>
+			<p>Feedback for seller: <label id="feedForSeller">${sellerFB.feedback}</label></p>
+			<div class="clear"></div>
+			<p>Rating for seller: <label id="rateForSeller">${sellerFB.rating}</label></p>
+			<div class="clear"></div>
 			</c:if>
+		</div>
 			<c:if test="${sellerFB == null and currentUser == auction.bids[0].user.username}">
 			<!-- display link for buyer to leave feedback for seller -->
 			<p id="leave-feedback">Click <a href="${auction.idAuction}/feedback/add">here</a> to leave feedback for seller.</p>

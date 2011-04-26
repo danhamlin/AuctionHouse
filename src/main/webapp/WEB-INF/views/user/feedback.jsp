@@ -7,45 +7,60 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="<c:url value="/resources/styles.css" />" type="text/css" />
+<script type="text/javascript" src="<c:url value="/resources/jquery.js" />"></script>
+<script type="text/javascript" src="<c:url value="/resources/rainbows.js" />"></script>
 <title>User's Feedback</title>
 </head>
 <body>
 <%@ include file="../header.jsp" %>
-Feedback left for user's sales.
-
+<div id="control-panel">
+<h3 id="feedAsSeller">Feedback As A Seller</h3>
 <table>
 	<tr>
-		<th>Auction</th>
-		<th>Buyer</th>
-		<th>Feedback</th>
-		<th>Rating</th>
+		<th width="25%">Auction</th>
+		<th width="25%">Buyer</th>
+		<th width="25%">Feedback</th>
+		<th width="25%">Rating</th>
 	</tr>
 	<c:forEach items="${feedbackSales}" var="fbs">
 	<tr>
-		<td>${fbs.auction.title}</td>
-		<td>${fbs.auction.bids[0].user.username}</td>
-		<td>${fbs.feedback}</td>
-		<td>${fbs.rating}</td>
+		<td class="feedSellTitle">${fbs.auction.title}</td>
+		<td class="feedSellUser">${fbs.auction.bids[0].user.username}</td>
+		<td class="feedSellFeed">${fbs.feedback}</td>
+		<td class="feedSellRate">${fbs.rating}</td>
 	</tr>
 	</c:forEach>
 </table>
-Feedback left for user's purchases.
+<br />
+<h3 id="feedAsBuyer">Feedback As A Buyer</h3>
 <table>
 	<tr>
-		<th>Auction</th>
-		<th>Seller</th>
-		<th>Feedback</th>
-		<th>Rating</th>
+		<th width="25%">Auction</th>
+		<th width="25%">Seller</th>
+		<th width="25%">Feedback</th>
+		<th width="25%">Rating</th>
 	</tr>
 	<c:forEach items="${feedbackBids}" var="fbb">
 	<tr>
-		<td>${fbb.auction.title}</td>
-		<td>${fbb.auction.user.username}</td>
-		<td>${fbb.feedback}</td>
-		<td>${fbb.rating}</td>
+		<td class="feedSellTitle">${fbb.auction.title}</td>
+		<td class="feedBuyUser">${fbb.auction.user.username}</td>
+		<td class="feedBuyFeed">${fbb.feedback}</td>
+		<td class="feedBuyRate">${fbb.rating}</td>
 	</tr>
 	</c:forEach>
 </table>
+</div>
+<script type="text/javascript">
+$(function () {
+    rainbows.init({
+        selector: '#control-panel h3',
+        highlight: true,
+        shadow: true,
+        from: '#606060',
+        to: '#2d2d2d'
+    });
+});
+</script>
 <%@ include file="../footer.jsp" %>
 </body>
 </html>
