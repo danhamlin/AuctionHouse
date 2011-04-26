@@ -133,6 +133,19 @@ textarea
 	margin: 0 auto -4em;
 }
 
+.contact-us a
+{
+	text-decoration: none;
+	color: blue;
+}
+
+.contact-us a:hover
+{
+	color: #000;
+	text-decoration: underline;
+	background:#f1cc91;
+}
+
 .clear
 {
 	clear: both;

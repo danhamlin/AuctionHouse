@@ -1,45 +1,35 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ taglib uri="http://www.springframework.org/security/tags"
-	prefix="sec"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="<c:url value="/resources/styles.css" />" type="text/css" />
+<title>Login</title>
+</head>
+<body>
 <div id="head-gradient"></div>
-
-<div id="header">
+<div id="header" class="contact-us">
 	<div id="header-img">
 		<a href="/AuctionHouse"><img src="<c:url value="/resources/images/Banner2.png" />" width=800 height=80 /></a>
 	</div>
 	<div id="header-login">
-		<!--  <sec:authorize ifAnyGranted="ROLE_USER">
-		<p>Welcome 
-		<sec:authentication property="name" />!</p>
-			<p><a href="/AuctionHouse/control/panel">My Account</a></p>
-			<p><a href="/AuctionHouse/j_spring_security_logout">Logout</a></p>
-		</sec:authorize>
-		<sec:authorize ifAnyGranted="ROLE_GUEST">
-		<p>Welcome Guest!</p>
-			<p><a href="/AuctionHouse/login.jsp">Log In</a></p>
-			<p><a href="/AuctionHouse/user/add">Register</a></p>
-		</sec:authorize> -->
 	</div>
 	<sec:authorize ifAnyGranted="ROLE_GUEST">
 		<p>  New to Auction House?
 			<a href="<c:url value="/user/add" />">Register</a>
 			  or <a href="<c:url value="/login.jsp" />">Log In</a> to get started! </p>                
-		
-		
 		</sec:authorize>
-</div>
 		<sec:authorize ifAnyGranted="ROLE_USER">
 		<div id="welcome-msg">
 		<p>Welcome 
 		<sec:authentication property="name" />!</p>
 		</div>
 		</sec:authorize>
+	</div>
 	<div id="nav-bar">
 		<ul id="nav">
 		
@@ -87,51 +77,22 @@
 	</ul>
 	</div>
 	<div class="clear"></div>
-<link rel="stylesheet" href="./resources/styles.css" type="text/css" />
-</head>
 <body>
-	
 	<div id="wrapper">
 	<br />
 	<br />
-	
 	<br />
 	<h1>Contact Info</h1>
 	<hr>
 	<h3>Dan Hamlin </h3>
 	Daniel.Hamlin@mnsu.edu<br />
-
-	
-	
-
 	<hr>
-	
-	
 	<h3>Sean Ooi </h3>
 	Sean.Ooi@mnsu.edu<br />
-	
-	
-	
-	
 <hr>
-	
-	
 	<h3> Nick Galvin </h3>
 	Nicholas.Galvin@mnsu.edu <br />
-	
-	
-	
-	
-	
 	<hr>
-	
-	
-	
-	
-	
-	
-	
-	</div>
 <div class="push"></div>
 </div><!-- wrapper -->
 <div id="footer">

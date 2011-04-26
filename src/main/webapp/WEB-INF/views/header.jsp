@@ -1,5 +1,4 @@
 <div id="head-gradient"></div>
-
 <div id="header">
 	<div id="header-img">
 		<a href="/AuctionHouse"><img src="<c:url value="/resources/images/Banner2.png" />" width=800 height=80 /></a>
@@ -56,7 +55,6 @@
 			<a href="<c:url value="/auction/add" />">Add Auction</a>
 		</li>
 		<li>
-			<li>
 			<a href="<c:url value="/control/panel" />" title="My Account">My Account</a>
 			<ul>
 				<li><a href="<c:url value="/control/panel#CurrentBids" />">Current Bids</a></li>
@@ -66,7 +64,6 @@
 				<li> <a href="/AuctionHouse/user/feedback/<sec:authentication property="name" /> " >Feedback</a></li>
 				<li><a href="<c:url value="/user/update" />">Edit Details</a></li>
 			</ul>
-		</li>
 		</li>
 		<li>
 			<a href="<c:url value="/j_spring_security_logout" />">Logout</a>
