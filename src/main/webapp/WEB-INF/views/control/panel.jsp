@@ -134,7 +134,7 @@
 		<th width="30%">Title</th>
 		<th width="30%">Category</th>
 		<th width="20%">Selling Price</th>
-		<th width ="10%">Winner </th>
+		<th width="10%">Winner </th>
 	</tr>
 	<c:forEach items="${sales}" var="sale">
 		<tr>
@@ -151,7 +151,7 @@
 				<td class="soldTitle"><a href="<c:url value="/auction/${sale.idAuction}" />" >${sale.title}</a></td>
 				<td class="soldCategory">${sale.category.name}</td>
 				<td class="soldHighestBid">$${sale.bids[0].amount}</td>
-				<td class="soldWinner">${sale.bids[0].user.username}</td>
+				<td class="soldSoldWinner">${sale.bids[0].user.username}</td>
 			</c:when>
 			
 			<c:otherwise>
@@ -166,7 +166,7 @@
 				<td class="finishTitle"><a href="<c:url value="/auction/${sale.idAuction}" />" >${sale.title}</a></td>
 				<td class="finishCategory">${sale.category.name}</td>
 				<td class="finishHighestBid">Canceled</td>
-				<td class="soldWinner">Canceled</td>
+				<td class="finishSoldWinner">Canceled</td>
 			</c:otherwise>
 			</c:choose>
 		</tr>

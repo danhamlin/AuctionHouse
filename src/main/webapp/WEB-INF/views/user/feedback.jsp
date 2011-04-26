@@ -24,7 +24,7 @@
 	</tr>
 	<c:forEach items="${feedbackSales}" var="fbs">
 	<tr>
-		<td class="feedSellTitle">${fbs.auction.title}</td>
+		<td class="feedSellTitle"><a href="<c:url value="/auction/${fbs.auction.idAuction}" />">${fbs.auction.title}</a></td>
 		<td class="feedSellUser">${fbs.auction.bids[0].user.username}</td>
 		<td class="feedSellFeed">${fbs.feedback}</td>
 		<td class="feedSellRate">${fbs.rating}</td>
@@ -42,7 +42,7 @@
 	</tr>
 	<c:forEach items="${feedbackBids}" var="fbb">
 	<tr>
-		<td class="feedSellTitle">${fbb.auction.title}</td>
+		<td class="feedSellTitle"><a href="<c:url value="/auction/${fbb.auction.idAuction}" />">${fbb.auction.title}</a></td>
 		<td class="feedBuyUser">${fbb.auction.user.username}</td>
 		<td class="feedBuyFeed">${fbb.feedback}</td>
 		<td class="feedBuyRate">${fbb.rating}</td>

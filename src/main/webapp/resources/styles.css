@@ -867,12 +867,12 @@ label#amount
 	color: #d65757;
 }
 
-.soldTitle, .soldCategory, .soldHighestBid, .finishTitle, .finishCategory, .finishHighestBid
+.soldTitle, .soldCategory, .soldHighestBid, .finishTitle, .finishCategory, .finishHighestBid, .finishSoldWinner, .soldSoldWinner
 {
 	text-align: center;
 }
 
-.finishTitle, .finishCategory, .finishHighestBid, .finishImage
+.finishTitle, .finishCategory, .finishHighestBid, .finishImage, .finishSoldWinner
 {
 	background: #f7c6be;
 	border-top: 2px groove #555 !important;
@@ -884,7 +884,7 @@ label#amount
 	border-left: 2px groove #555 !important;
 }
 
-.finishHighestBid
+.finishSoldWinner
 {
 	border-right: 2px groove #555 !important;
 }
