@@ -962,7 +962,7 @@ label#amount
 	font-size: 10pt;
 }
 
-#control-panel td, #control-panel th
+#control-panel td, #control-panel th, #bid-history td, #bid-history th
 {	
 	border-width: 0;
 }
