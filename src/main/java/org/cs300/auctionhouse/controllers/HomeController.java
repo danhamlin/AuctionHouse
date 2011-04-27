@@ -5,6 +5,7 @@ import java.util.List;
 import org.cs300.auctionhouse.domain.Auction;
 import org.cs300.auctionhouse.services.Services;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;

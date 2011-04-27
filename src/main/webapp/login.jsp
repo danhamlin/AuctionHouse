@@ -1,3 +1,4 @@
+<div id="head-gradient"></div>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -31,5 +32,8 @@
 <div class="clear"></div>
 <a href="<c:url value="/user/add" />">Register</a>
 </div>
+<div class="push"></div>
+</div><!-- wrapper -->
+
 </body>
 </html>
