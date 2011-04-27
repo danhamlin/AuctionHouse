@@ -43,7 +43,7 @@ public class Services {
 
 	public void updateUser(User user, PersonalInfo pi) {
 		sess().update(user);
-		sess().update(pi);
+		//sess().update(pi);
 	}
 
 	public int saveNewAuction(Auction auction) {

@@ -58,7 +58,7 @@ $(document).ready(function() {
 		</c:if>
 		<p>High Bid: <label id="aBid">
 		<c:if test="${auction.bids[0].user.username == null}">No bids yet</c:if>
-		${auction.bids[0].amount}</label></p>
+		$${auction.bids[0].amount}</label></p>
 		<div class="clear"></div>
 		<c:if test="${not auction.finished and currentUser != auction.user.username and currentUser != auction.bids[0].user.username}">		
 			<sec:authorize ifNotGranted="ROLE_USER">
@@ -99,6 +99,10 @@ $(document).ready(function() {
 			<div class="clear"></div>
 			<p>Rating for buyer: <label id="rateForBuyer">${buyerFB.rating}</label></p>
 			<div class="clear"></div>
+			<br />
+			<br />
+			<br />
+			<br />
 			</c:if>
 			<c:if test="${sellerFB != null}">
 			<!-- display seller feedback -->
@@ -132,7 +136,7 @@ $(document).ready(function() {
 	<c:forEach items="${auction.bids}" var="bid">
 		<tr>
 			<td>${bid.user.username}</td>
-			<td>${bid.amount}</td>
+			<td>$${bid.amount}</td>
 			<td>${bid.time}</td>
 		</tr>
 	</c:forEach>

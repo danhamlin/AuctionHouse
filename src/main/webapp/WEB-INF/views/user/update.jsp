@@ -18,7 +18,7 @@
 <p>
 		<label id="username">Username*<br />
 		<form:errors path="user.username" cssClass="regError" />
-		<form:input path="user.username" disabled="true" maxlength="45" />
+		<form:input path="user.username" maxlength="45" />
 		</label>
 </p>
 <p>

@@ -8,6 +8,8 @@ public class UserPersonalInfo {
 	private User user;
 	private PersonalInfo personalInfo;
 	private String confirmPassword;
+	private String oldPassword;
+	private boolean update;
 
 	public UserPersonalInfo() {
 		this.user = new User();
@@ -41,5 +43,21 @@ public class UserPersonalInfo {
 
 	public void setConfirmPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
+	}
+
+	public String getOldPassword() {
+		return oldPassword;
+	}
+
+	public void setOldPassword(String oldPassword) {
+		this.oldPassword = oldPassword;
+	}
+
+	public boolean isUpdate() {
+		return update;
+	}
+
+	public void setUpdate(boolean update) {
+		this.update = update;
 	}
 }
