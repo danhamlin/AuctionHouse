@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 @Controller
+@SessionAttributes("upi")
 public class UserController {
 
 	@Autowired
@@ -36,6 +38,7 @@ public class UserController {
 	@RequestMapping(value = "/user/add", method = RequestMethod.POST)
 	public String addUserSubmit(@ModelAttribute("upi") UserPersonalInfo upi,
 			BindingResult result, SessionStatus status) {
+		upi.setUpdate(false);
 		userValidator.validate(upi, result);
 		if (result.hasErrors()) {
 			return "user/add";
@@ -52,6 +55,7 @@ public class UserController {
 				.getAuthentication().getName());
 		upi.setUser(user);
 		upi.setPersonalInfo(user.getPersonalInfos().get(0));
+		upi.setOldPassword(user.getPassword());
 		model.addAttribute("upi", upi);
 		return "user/update";
 	}
@@ -59,11 +63,15 @@ public class UserController {
 	@RequestMapping(value = "/user/update", method = RequestMethod.POST)
 	public String updateUserSubmit(@ModelAttribute("upi") UserPersonalInfo upi,
 			BindingResult result, SessionStatus status) {
+		upi.setUpdate(true);
 		userValidator.validate(upi, result);
 		if (result.hasErrors()) {
 			return "user/update";
 		} else {
+			if (upi.getUser().getPassword().equals(""))
+				upi.getUser().setPassword(upi.getOldPassword());
 			services.updateUser(upi.getUser(), upi.getPersonalInfo());
+			status.setComplete();
 			return "redirect:updatesuccess";
 		}
 	}

@@ -19,9 +19,13 @@ public class UserValidator implements Validator {
 	}
 
 	public void validate(Object target, Errors errors) {
+		UserPersonalInfo upi = (UserPersonalInfo)target;
+		
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "user.username", "", "Username required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "user.password", "", "Password required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "confirmPassword", "", "Please confirm password");
+		if (!upi.isUpdate()) {
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "user.password", "", "Password required");
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "confirmPassword", "", "Please confirm password");
+		}
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "personalInfo.firstName", "", "First name required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "personalInfo.lastName", "", "Last name required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "personalInfo.address1", "", "Address 1 required");
@@ -32,8 +36,7 @@ public class UserValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "personalInfo.phoneNumber", "", "Phone number required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "personalInfo.emailAddress", "", "Email address required");
 
-		UserPersonalInfo upi = (UserPersonalInfo)target;
-		if (services.findByName(upi.getUser().getUsername()) != null)
+		if (!upi.isUpdate() && services.findByName(upi.getUser().getUsername()) != null)
 			errors.rejectValue("user.username", "", "The username is already in use. Try again.");
 		if (!upi.getUser().getPassword().equals(upi.getConfirmPassword())) {
 			errors.rejectValue("user.password", "", "The passwords you entered do not match. Try again.");
