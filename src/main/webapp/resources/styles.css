@@ -237,6 +237,11 @@ label#username, label#password, label#firstName, label#middleName, label#lastNam
 	width: 800px;
 }
 
+#register-form-container input[type~=text], #register-form-container input[type~=password]
+{
+	border: 1px solid #888;
+}
+
 #register-form-container img
 {
 	display: block;
@@ -947,6 +952,14 @@ label#amount
 	font-size: 9pt;
 }
 
+#bid-history table
+{
+	width: 400px;
+	border: 1px solid #aaa;
+	text-align: center;
+}
+	
+
 #control-panel td
 {
 	padding: 10px;
@@ -962,7 +975,7 @@ label#amount
 	font-size: 10pt;
 }
 
-#control-panel td, #control-panel th
+#control-panel td, #control-panel th, #bid-history td, #bid-history th
 {	
 	border-width: 0;
 }
