@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="<c:url value="/resources/styles.css" />" type="text/css" />
-<title>Update User Account Info...</title>
+<title>Auction House | Update Account Info</title>
 </head>
 <body>
 <div id="register-form-container">
@@ -18,7 +18,7 @@
 <p>
 		<label id="username">Username*<br />
 		<form:errors path="user.username" cssClass="regError" />
-		<form:input path="user.username" maxlength="45" />
+		<form:input path="user.username" disabled="true" maxlength="45" />
 		</label>
 </p>
 <p>
