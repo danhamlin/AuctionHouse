@@ -58,7 +58,7 @@ $(document).ready(function() {
 		</c:if>
 		<p>High Bid: <label id="aBid">
 		<c:if test="${auction.bids[0].user.username == null}">No bids yet</c:if>
-		$${auction.bids[0].amount}</label></p>
+		<c:if test="${auction.bids[0].user.username != null}">$</c:if>${auction.bids[0].amount}</label></p>
 		<div class="clear"></div>
 		<c:if test="${not auction.finished and currentUser != auction.user.username and currentUser != auction.bids[0].user.username}">		
 			<sec:authorize ifNotGranted="ROLE_USER">
