@@ -231,6 +231,13 @@ label#username, label#password, label#firstName, label#middleName, label#lastNam
 	width: 325px;
 }
 
+#login-form-container img
+{
+	display: block;
+	margin: 0 auto;
+	width: 315px;
+}
+
 #register-form-container
 {
 	margin: 10px auto 100px;
@@ -246,6 +253,7 @@ label#username, label#password, label#firstName, label#middleName, label#lastNam
 {
 	display: block;
 	margin: 0 auto;
+	width: 800px;
 }
 
 #login-form-container a, #register-form-container a

@@ -1,4 +1,3 @@
-<div id="head-gradient"></div>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -10,6 +9,7 @@
 <title>Login</title>
 </head>
 <body>
+<div id="head-gradient"></div>
 <div id="login-form-container">
 <a href = "/AuctionHouse"><img src="<c:url value="/resources/images/AuctionBanner2.png" />" width=315 height=85 /></a>
 <c:if test="${not empty param.error}">
@@ -32,8 +32,7 @@
 <div class="clear"></div>
 <a href="<c:url value="/user/add" />">Register</a>
 </div>
-<div class="push"></div>
-</div><!-- wrapper -->
+<!-- wrapper -->
 
 </body>
 </html>
