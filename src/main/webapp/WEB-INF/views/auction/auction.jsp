@@ -95,21 +95,21 @@ $(document).ready(function() {
 		<!-- Add link to leave feedback here and also feedback already left -->
 			<c:if test="${buyerFB != null}">
 			<!-- display buyer feedback -->
+			<p>Rating for buyer: <label id="rateForBuyer">${buyerFB.rating}/5</label></p>
+			<div class="clear"></div>
 			<p>Feedback for buyer: <label id="feedForBuyer">${buyerFB.feedback}</label></p>
 			<div class="clear"></div>
-			<p>Rating for buyer: <label id="rateForBuyer">${buyerFB.rating}</label></p>
-			<div class="clear"></div>
-			<br />
 			<br />
 			<br />
 			<br />
 			</c:if>
 			<c:if test="${sellerFB != null}">
 			<!-- display seller feedback -->
+			<p>Rating for seller: <label id="rateForSeller">${sellerFB.rating}/5</label></p>
+			<div class="clear"></div>
 			<p>Feedback for seller: <label id="feedForSeller">${sellerFB.feedback}</label></p>
 			<div class="clear"></div>
-			<p>Rating for seller: <label id="rateForSeller">${sellerFB.rating}</label></p>
-			<div class="clear"></div>
+			
 			</c:if>
 		</div>
 		</c:if>

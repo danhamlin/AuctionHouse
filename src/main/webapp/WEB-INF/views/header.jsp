@@ -35,7 +35,7 @@
 			<a href="/AuctionHouse" title="Return home">Home</a>
 		</li>
 		<li>
-			<a href="#" title="Browse">Browse</a>
+			<a href="/AuctionHouse" title="Browse">Browse</a>
 			<ul>
 				<li><a href="<c:url value="/" />">All</a></li>
 				<li><a href="<c:url value="/category/6" />">Automotive</a></li>
