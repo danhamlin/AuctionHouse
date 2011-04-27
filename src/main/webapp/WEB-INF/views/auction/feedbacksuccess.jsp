@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta http-equiv="refresh" content="3;url=/AuctionHouse/auction/${id}">
 <link rel="stylesheet" href="/AuctionHouse/resources/styles.css" type="text/css" />
-<title>Feedback Success</title>
+<title>Auction House | Feedback Submission Success</title>
 </head>
 <body>
 <div id="register-success">
@@ -14,7 +14,7 @@
 	<div id="confirm"></div>
 
 	<div id="confirm-text">
-		<p>Your feedback has been left successfully.
+		<p>Your feedback has been submitted successfully.
 		<br />
 		You will be redirected back to the auction shortly.
 		</p>

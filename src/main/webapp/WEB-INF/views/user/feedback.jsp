@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="<c:url value="/resources/styles.css" />" type="text/css" />
 <script type="text/javascript" src="<c:url value="/resources/jquery.js" />"></script>
 <script type="text/javascript" src="<c:url value="/resources/rainbows.js" />"></script>
-<title>User's Feedback</title>
+<title>Auction House | <sec:authentication property="name" />'s Feedback</title>
 </head>
 <body>
 <%@ include file="../header.jsp" %>

@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta http-equiv="refresh" content="3;url=/AuctionHouse/login.jsp">
 <link rel="stylesheet" href="../resources/styles.css" type="text/css" />
-<title>Add User Success</title>
+<title>Auction House | Registration Success</title>
 </head>
 <body>
 <div id="register-success">

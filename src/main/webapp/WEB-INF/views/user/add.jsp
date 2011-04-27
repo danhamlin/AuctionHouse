@@ -8,7 +8,7 @@
 <div id="head-gradient"></div>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="<c:url value="/resources/styles.css" />" type="text/css" />
-<title>Add New User...</title>
+<title>Auction House | Register New User</title>
 </head>
 <body>
 <div id="register-form-container">

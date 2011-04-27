@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta http-equiv="refresh" content="3;url=/AuctionHouse/auction/${id}">
 <link rel="stylesheet" href="/AuctionHouse/resources/styles.css" type="text/css" />
-<title>Bid Success</title>
+<title>Auction House | Bid Success</title>
 </head>
 <body>
 <div id="register-success">
