@@ -136,7 +136,7 @@ $(document).ready(function() {
 	<c:forEach items="${auction.bids}" var="bid">
 		<tr>
 			<td>${bid.user.username}</td>
-			<td>${bid.amount}</td>
+			<td>$${bid.amount}</td>
 			<td>${bid.time}</td>
 		</tr>
 	</c:forEach>
