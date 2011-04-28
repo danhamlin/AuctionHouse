@@ -351,7 +351,12 @@ label#username, label#password, label#firstName, label#middleName, label#lastNam
 
 #upi input[type~=text], #upi input[type~=password]
 {
-	background: #ffffe0 !important;	
+	background: #ffffe0;	
+}
+
+#upi #middleName input, #upi #address2 input
+{
+	background: #fff !important;
 }
 
 input#submit
@@ -611,6 +616,19 @@ input#submit:active, input#submitAuction:active
 	width: 550px;
 }
 
+#aUsername a
+{
+	color: blue;
+	text-decoration: none;
+}
+
+#aUsername a:hover
+{
+	color: #000;
+	text-decoration: underline;
+	background:#f1cc91;
+}
+
 #aDescription
 {
 	margin-bottom: 1em;
@@ -705,6 +723,11 @@ input#submit:active, input#submitAuction:active
 {
 	position: relative;
 	display: inline;
+}
+
+#nav li .current
+{
+	background: red;
 }
 
 #nav li a

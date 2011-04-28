@@ -69,7 +69,6 @@
 			<a href="<c:url value="/j_spring_security_logout" />">Logout</a>
 		</li>
 		</sec:authorize>
-		
 	</ul>
 	</div>
 	<div class="clear"></div>

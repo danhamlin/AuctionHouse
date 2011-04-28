@@ -51,7 +51,7 @@ $(document).ready(function() {
 		<div class="clear"></div>
 		<p>Description: <label id="aDescription">${auction.description}</label></p>
 		<div class="clear"></div>
-		<p>Listed by: <label id="aUsername">${auction.user.username}</label></p>
+		<p>Listed by: <label id="aUsername"><a href="/AuctionHouse/user/feedback/${auction.user.username}">${auction.user.username}</a></label></p>
 		<c:if test="${auction.sold}">
 		<p>Winner: <span id="aWinner">${auction.bids[0].user.username}</span></p>
 		<div class="clear"></div>
