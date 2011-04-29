@@ -41,7 +41,7 @@
 				</c:choose>
 				<td class="bidTitle"><a href="<c:url value="/auction/${bid.idAuction}" />" >${bid.title}</a></td>
 				<td class="bidCategory">${bid.category.name}</td>
-				<td class="bidSeller">${bid.user.username}</td>
+				<td class="bidSeller"><a href ="/AuctionHouse/user/feedback/${bid.user.username}">${bid.user.username}</a></td>
 				<c:choose>
 				<c:when test="${currentUser == bid.bids[0].user.username}">
 					<td class="bidHighestMe">$${bid.bids[0].amount}</td>
@@ -83,11 +83,13 @@
 			<c:otherwise>
 				<c:choose>
 					<c:when test="${win.finished and not win.sold}">
-						<td class="wonStatusCanceled">Canceled</td>
+				
+						<td class="wonStatusCanceled">Canceled</td> 
+					
 					</c:when>
 					<c:otherwise>
 						<td class="wonStatusLost">Lost</td>
-					</c:otherwise>
+					</c:otherwise> 
 				</c:choose>
 			</c:otherwise>
 			</c:choose>
@@ -151,10 +153,10 @@
 				<td class="soldTitle"><a href="<c:url value="/auction/${sale.idAuction}" />" >${sale.title}</a></td>
 				<td class="soldCategory">${sale.category.name}</td>
 				<td class="soldHighestBid">$${sale.bids[0].amount}</td>
-				<td class="soldSoldWinner">${sale.bids[0].user.username}</td>
+				<td class="soldSoldWinner"> <a href ="/AuctionHouse/user/feedback/${sale.bids[0].user.username}"> ${sale.bids[0].user.username} </a></td>
 			</c:when>
 			
-			<c:otherwise>
+			<c:otherwise>S
 				<c:choose>
 				<c:when test="${not empty sale.picture[0]}">
 					<td class="finishImage"><img src="<c:url value="/image?id=${sale.idAuction}" />" /></td>
